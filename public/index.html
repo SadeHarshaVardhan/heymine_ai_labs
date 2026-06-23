@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="HeyMine AI Labs — An AI-powered coding platform. Learn, solve problems, and get instant AI feedback. Powered by Groq." />
+    <title>HeyMine AI Labs — AI-Powered Coding Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/landing.css" />
+  </head>
+  <body class="landing-body">
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-brand">
+        <span class="brand-icon">⚡</span>
+        <span class="brand-name">HeyMine AI Labs</span>
+      </div>
+      <div class="nav-actions">
+        <a href="/compiler.html" class="btn btn-primary btn-sm nav-cta" id="navCta">Start Coding →</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="landing-main">
+
+      <!-- ===== HERO ===== -->
+      <section class="hero" id="heroSection">
+        <div class="hero-blob blob-1"></div>
+        <div class="hero-blob blob-2"></div>
+        <div class="hero-blob blob-3"></div>
+
+        <div class="hero-inner">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            🚀 AI-Powered Coding Platform
+          </div>
+
+          <h1 class="hero-title">
+            Learn, Code &amp;<br />
+            <span class="gradient-text">Master with AI</span>
+          </h1>
+
+          <p class="hero-desc">
+            Your personal coding teacher powered by Groq's ultra-fast AI.
+            Solve real problems, get instant explanations with visual diagrams,
+            and level up your skills every day.
+          </p>
+
+          <div class="hero-actions">
+            <a href="/compiler.html" class="btn btn-primary btn-large hero-cta" id="startCodingBtn">
+              <span>Start Coding</span>
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="#features" class="btn btn-ghost btn-large" id="learnMoreBtn">
+              Learn More ↓
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">4+</span>
+              <span class="stat-label">Languages</span>
+            </div>
+            <div class="stat-sep"></div>
+            <div class="stat-item">
+              <span class="stat-number">∞</span>
+              <span class="stat-label">AI Problems</span>
+            </div>
+            <div class="stat-sep"></div>
+            <div class="stat-item">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">AI Teacher</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code preview card with AI response -->
+        <div class="hero-code-preview">
+          <div class="code-preview-header">
+            <div class="code-preview-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="code-preview-title">solution.py</span>
+            <span class="code-preview-tab">Python</span>
+          </div>
+          <pre class="code-preview-body"><code><span class="c-comment"># Two Sum — find indices of two nums that add to target</span>
+<span class="c-keyword">def</span> <span class="c-fn">two_sum</span>(nums, target):
+    seen <span class="c-op">=</span> {}
+    <span class="c-keyword">for</span> i, n <span class="c-keyword">in</span> <span class="c-fn">enumerate</span>(nums):
+        diff <span class="c-op">=</span> target <span class="c-op">-</span> n
+        <span class="c-keyword">if</span> diff <span class="c-keyword">in</span> seen:
+            <span class="c-keyword">return</span> [seen[diff], i]
+        seen[n] <span class="c-op">=</span> i</code></pre>
+          <div class="code-preview-ai">
+            <div class="ai-avatar-mini">🤖</div>
+            <div class="ai-preview-text">
+              <strong>Time:</strong> O(n) &nbsp;·&nbsp; <strong>Space:</strong> O(n)<br/>
+              Hash map approach — each lookup is O(1) ✨
+            </div>
+          </div>
+          <div class="code-preview-footer">
+            <span class="preview-badge preview-pass">✅ All 5/5 tests passed</span>
+            <span class="preview-badge preview-ai">🤖 AI reviewed</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FEATURES ===== -->
+      <section class="features-section" id="features">
+        <div class="section-label">Why HeyMine?</div>
+        <h2 class="section-title">Everything you need to learn coding</h2>
+        <p class="section-subtitle">A complete AI-powered environment from problem to solution.</p>
+
+        <div class="features-grid">
+          <div class="feature-card feature-card-accent">
+            <div class="feature-card-glow"></div>
+            <div class="feature-icon-wrap">
+              <span class="feature-icon-emoji">🧠</span>
+            </div>
+            <h3>AI Teacher with Visual Explanations</h3>
+            <p>Get step-by-step hints with diagram boxes, code walkthroughs, and concept breakdowns from your personal AI tutor — always available, never judges.</p>
+            <div class="feature-tag">Powered by Groq</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrap">
+              <span class="feature-icon-emoji">⚡</span>
+            </div>
+            <h3>Real Code Execution</h3>
+            <p>Run Python, Java, C, and C++ code directly on your machine. Real stdin, real stdout — no sandboxing limitations.</p>
+            <div class="feature-tag">4 Languages</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrap">
+              <span class="feature-icon-emoji">📝</span>
+            </div>
+            <h3>AI-Generated Problems</h3>
+            <p>Never run out of challenges. The AI generates unique problems on any topic — arrays, graphs, strings, DP, and more.</p>
+            <div class="feature-tag">Infinite Problems</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrap">
+              <span class="feature-icon-emoji">🧪</span>
+            </div>
+            <h3>Instant Test Feedback</h3>
+            <p>Submit your code and instantly see which test cases passed or failed — with input, expected, and actual output side by side.</p>
+            <div class="feature-tag">5+ Test Cases</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrap">
+              <span class="feature-icon-emoji">🏆</span>
+            </div>
+            <h3>Celebration System</h3>
+            <p>Pass all test cases and get a full victory celebration — confetti, trophy, and an AI congratulations message. You earned it.</p>
+            <div class="feature-tag">You Nailed It!</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrap">
+              <span class="feature-icon-emoji">🎨</span>
+            </div>
+            <h3>Resizable Dark &amp; Light IDE</h3>
+            <p>Drag panels to any size you like. Switch between dark and light themes instantly. Monaco editor with ligatures and bracket colorization.</p>
+            <div class="feature-tag">Monaco Editor</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== HOW IT WORKS ===== -->
+      <section class="how-section" id="howItWorks">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Three steps to mastery</h2>
+
+        <div class="steps-row">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-icon">📋</div>
+            <h3>Get a Problem</h3>
+            <p>The AI generates a fresh coding problem with description, constraints, and examples.</p>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-icon">💻</div>
+            <h3>Write Your Code</h3>
+            <p>Use the Monaco editor to write your solution. Ask the AI teacher for visual hints anytime.</p>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-icon">🎉</div>
+            <h3>Submit &amp; Celebrate</h3>
+            <p>Pass all test cases and get a celebration with confetti, trophy, and AI praise!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA BANNER ===== -->
+      <section class="cta-section">
+        <div class="cta-inner">
+          <div class="cta-blob-1"></div>
+          <div class="cta-blob-2"></div>
+          <h2 class="cta-title">Ready to level up?</h2>
+          <p class="cta-desc">Start solving AI-generated problems right now — no signup required.</p>
+          <a href="/compiler.html" class="btn btn-primary btn-large cta-btn" id="ctaLaunchBtn">
+            <span>🚀 Launch Compiler</span>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="landing-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span>⚡</span>
+          <span>HeyMine AI Labs</span>
+        </div>
+        <p class="footer-copy">© 2026 HeyMine AI Labs. Built with ❤️ and powered by Groq.</p>
+      </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>

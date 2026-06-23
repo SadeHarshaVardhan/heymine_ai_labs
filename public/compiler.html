@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="HeyMine AI Labs — Interactive coding compiler with AI Teacher. Solve problems, get instant feedback, and learn with your personal AI tutor." />
+    <title>Compiler · HeyMine AI Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/compiler.css" />
+    <link
+      rel="stylesheet"
+      data-name="vs/editor/editor.main"
+      href="https://cdn.jsdelivr.net/npm/monaco-editor@0.39.0/min/vs/editor/editor.main.min.css"
+    />
+  </head>
+  <body class="compiler-body">
+    <!-- NAVBAR -->
+    <nav class="navbar" id="compilerNav">
+      <div class="nav-brand">
+        <span class="brand-icon">⚡</span>
+        <span class="brand-name">HeyMine AI Labs</span>
+        <span class="nav-divider">|</span>
+        <span class="nav-subtitle">Compiler</span>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="compiler-main" id="compilerMain">
+      <!-- LEFT: Problem Panel -->
+      <aside class="problem-panel" id="problemPanel">
+
+        <!-- Problem Header -->
+        <div class="problem-panel-header">
+          <div class="problem-title-row">
+            <span class="panel-section-icon">📋</span>
+            <h2 id="problemTitle">Loading problem...</h2>
+          </div>
+          <span class="diff-badge" id="problemDifficulty">—</span>
+        </div>
+
+        <div class="problem-scroll" id="problemScroll">
+
+          <!-- Description -->
+          <div class="problem-section">
+            <div class="section-heading">
+              <span class="section-icon">📝</span>
+              <h3>Problem Description</h3>
+            </div>
+            <div id="problemDescription" class="section-body">
+              <p class="empty-state">Loading...</p>
+            </div>
+          </div>
+
+          <!-- Constraints -->
+          <div class="problem-section" id="constraintsSection">
+            <div class="section-heading">
+              <span class="section-icon">📐</span>
+              <h3>Constraints</h3>
+            </div>
+            <div id="problemConstraints" class="section-body constraints-body"></div>
+          </div>
+
+          <!-- Input / Output Format -->
+          <div class="problem-section" id="ioSection">
+            <div class="section-heading">
+              <span class="section-icon">🔁</span>
+              <h3>Input / Output Format</h3>
+            </div>
+            <div id="problemIO" class="section-body io-body">
+              <div class="io-row">
+                <span class="io-label io-label-in">Input</span>
+                <span id="ioInputDesc" class="io-desc">Read from stdin</span>
+              </div>
+              <div class="io-row">
+                <span class="io-label io-label-out">Output</span>
+                <span id="ioOutputDesc" class="io-desc">Write to stdout</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Examples -->
+          <div class="problem-section" id="examplesSection">
+            <div class="section-heading">
+              <span class="section-icon">💡</span>
+              <h3>Examples</h3>
+            </div>
+            <div id="problemExamples" class="section-body"></div>
+          </div>
+
+          <!-- AI Teacher Chat -->
+          <div class="chat-section">
+            <div class="chat-section-header">
+              <div class="chat-title-row">
+                <span class="chat-ai-dot"></span>
+                <h4>🤖 AI Teacher</h4>
+                <span class="chat-teacher-badge">Groq AI</span>
+              </div>
+              <button class="chat-clear" id="chatClear" title="Clear chat">🗑 Clear</button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input-row">
+              <input
+                type="text"
+                id="chatInput"
+                placeholder="Ask AI Teacher anything..."
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button id="chatSend" aria-label="Send message">
+                <span class="send-icon">➤</span> Send
+              </button>
+            </div>
+            <div class="chat-quick-actions">
+              <button class="quick-btn" data-msg="Give me a hint">💡 Hint</button>
+              <button class="quick-btn" data-msg="Explain the problem step by step">📖 Explain</button>
+              <button class="quick-btn" data-msg="Give me a new problem">🔄 New Problem</button>
+              <button class="quick-btn" data-msg="What is the time complexity of this problem?">⏱ Complexity</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- PANEL RESIZE DIVIDER -->
+      <div class="panel-resize-divider" id="panelDivider" title="Drag to resize panels"></div>
+
+      <!-- RIGHT: Code Workspace -->
+      <main class="code-panel">
+
+        <!-- Toolbar -->
+        <div class="code-toolbar">
+          <div class="toolbar-left">
+            <label class="toolbar-label" for="langSelect">Language</label>
+            <select class="lang-select" id="langSelect" aria-label="Select programming language">
+              <option value="python">🐍 Python</option>
+              <option value="java">☕ Java</option>
+              <option value="c">⚙️ C</option>
+              <option value="cpp">🔷 C++</option>
+            </select>
+          </div>
+          <span class="spacer"></span>
+          <div class="toolbar-right">
+            <button class="btn btn-ghost btn-sm" id="newProblemBtn" title="Load a new problem">
+              🔄 New Problem
+            </button>
+            <button class="btn btn-primary btn-sm" id="runBtn" title="Run against Test Case 1 (Ctrl+Enter)">
+              ▶ Run
+            </button>
+            <button class="btn btn-success btn-sm" id="submitBtn" title="Run all test cases (Ctrl+Shift+Enter)">
+              ✓ Submit All
+            </button>
+          </div>
+        </div>
+
+        <!-- Custom stdin -->
+        <div class="stdin-area">
+          <div class="stdin-header">
+            <label for="customStdin" class="stdin-label">
+              <span class="stdin-icon">⌨️</span>
+              <span>Custom Input (stdin)</span>
+            </label>
+            <span class="stdin-hint" title="Leave empty to use Test Case 1 input">Empty = uses Test Case 1 · Ctrl+Enter to Run</span>
+          </div>
+          <textarea
+            id="customStdin"
+            rows="2"
+            placeholder="Enter your custom input here..."
+            spellcheck="false"
+          ></textarea>
+        </div>
+
+        <!-- Monaco Editor -->
+        <div class="editor-wrapper">
+          <div class="editor-header">
+            <span class="editor-lang-badge" id="editorLangBadge">Python</span>
+            <span class="editor-hint">Write your solution below</span>
+          </div>
+          <div id="editor"></div>
+        </div>
+
+        <!-- Output Panel -->
+        <div class="output-panel" id="outputPanel">
+          <div class="resize-handle" id="resizeHandle" title="Drag to resize output"></div>
+          <div class="output-tabs">
+            <button class="active" data-tab="console" id="tabConsole">
+              <span>🖥 Console</span>
+              <span class="tab-sub">run result</span>
+            </button>
+            <button data-tab="tests" id="tabTests">
+              <span>🧪 Test Cases</span>
+              <span class="test-count-badge" id="testCountBadge"></span>
+            </button>
+          </div>
+          <div class="output-content output-rich" id="outputContent">
+            <div class="run-info-card run-info">
+              <span>▶ Press <strong>Run</strong> to test against Case 1 &nbsp;·&nbsp; <strong>Submit All</strong> to check all test cases</span>
+            </div>
+          </div>
+          <div
+            class="test-cases-container"
+            id="testCasesContainer"
+            style="display: none"
+          ></div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.39.0/min/vs/loader.js"></script>
+    <script>
+      require.config({
+        paths: {
+          vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.39.0/min/vs",
+        },
+      });
+      require(["vs/editor/editor.main"], function () {
+        document.dispatchEvent(new Event("monaco-ready"));
+      });
+    </script>
+    <script src="/js/compiler.js"></script>
+    <script>
+      // ---- Horizontal panel resize (problem ↔ code) ----
+      (function() {
+        const divider = document.getElementById('panelDivider');
+        const panel   = document.getElementById('problemPanel');
+        const main    = document.getElementById('compilerMain');
+        if (!divider || !panel || !main) return;
+
+        let dragging = false;
+        let startX   = 0;
+        let startW   = 0;
+
+        divider.addEventListener('mousedown', function(e) {
+          dragging = true;
+          startX   = e.clientX;
+          startW   = panel.offsetWidth;
+          divider.classList.add('dragging');
+          document.body.style.cursor = 'col-resize';
+          document.body.style.userSelect = 'none';
+          e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', function(e) {
+          if (!dragging) return;
+          const dx  = e.clientX - startX;
+          const nw  = Math.min(Math.max(startW + dx, 240), main.offsetWidth * 0.6);
+          panel.style.width = nw + 'px';
+          // force monaco layout update
+          if (window.__compilerEditorInstance) {
+            window.__compilerEditorInstance.layout();
+          }
+        });
+
+        document.addEventListener('mouseup', function() {
+          if (!dragging) return;
+          dragging = false;
+          divider.classList.remove('dragging');
+          document.body.style.cursor = '';
+          document.body.style.userSelect = '';
+        });
+      })();
+    </script>
+  </body>
+</html>
