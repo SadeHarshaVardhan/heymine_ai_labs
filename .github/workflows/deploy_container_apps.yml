@@ -1,0 +1,92 @@
+# HeyMine AI Labs — Azure Container Apps Deployment
+#
+# Pipeline:
+#   push to main
+#     → Build Docker image (uses existing Dockerfile — unchanged)
+#     → Push to GitHub Container Registry (GHCR)
+#     → Deploy to Azure Container Apps
+#
+# Required GitHub Secrets:
+#   AZURE_CLIENT_ID          - Service Principal App (Client) ID
+#   AZURE_TENANT_ID          - Azure AD Tenant ID
+#   AZURE_SUBSCRIPTION_ID    - Azure Subscription ID
+#   AZURE_RESOURCE_GROUP     - heymine-rg
+#   CONTAINER_APP_NAME       - heymine-api
+#
+# GITHUB_TOKEN is provided automatically — no extra registry secrets needed.
+
+name: Build and Deploy to Azure Container Apps
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  IMAGE: ghcr.io/sadeharshavardhan/heymine_ai_labs
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write    # Required to push to GHCR
+      id-token: write    # Required for OIDC login to Azure
+
+    steps:
+      # ── 1. Checkout ──────────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── 2. Login to GHCR (uses built-in GITHUB_TOKEN — no extra secrets) ─────
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── 3. Build Docker image (existing Dockerfile — unchanged) ───────────────
+      - name: Build Docker image
+        run: |
+          docker build \
+            --tag ${{ env.IMAGE }}:${{ github.sha }} \
+            --tag ${{ env.IMAGE }}:latest \
+            .
+          echo "Image built: ${{ env.IMAGE }}:${{ github.sha }}"
+
+      # ── 4. Push image to GHCR ────────────────────────────────────────────────
+      - name: Push image to GHCR
+        run: |
+          docker push ${{ env.IMAGE }}:${{ github.sha }}
+          docker push ${{ env.IMAGE }}:latest
+          echo "Image pushed to GHCR"
+
+      # ── 5. Login to Azure (OIDC — no client secret in workflow) ──────────────
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      # ── 6. Deploy to Azure Container Apps ────────────────────────────────────
+      - name: Deploy to Azure Container Apps
+        run: |
+          az containerapp update \
+            --name ${{ secrets.CONTAINER_APP_NAME }} \
+            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+            --image ${{ env.IMAGE }}:${{ github.sha }}
+          echo "Deployment triggered"
+
+      # ── 7. Print live URL ─────────────────────────────────────────────────────
+      - name: Get Container App URL
+        run: |
+          URL=$(az containerapp show \
+            --name ${{ secrets.CONTAINER_APP_NAME }} \
+            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+            --query "properties.configuration.ingress.fqdn" \
+            --output tsv)
+          echo "HeyMine API live at: https://$URL"
+          echo "Health check: https://$URL/health"

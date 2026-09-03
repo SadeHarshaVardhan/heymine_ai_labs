@@ -1,35 +1,57 @@
 # 🧠 HeyMine AI Labs
 
-> An AI-powered programming learning platform where students master coding through gamified milestone progression. Combines interactive 3D roadmap paths, detailed 10-test-case judging, version history drafts, a statistics dashboard, and personalized post-submission AI mentoring feedback.
+> An AI-powered programming learning platform where students master coding through gamified milestone progression. Combines interactive milestone roadmap paths, detailed 10-test-case judging, version history drafts, a statistics dashboard, and personalized post-submission AI mentoring feedback.
+
+---
+
+## 🏗️ Production Architecture
+
+```
+Developer pushes to GitHub (main branch)
+         │
+         ▼
+GitHub Actions CI/CD
+         │
+         ▼
+GitHub Container Registry (GHCR)
+ghcr.io/sadeharshavardhan/heymine_ai_labs:latest
+         │
+         ▼
+Azure Container Apps (eastasia)
+Backend API — Node.js 22 + JDK + GCC + G++ + Python3
+         │
+    ┌────┴────┐
+    ▼         ▼
+Supabase    Groq API
+(Auth +     (AI Mentor)
+PostgreSQL)
+         │
+         ▼
+Vercel (Frontend — Static HTML/CSS/JS)
+```
 
 ---
 
 ## ✨ Features
 
-### 1. 🗺️ 3D Adventure Roadmap Map (`/map.html`)
-* **Split Panel Layout**: Left panel features an interactive 3D robot scene using a `<spline-viewer>` loading the `scene.splinecode` asset. Right panel contains the scrollable adventure path.
-* **Snaking Paths & Glowing Connectors**: 100 missions grouped into 5 stages snaking down the screen. An animated glowing SVG Bezier line flows through all node centers to guide progression.
-* **Responsive Flow**: Seamlessly transforms from a side-by-side split screen on desktop to a stacked layout on mobile.
+### 1. 💻 Compiler & AI Mentor (`/compiler`)
+- **Multi-language code execution**: Python, Java, C, C++ — runs directly on the server via `child_process` (no third-party execution API).
+- **10-Test Case Judging**: Submissions judged against 5 visible and 5 hidden test cases.
+- **AI Post-Submission Mentor**: Automatic post-submission feedback — code review, optimization suggestions, and time/space complexity analysis powered by Groq.
+- **Conversational AI Tutor**: Inline chat for hints, explanations, and complexity queries.
+- **Version History & Restore**: Revisit previously accepted submissions and restore code drafts.
+- **Autosave Drafts**: Editor content saved to `localStorage` every 30 seconds.
 
-### 2. 💻 Upgraded Compiler & Mission Mode (`/compiler.html?mission=HMXXX`)
-* **10-Test Case Judging**: Submissions are judged against 5 visible test cases (detailed input/output/actual/stderr output cards) and 5 hidden test cases (verdict only) for leak-proof cheating prevention.
-* **Version History & Restore**: Revisit previously accepted submissions, check execution times, and click "Restore" to drop previous draft code directly back into the Monaco editor.
-* **Autosave Drafts**: Automatic saving of editor content to `localStorage` every 30 seconds to prevent progress loss.
-* **Progress Integration**: Unlocks next missions, awards XP/coins, and celebrates completions with visual confetti on perfect scores.
+### 2. 🔐 Authentication (`/login`, `/register`, `/settings`)
+- Full auth flow: register, login, password reset, email confirmation.
+- Powered by Supabase Auth.
+- Per-user Groq API key management — stored AES-256-GCM encrypted in Supabase.
 
-### 3. 🤖 AI Tutor & Post-Submission Mentor (`/services/aiMentorService.js`)
-* **Conversational AI Tutor**: Standard inline chat for explanations, hints, and complexity queries.
-* **AI Post-Submission Mentor**: Automatically triggers after submissions to provide:
-  - Code review comments on readability and conventions.
-  - Concrete suggestions for optimization.
-  - Structured Time & Space complexity analysis.
-
-### 4. 📊 Statistics Dashboard (`/stats.html`)
-* **Overview Cards**: Track total XP, coins, day streak, and acceptance rate.
-* **Milestone Rings**: Animated visual rings tracking percentage completion of the 5 stages.
-* **Submission Heatmap**: A GitHub-style 90-day grid visualizing submission frequency.
-* **Badges Showcase**: Earn medals for specific milestones (First Mission, 5/10 Missions, Stage completions, Streaks).
-* **Language Chart**: Horizontal bar graphs of language usage (Python, Java, C, C++).
+### 3. 📊 Statistics Dashboard (`/stats`)
+- XP, coins, streak, acceptance rate overview.
+- Submission heatmap (GitHub-style 90-day grid).
+- Language usage breakdown.
+- Badge showcase.
 
 ---
 
@@ -37,80 +59,161 @@
 
 | Layer | Technology |
 |---|---|
-| Runtime | Node.js ≥ 18 |
+| Runtime | Node.js 22 |
 | Backend Framework | Express.js |
-| AI Integration | Groq SDK (`llama-3.3-70b-versatile`) |
-| Code Editor | Monaco Editor (via CDN) |
-| 3D Spline Viewer | `@splinetool/viewer` module CDN |
-| Database & Persistence | Zero-Auth File System Storage (`storage/`) |
-| Compiler Output | localExecutionService (`child_process`) |
+| AI Integration | Groq SDK |
+| Code Execution | `localExecutionService.js` (`child_process` — javac, gcc, g++, python) |
+| Auth | Supabase Auth |
+| Database | Supabase PostgreSQL |
+| Key Encryption | AES-256-GCM |
+| Container | Docker (`node:22-bookworm-slim` + default-jdk + gcc + g++ + python3) |
+| Registry | GitHub Container Registry (GHCR) |
+| Backend Host | Azure Container Apps (Consumption tier, eastasia) |
+| Frontend Host | Vercel (static) |
 
 ---
 
-## 📁 Upgraded Folder Structure
+## 📁 Project Structure
 
-```text
+```
 heymine-ai-labs/
-├── config/
+├── .github/
+│   └── workflows/
+│       └── deploy_container_apps.yml   # CI/CD: GHCR push + Container Apps deploy
+├── config/                             # App configuration
 ├── controllers/
-│   ├── chatController.js       # Inline AI tutor
-│   ├── executionController.js  # Runs code, submits to judge, awards progress
-│   ├── missionController.js    # Serves stages and 100 missions progress
-│   └── progressController.js   # Serves stats, profile, history, and drafts
-├── data/
-│   ├── questions/              # Metadata JSON for 100 questions (HM001-HM100)
-│   ├── visible-tests/          # 5 visible inputs/expected outputs per question
-│   ├── hidden-tests/           # 5 hidden inputs/expected outputs per question
-│   ├── hints/                  # 3 progressive hints per question
-│   ├── reference-solutions/    # Server-side JavaScript solutions for generation
-│   └── generators/             # Deterministic test input generator functions
-├── repositories/
-│   ├── questionRepository.js   # In-memory caching data-access layer for missions
-│   └── progressRepository.js   # Persistent local progress and draft history
+│   ├── authController.js               # Auth endpoints
+│   ├── chatController.js               # AI tutor chat
+│   ├── executionController.js          # Code run/submit
+│   ├── groqController.js               # Groq AI integration
+│   └── userController.js              # User profile & API key management
+├── middlewares/                        # Auth middleware
+├── models/                             # Data models
+├── repositories/                       # Data access layer
+├── routes/
+│   └── api.js                          # All API routes
 ├── services/
-│   ├── judgeService.js         # 10-case test engine with output validators
-│   ├── progressService.js      # Progress engine awarding XP, badges, streaks
-│   └── aiMentorService.js      # Post-submission feedback using Groq
-├── storage/
-│   ├── progress.json           # Active student stats, unlocked/completed missions
-│   ├── submissions/            # JSON records of all test runs
-│   └── versions/               # JSON drafts of successful versions
-├── utils/
-│   └── testcaseValidator.js    # Whitespace normalizer and float tolerance comparator
+│   ├── aiMentorService.js              # Post-submission AI feedback (Groq)
+│   ├── judgeService.js                 # 10-case test engine
+│   ├── localExecutionService.js        # child_process execution (javac/gcc/g++/python)
+│   └── questionCacheService.js         # Supabase question cache
 ├── public/
-│   ├── index.html              # Upgraded landing page with Adventure CTA
-│   ├── map.html                # Split-screen 3D Spline Roadmap Map
-│   ├── compiler.html           # Upgraded coding workspace (Mission Bar & History)
-│   ├── stats.html              # Student statistics dashboard
-│   ├── css/                    # Stylesheets (map.css, mission.css, stats.css)
-│   └── js/                     # Scripts (map.js, missionMode.js, compiler.js)
-├── scene.splinecode            # Binary 3D Spline interactive scene
-└── server.js                   # Main Express application entry
+│   ├── index.html                      # Landing page
+│   ├── compiler.html                   # Coding workspace
+│   ├── login.html / register.html      # Auth pages
+│   ├── settings.html                   # API key management
+│   ├── css/                            # Stylesheets
+│   └── js/
+│       ├── config.js                   # API_BASE_URL configuration
+│       ├── auth.js                     # Auth flow
+│       └── compiler.js                 # Compiler UI logic
+├── utils/
+│   └── testcaseValidator.js            # Output comparison
+├── supabase/                           # Supabase schema/migrations
+├── Dockerfile                          # node:22-bookworm-slim + JDK + GCC + G++ + Python3
+├── .dockerignore
+├── .env.example                        # Environment variable template
+├── package.json
+├── server.js                           # Express entry point
+└── vercel.json                         # Vercel routing config
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Local Development
 
-### 1. Prerequisites
-Make sure `python`, `gcc`, `g++`, `javac`, and `java` are installed on your server host and loaded in your system `PATH`.
+### Prerequisites
+- Node.js ≥ 18
+- Docker (optional, for local container testing)
 
-### 2. Install & Start
+### Install & Start
 
 ```bash
+# Clone the repo
+git clone https://github.com/SadeHarshaVardhan/heymine_ai_labs.git
+cd heymine_ai_labs
+
 # Install dependencies
 npm install
 
+# Copy env template and fill in your values
+cp .env.example .env
+# Edit .env with your Supabase, Groq, and encryption keys
+
 # Start development server
 npm run dev
+# → http://localhost:3000
 ```
 
-### 3. Environment Config
-Make sure your `.env` contains:
-```env
-PORT=3000
-GROQ_API_KEY=your_groq_api_key_here
-GROQ_MODEL=llama-3.3-70b-versatile
+### Local Docker Test
+
+```bash
+docker build -t heymine-local .
+docker run -p 3000:3000 --env-file .env heymine-local
+# → http://localhost:3000
 ```
 
-Open `http://localhost:3000` to start your coding adventure!
+---
+
+## 🔑 Environment Variables
+
+Copy `.env.example` to `.env` and fill in all values:
+
+| Variable | Description |
+|---|---|
+| `PORT` | Server port (default: 3000) |
+| `NODE_ENV` | `development` or `production` |
+| `GROQ_API_KEY` | Groq API key (server-level fallback) |
+| `GROQ_MODEL` | Groq model ID |
+| `SUPABASE_URL` | Supabase project URL |
+| `SUPABASE_ANON_KEY` | Supabase anon/public key |
+| `SUPABASE_SERVICE_KEY` | Supabase service role key |
+| `ENCRYPTION_KEY` | 64-char hex key for AES-256-GCM |
+| `FRONTEND_URL` | Vercel frontend URL (used for CORS) |
+
+---
+
+## 🚢 Production Deployment
+
+### Registry: GitHub Container Registry (GHCR)
+Image: `ghcr.io/sadeharshavardhan/heymine_ai_labs:latest`
+
+The CI/CD workflow (`.github/workflows/deploy_container_apps.yml`) automatically:
+1. Builds the Docker image on every push to `main`
+2. Pushes to GHCR using the built-in `GITHUB_TOKEN` (no extra secrets)
+3. Deploys to Azure Container Apps via OIDC (no client secret stored)
+
+### Required GitHub Secrets
+
+| Secret | Value |
+|---|---|
+| `AZURE_CLIENT_ID` | Service Principal App ID |
+| `AZURE_TENANT_ID` | Azure AD Tenant ID |
+| `AZURE_SUBSCRIPTION_ID` | Azure Subscription ID |
+| `AZURE_RESOURCE_GROUP` | `heymine-rg` |
+| `CONTAINER_APP_NAME` | `heymine-api` |
+
+### Azure Resources
+
+| Resource | Name | Region |
+|---|---|---|
+| Resource Group | `heymine-rg` | `eastasia` |
+| Container Apps Environment | `heymine-env` | `eastasia` |
+| Container App | `heymine-api` | `eastasia` |
+
+### Health Check
+
+```
+GET https://heymine-api.<hash>.eastasia.azurecontainerapps.io/health
+→ {"status":"ok","timestamp":"..."}
+```
+
+---
+
+## 🔒 Security Notes
+
+- User Groq API keys are encrypted with AES-256-GCM before storage in Supabase.
+- CORS is restricted to `FRONTEND_URL` in production.
+- All API routes are protected by Supabase JWT middleware.
+- Secrets are injected as Container App secrets — never in code or workflow files.
+- The `GITHUB_TOKEN` used for GHCR is automatically scoped to the repository.

@@ -1,22 +1,15 @@
 /**
  * config.js — Frontend API base URL configuration
  *
- * In development  (served by the Express server locally):
+ * In development (served by the Express server locally):
  *   API_BASE_URL = "" — relative paths like /api/problem work fine.
  *
- * In production (frontend on Vercel, backend on Azure App Service):
- *   API_BASE_URL = "https://<your-app>.azurewebsites.net"
- *   Set this via the NEXT_PUBLIC_ or window._env_ pattern below.
+ * In production (frontend on Vercel, backend on Azure Container Apps):
+ *   Set window._HEYMINE_API_BASE before this script loads:
+ *     <script>window._HEYMINE_API_BASE = "https://heymine-api.<hash>.eastasia.azurecontainerapps.io";</script>
+ *   OR set it in localStorage under 'heymine_api_url' for dev overrides.
  *
- * HOW TO USE:
- *   All fetch calls should use: `${API_BASE_URL}/api/...`
- *
- * HOW TO SET FOR PRODUCTION:
- *   In your Vercel project settings, add an Environment Variable:
- *     Name:  VITE_API_BASE_URL  (or inject via build script)
- *   Then add this to your HTML before loading other scripts:
- *     <script>window._HEYMINE_API_BASE = "https://your-app.azurewebsites.net";</script>
- *   OR: set it here directly if you know the URL at deploy time.
+ * All fetch calls use: `${API_BASE_URL}/api/...`
  */
 
 (function () {
