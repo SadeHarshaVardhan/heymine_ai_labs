@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="HeyMine AI Labs — Interactive coding compiler with AI Teacher. Solve problems, get instant feedback, and learn with your personal AI tutor." />
     <title>Compiler · HeyMine AI Labs</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -19,18 +20,22 @@
   <body class="compiler-body">
     <!-- NAVBAR -->
     <nav class="navbar" id="compilerNav">
-      <div class="nav-brand">
+      <a href="/" class="nav-brand" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
         <span class="brand-icon">⚡</span>
-        <span class="brand-name">HeyMine AI Labs</span>
+        <span class="brand-name" style="font-weight: 800; font-size: 18px; letter-spacing: -0.5px;">HeyMine AI Labs</span>
         <span class="nav-divider">|</span>
-        <span class="nav-subtitle">Compiler</span>
-      </div>
+        <span class="nav-subtitle" style="font-size: 14px; font-weight: 500;">Compiler</span>
+      </a>
       <div class="nav-actions">
+        <a href="/settings" class="btn btn-ghost btn-sm" id="settingsLink" style="text-decoration:none;">Settings</a>
+        <button class="btn btn-ghost btn-sm" id="logoutBtn" type="button">Logout</button>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <span class="theme-icon">🌙</span>
         </button>
       </div>
     </nav>
+
+
 
     <div class="compiler-main" id="compilerMain">
       <!-- LEFT: Problem Panel -->
@@ -109,7 +114,7 @@
               <input
                 type="text"
                 id="chatInput"
-                placeholder="Ask AI Teacher anything..."
+                placeholder="Ask anything, or use @hint @solve @approach..."
                 autocomplete="off"
                 spellcheck="false"
               />
@@ -118,10 +123,15 @@
               </button>
             </div>
             <div class="chat-quick-actions">
-              <button class="quick-btn" data-msg="Give me a hint">💡 Hint</button>
-              <button class="quick-btn" data-msg="Explain the problem step by step">📖 Explain</button>
-              <button class="quick-btn" data-msg="Give me a new problem">🔄 New Problem</button>
-              <button class="quick-btn" data-msg="What is the time complexity of this problem?">⏱ Complexity</button>
+              <button class="quick-btn" data-msg="@hint" title="Get a hint without the full answer">💡 @hint</button>
+              <button class="quick-btn" data-msg="@approach" title="Best approach / algorithm to use">🔍 @approach</button>
+              <button class="quick-btn" data-msg="@solve" title="Show full solution with explanation">✅ @solve</button>
+              <button class="quick-btn" data-msg="@try" title="Give me a starting point">🚀 @try</button>
+              <button class="quick-btn" data-msg="@explain" title="Step-by-step problem explanation">📖 @explain</button>
+              <button class="quick-btn" data-msg="@howtosolve" title="Walk me through the entire solution approach">🧭 @howtosolve</button>
+              <button class="quick-btn" data-msg="@complexity" title="Time & space complexity analysis">⏱ @complexity</button>
+              <button class="quick-btn" data-msg="@debug" title="Help me debug my code">🐛 @debug</button>
+              <button class="quick-btn" data-msg="@new" title="Generate a new problem">🆕 @new</button>
             </div>
           </div>
         </div>
@@ -146,14 +156,16 @@
           </div>
           <span class="spacer"></span>
           <div class="toolbar-right">
+            <button class="btn btn-ghost btn-sm" id="versionHistoryBtn" title="Version History" style="display:none">📜 History</button>
+            <button class="btn btn-ghost btn-sm" id="hintBtn" title="Get a hint" style="display:none">💡 Hint</button>
             <button class="btn btn-ghost btn-sm" id="newProblemBtn" title="Load a new problem">
               🔄 New Problem
             </button>
             <button class="btn btn-primary btn-sm" id="runBtn" title="Run against Test Case 1 (Ctrl+Enter)">
               ▶ Run
             </button>
-            <button class="btn btn-success btn-sm" id="submitBtn" title="Run all test cases (Ctrl+Shift+Enter)">
-              ✓ Submit All
+            <button class="btn btn-success btn-sm" id="submitBtn" title="Submit to judge (Ctrl+Shift+Enter)">
+              ✓ Submit
             </button>
           </div>
         </div>
@@ -207,6 +219,8 @@
             id="testCasesContainer"
             style="display: none"
           ></div>
+          <!-- Judge results panel (mission mode) -->
+          <div id="judgeResultPanel" style="display:none" class="judge-result-panel"></div>
         </div>
       </main>
     </div>
@@ -222,7 +236,10 @@
         document.dispatchEvent(new Event("monaco-ready"));
       });
     </script>
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
     <script src="/js/compiler.js"></script>
+
     <script>
       // ---- Horizontal panel resize (problem ↔ code) ----
       (function() {

@@ -1,0 +1,8 @@
+{
+  "id": "HM089",
+  "hints": [
+    "Rotate array left by k positions.",
+    "New array: arr[k..n] + arr[0..k-1].",
+    "Handle k > n using k % n."
+  ]
+}

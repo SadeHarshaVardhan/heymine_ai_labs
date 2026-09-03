@@ -1,0 +1,27 @@
+{
+  "id": "HM055",
+  "title": "Function - Fibonacci",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 55,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM054",
+  "unlockNext": "HM056",
+  "description": "Write a function fibonacci(n) that returns the first n Fibonacci numbers.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "First n Fibonacci numbers space-separated.",
+  "constraints": [
+    "1 ≤ n ≤ 20"
+  ],
+  "examples": [
+    {
+      "input": "5",
+      "output": "0 1 1 2 3"
+    }
+  ],
+  "tags": []
+}

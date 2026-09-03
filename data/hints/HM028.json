@@ -1,0 +1,8 @@
+{
+  "id": "HM028",
+  "hints": [
+    "Similar to HM020 but use switch/if-elif.",
+    "Handle +,-,*,/ cases.",
+    "Integer division for /."
+  ]
+}

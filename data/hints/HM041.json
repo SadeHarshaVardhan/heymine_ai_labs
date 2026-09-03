@@ -1,0 +1,8 @@
+{
+  "id": "HM041",
+  "hints": [
+    "Print n rows of n stars each.",
+    "Each row: ***** (n stars).",
+    "Use a nested loop."
+  ]
+}

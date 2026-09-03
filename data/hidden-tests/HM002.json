@@ -1,0 +1,22 @@
+[
+  {
+    "input": "Grace",
+    "expected": "Grace"
+  },
+  {
+    "input": "Bob",
+    "expected": "Bob"
+  },
+  {
+    "input": "Eve",
+    "expected": "Eve"
+  },
+  {
+    "input": "Bob",
+    "expected": "Bob"
+  },
+  {
+    "input": "Grace",
+    "expected": "Grace"
+  }
+]

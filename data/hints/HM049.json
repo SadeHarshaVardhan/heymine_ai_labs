@@ -1,0 +1,8 @@
+{
+  "id": "HM049",
+  "hints": [
+    "Floyd triangle: consecutive numbers row by row.",
+    "Start from 1, keep incrementing.",
+    "Row 1:1, Row 2:2 3, Row 3:4 5 6..."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "HM099",
+  "title": "Spy Number",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 99,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM098",
+  "unlockNext": "HM100",
+  "description": "A spy number is one where sum of digits equals product of digits.\nExample: 123 → 1+2+3=6, 1×2×3=6 → spy.",
+  "inputFormat": "A single integer.",
+  "outputFormat": "Print \"Spy\" or \"Not Spy\".",
+  "constraints": [
+    "1 ≤ n ≤ 10000"
+  ],
+  "examples": [
+    {
+      "input": "123",
+      "output": "Spy"
+    },
+    {
+      "input": "100",
+      "output": "Not Spy"
+    }
+  ],
+  "tags": []
+}

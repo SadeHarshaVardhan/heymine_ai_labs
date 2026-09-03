@@ -1,0 +1,31 @@
+{
+  "id": "HM035",
+  "title": "Prime Number",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 35,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM034",
+  "unlockNext": "HM036",
+  "description": "Determine if a number is prime.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "Print \"Prime\" or \"Not Prime\".",
+  "constraints": [
+    "1 ≤ n ≤ 10^6"
+  ],
+  "examples": [
+    {
+      "input": "7",
+      "output": "Prime"
+    },
+    {
+      "input": "10",
+      "output": "Not Prime"
+    }
+  ],
+  "tags": []
+}

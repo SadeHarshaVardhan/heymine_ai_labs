@@ -1,0 +1,27 @@
+{
+  "id": "HM034",
+  "title": "Fibonacci Series",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 34,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM033",
+  "unlockNext": "HM035",
+  "description": "Print the first n numbers of the Fibonacci series, space-separated.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "First n Fibonacci numbers space-separated.",
+  "constraints": [
+    "1 ≤ n ≤ 20"
+  ],
+  "examples": [
+    {
+      "input": "6",
+      "output": "0 1 1 2 3 5"
+    }
+  ],
+  "tags": []
+}

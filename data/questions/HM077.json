@@ -1,0 +1,27 @@
+{
+  "id": "HM077",
+  "title": "Remove Spaces",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 77,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM076",
+  "unlockNext": "HM078",
+  "description": "Remove all spaces from a string.",
+  "inputFormat": "A string with spaces.",
+  "outputFormat": "Print the string without spaces.",
+  "constraints": [
+    "Length ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "h e l l o",
+      "output": "hello"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "id": "HM054",
+  "hints": [
+    "Define isPrime(n) that returns \"Prime\" or \"Not Prime\".",
+    "Check divisors up to sqrt(n).",
+    "n < 2 is not prime."
+  ]
+}

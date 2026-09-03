@@ -1,0 +1,28 @@
+{
+  "id": "HM031",
+  "title": "Sum of N Numbers",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 31,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM030",
+  "unlockNext": "HM032",
+  "description": "Read n numbers and print their sum.",
+  "inputFormat": "First line: n. Second line: n space-separated integers.",
+  "outputFormat": "Print the sum.",
+  "constraints": [
+    "1 ≤ n ≤ 1000",
+    "-10^6 ≤ each ≤ 10^6"
+  ],
+  "examples": [
+    {
+      "input": "3\n1 2 3",
+      "output": "6"
+    }
+  ],
+  "tags": []
+}

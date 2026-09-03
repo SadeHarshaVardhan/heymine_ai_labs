@@ -1,0 +1,27 @@
+{
+  "id": "HM087",
+  "title": "Frequency of Elements",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 87,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM086",
+  "unlockNext": "HM088",
+  "description": "Find the frequency (count) of each element in the array.",
+  "inputFormat": "First line: n. Second line: n integers.",
+  "outputFormat": "Each line: \"element:count\" for each unique element.",
+  "constraints": [
+    "1 ≤ n ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "5\n1 2 1 3 2",
+      "output": "1:2\n2:2\n3:1"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,27 @@
+{
+  "id": "HM088",
+  "title": "Missing Number",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 88,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM087",
+  "unlockNext": "HM089",
+  "description": "Given an array of n-1 distinct numbers from 1 to n, find the missing number.\nThe expected sum of 1..n is n*(n+1)/2.",
+  "inputFormat": "First line: n. Second line: (n-1) integers.",
+  "outputFormat": "Print the missing number.",
+  "constraints": [
+    "2 ≤ n ≤ 10^5"
+  ],
+  "examples": [
+    {
+      "input": "5\n1 2 4 5",
+      "output": "3"
+    }
+  ],
+  "tags": []
+}

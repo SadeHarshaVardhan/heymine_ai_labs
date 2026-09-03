@@ -1,0 +1,8 @@
+{
+  "id": "HM026",
+  "hints": [
+    "Check if age >= 18.",
+    "Print \"Eligible\" or \"Not Eligible\".",
+    "No extra text needed."
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "input": "2100",
+    "expected": "Not a Leap Year"
+  },
+  {
+    "input": "2004",
+    "expected": "Leap Year"
+  },
+  {
+    "input": "2016",
+    "expected": "Leap Year"
+  },
+  {
+    "input": "2000",
+    "expected": "Leap Year"
+  },
+  {
+    "input": "1900",
+    "expected": "Not a Leap Year"
+  }
+]

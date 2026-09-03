@@ -1,0 +1,8 @@
+{
+  "id": "HM056",
+  "hints": [
+    "Use recursion: factorial(n) = n * factorial(n-1).",
+    "Base case: factorial(0) = 1.",
+    "Call the function recursively."
+  ]
+}

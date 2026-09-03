@@ -1,0 +1,8 @@
+{
+  "id": "HM098",
+  "hints": [
+    "Neon number: sum of digits of its square equals itself.",
+    "9² = 81, 8+1 = 9 → neon.",
+    "Only 1 and 9 are neon numbers."
+  ]
+}

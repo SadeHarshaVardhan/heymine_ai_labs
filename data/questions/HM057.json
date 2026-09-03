@@ -1,0 +1,27 @@
+{
+  "id": "HM057",
+  "title": "Recursive Fibonacci",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 57,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM056",
+  "unlockNext": "HM058",
+  "description": "Compute the first n Fibonacci numbers using RECURSION.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "First n Fibonacci numbers space-separated.",
+  "constraints": [
+    "1 ≤ n ≤ 10"
+  ],
+  "examples": [
+    {
+      "input": "6",
+      "output": "0 1 1 2 3 5"
+    }
+  ],
+  "tags": []
+}

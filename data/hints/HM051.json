@@ -1,0 +1,8 @@
+{
+  "id": "HM051",
+  "hints": [
+    "Define a function add(a, b) that returns a+b.",
+    "Call it and print the result.",
+    "Same as HM006 but with a function."
+  ]
+}

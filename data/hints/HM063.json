@@ -1,0 +1,8 @@
+{
+  "id": "HM063",
+  "hints": [
+    "Read array, sum all elements.",
+    "Initialize sum = 0, add each element.",
+    "Print the total."
+  ]
+}

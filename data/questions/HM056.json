@@ -1,0 +1,27 @@
+{
+  "id": "HM056",
+  "title": "Recursive Factorial",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 56,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM055",
+  "unlockNext": "HM057",
+  "description": "Compute factorial of n using RECURSION.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "Print n!.",
+  "constraints": [
+    "0 ≤ n ≤ 12"
+  ],
+  "examples": [
+    {
+      "input": "5",
+      "output": "120"
+    }
+  ],
+  "tags": []
+}

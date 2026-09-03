@@ -1,0 +1,8 @@
+{
+  "id": "HM088",
+  "hints": [
+    "Given numbers 1..n with one missing, find which one.",
+    "Expected sum = n*(n+1)/2.",
+    "Missing = expected - actual sum."
+  ]
+}

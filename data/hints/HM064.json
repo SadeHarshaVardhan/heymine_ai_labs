@@ -1,0 +1,8 @@
+{
+  "id": "HM064",
+  "hints": [
+    "Sum the array, divide by n.",
+    "Print to 2 decimal places.",
+    "Use float division."
+  ]
+}

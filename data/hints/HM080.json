@@ -1,0 +1,8 @@
+{
+  "id": "HM080",
+  "hints": [
+    "Sort both strings and compare.",
+    "If sorted versions match, they are anagrams.",
+    "Ignore case."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "HM057",
+  "hints": [
+    "Use recursion: fib(n) = fib(n-1) + fib(n-2).",
+    "Base cases: fib(0)=0, fib(1)=1.",
+    "Print first n values."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "HM095",
+  "title": "Perfect Number",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 95,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM094",
+  "unlockNext": "HM096",
+  "description": "A perfect number equals the sum of its proper divisors (excluding itself).\nExample: 6 = 1+2+3.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "Print \"Perfect\" or \"Not Perfect\".",
+  "constraints": [
+    "1 ≤ n ≤ 10^5"
+  ],
+  "examples": [
+    {
+      "input": "6",
+      "output": "Perfect"
+    },
+    {
+      "input": "12",
+      "output": "Not Perfect"
+    }
+  ],
+  "tags": []
+}

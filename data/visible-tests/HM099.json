@@ -1,0 +1,22 @@
+[
+  {
+    "input": "10",
+    "expected": "Not Spy"
+  },
+  {
+    "input": "123",
+    "expected": "Spy"
+  },
+  {
+    "input": "200",
+    "expected": "Not Spy"
+  },
+  {
+    "input": "1",
+    "expected": "Spy"
+  },
+  {
+    "input": "300",
+    "expected": "Not Spy"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "input": "c",
+    "expected": "99"
+  },
+  {
+    "input": "L",
+    "expected": "76"
+  },
+  {
+    "input": "u",
+    "expected": "117"
+  },
+  {
+    "input": "T",
+    "expected": "84"
+  },
+  {
+    "input": "k",
+    "expected": "107"
+  }
+]

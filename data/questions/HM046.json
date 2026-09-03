@@ -1,0 +1,27 @@
+{
+  "id": "HM046",
+  "title": "Diamond Pattern",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 46,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM045",
+  "unlockNext": "HM047",
+  "description": "Print a diamond pattern (pyramid + inverted pyramid).",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "(2n-1) rows of diamond.",
+  "constraints": [
+    "1 ≤ n ≤ 8"
+  ],
+  "examples": [
+    {
+      "input": "3",
+      "output": "  *\n ***\n*****\n ***\n  *"
+    }
+  ],
+  "tags": []
+}

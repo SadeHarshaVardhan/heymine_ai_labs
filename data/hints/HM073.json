@@ -1,0 +1,8 @@
+{
+  "id": "HM073",
+  "hints": [
+    "Compare string with its reverse.",
+    "If equal, it's a palindrome.",
+    "Case-sensitive."
+  ]
+}

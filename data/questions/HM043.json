@@ -1,0 +1,27 @@
+{
+  "id": "HM043",
+  "title": "Inverted Triangle",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 43,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM042",
+  "unlockNext": "HM044",
+  "description": "Print an inverted right triangle of stars.\nFirst row has n stars, last row has 1.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "n rows of stars, decreasing.",
+  "constraints": [
+    "1 ≤ n ≤ 10"
+  ],
+  "examples": [
+    {
+      "input": "3",
+      "output": "***\n**\n*"
+    }
+  ],
+  "tags": []
+}

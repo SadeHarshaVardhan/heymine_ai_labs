@@ -1,0 +1,28 @@
+{
+  "id": "HM089",
+  "title": "Rotate Array",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 89,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM088",
+  "unlockNext": "HM090",
+  "description": "Rotate an array to the left by k positions.\nExample: [1,2,3,4,5] rotated left by 2 → [3,4,5,1,2].",
+  "inputFormat": "First line: n. Second line: n integers. Third line: k.",
+  "outputFormat": "Rotated array space-separated.",
+  "constraints": [
+    "1 ≤ n ≤ 1000",
+    "0 ≤ k < n"
+  ],
+  "examples": [
+    {
+      "input": "5\n1 2 3 4 5\n2",
+      "output": "3 4 5 1 2"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "id": "HM009",
+  "hints": [
+    "Read two integers a and b, compute a / b.",
+    "Use integer division (floor).",
+    "In Python use //, in C/Java use / with integers."
+  ]
+}

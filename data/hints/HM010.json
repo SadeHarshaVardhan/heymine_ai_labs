@@ -1,0 +1,8 @@
+{
+  "id": "HM010",
+  "hints": [
+    "Read two integers a and b.",
+    "Compute a % b (remainder).",
+    "Make sure b is not zero."
+  ]
+}

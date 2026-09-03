@@ -851,8 +851,8 @@ body.compiler-body {
     padding: 0 0.9rem 0.75rem;
 }
 .quick-btn {
-    font-size: 0.7rem;
-    padding: 0.22rem 0.7rem;
+    font-size: 0.68rem;
+    padding: 0.2rem 0.65rem;
     border-radius: 20px;
     border: 1px solid var(--border-color);
     background: var(--bg-card);
@@ -861,8 +861,9 @@ body.compiler-body {
     transition: all var(--transition);
     font-weight: 600;
     white-space: nowrap;
-    font-family: inherit;
-    letter-spacing: 0.2px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    letter-spacing: 0.1px;
+    position: relative;
 }
 .quick-btn:hover {
     border-color: var(--accent);
@@ -870,6 +871,10 @@ body.compiler-body {
     background: var(--accent-light);
     transform: translateY(-1px);
     box-shadow: 0 2px 8px var(--accent-glow);
+}
+.quick-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 /* ============================================================

@@ -1,0 +1,31 @@
+{
+  "id": "HM032",
+  "title": "Factorial",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 32,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM031",
+  "unlockNext": "HM033",
+  "description": "Read n and print n! (n factorial).",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "Print n!.",
+  "constraints": [
+    "0 ≤ n ≤ 12"
+  ],
+  "examples": [
+    {
+      "input": "5",
+      "output": "120"
+    },
+    {
+      "input": "0",
+      "output": "1"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,27 @@
+{
+  "id": "HM005",
+  "title": "Read and Print String",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 5,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM004",
+  "unlockNext": "HM006",
+  "description": "Read a word/string from stdin and print it.",
+  "inputFormat": "A single word.",
+  "outputFormat": "Print the word.",
+  "constraints": [
+    "Word length ≤ 100"
+  ],
+  "examples": [
+    {
+      "input": "Hello",
+      "output": "Hello"
+    }
+  ],
+  "tags": []
+}

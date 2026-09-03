@@ -1,0 +1,27 @@
+{
+  "id": "HM044",
+  "title": "Pyramid Pattern",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 44,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM043",
+  "unlockNext": "HM045",
+  "description": "Print a centered pyramid of stars with n rows.\nRow i has (2i-1) stars centered.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "n rows, each with leading spaces and stars.",
+  "constraints": [
+    "1 ≤ n ≤ 10"
+  ],
+  "examples": [
+    {
+      "input": "3",
+      "output": "  *\n ***\n*****"
+    }
+  ],
+  "tags": []
+}

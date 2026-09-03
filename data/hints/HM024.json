@@ -1,0 +1,8 @@
+{
+  "id": "HM024",
+  "hints": [
+    "Compare three numbers to find the largest.",
+    "Use nested if or max().",
+    "Only print the maximum value."
+  ]
+}

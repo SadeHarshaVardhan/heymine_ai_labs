@@ -1,0 +1,8 @@
+{
+  "id": "HM031",
+  "hints": [
+    "Read N, then N numbers on next line.",
+    "Sum them all and print the total.",
+    "Watch for negative numbers."
+  ]
+}

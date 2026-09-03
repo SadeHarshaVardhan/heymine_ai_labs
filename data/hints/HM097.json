@@ -1,0 +1,8 @@
+{
+  "id": "HM097",
+  "hints": [
+    "Automorphic: square of n ends with n.",
+    "5² = 25, ends in 5 → automorphic.",
+    "Use string endsWith() comparison."
+  ]
+}

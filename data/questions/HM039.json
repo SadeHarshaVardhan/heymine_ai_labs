@@ -1,0 +1,27 @@
+{
+  "id": "HM039",
+  "title": "Count Digits",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 39,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM038",
+  "unlockNext": "HM040",
+  "description": "Count the number of digits in an integer.",
+  "inputFormat": "A single positive integer.",
+  "outputFormat": "Print the count.",
+  "constraints": [
+    "1 ≤ n ≤ 10^18"
+  ],
+  "examples": [
+    {
+      "input": "12345",
+      "output": "5"
+    }
+  ],
+  "tags": []
+}

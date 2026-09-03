@@ -1,0 +1,31 @@
+{
+  "id": "HM069",
+  "title": "Linear Search",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 69,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM068",
+  "unlockNext": "HM070",
+  "description": "Perform linear search: find the 0-based index of a target in the array, or -1 if not found.",
+  "inputFormat": "First line: n. Second line: n integers. Third line: target.",
+  "outputFormat": "Print the index (0-based) or -1.",
+  "constraints": [
+    "1 ≤ n ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "5\n10 20 30 40 50\n30",
+      "output": "2"
+    },
+    {
+      "input": "5\n10 20 30 40 50\n99",
+      "output": "-1"
+    }
+  ],
+  "tags": []
+}

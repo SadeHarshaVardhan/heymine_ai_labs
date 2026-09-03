@@ -1,0 +1,27 @@
+{
+  "id": "HM011",
+  "title": "Swap Two Numbers",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 11,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM010",
+  "unlockNext": "HM012",
+  "description": "Read two integers a and b, and print them in swapped order (b then a).",
+  "inputFormat": "Two space-separated integers a and b.",
+  "outputFormat": "Print b a (space-separated).",
+  "constraints": [
+    "1 ≤ a,b ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "5 10",
+      "output": "10 5"
+    }
+  ],
+  "tags": []
+}

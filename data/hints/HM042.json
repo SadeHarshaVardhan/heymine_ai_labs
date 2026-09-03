@@ -1,0 +1,8 @@
+{
+  "id": "HM042",
+  "hints": [
+    "Row i has i stars (1-indexed).",
+    "Row 1: *, Row 2: **, etc.",
+    "Simple nested loop."
+  ]
+}

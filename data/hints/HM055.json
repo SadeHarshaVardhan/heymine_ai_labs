@@ -1,0 +1,8 @@
+{
+  "id": "HM055",
+  "hints": [
+    "Define fibonacci(n) that returns first n Fibonacci numbers.",
+    "Return as space-separated string.",
+    "Start from 0 1 1 2 3..."
+  ]
+}

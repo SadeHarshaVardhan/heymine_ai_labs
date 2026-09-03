@@ -1,0 +1,27 @@
+{
+  "id": "HM068",
+  "title": "Reverse Array",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 68,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM067",
+  "unlockNext": "HM069",
+  "description": "Read an array and print its elements in reverse order.",
+  "inputFormat": "First line: n. Second line: n integers.",
+  "outputFormat": "Space-separated integers in reverse.",
+  "constraints": [
+    "1 ≤ n ≤ 100"
+  ],
+  "examples": [
+    {
+      "input": "4\n1 2 3 4",
+      "output": "4 3 2 1"
+    }
+  ],
+  "tags": []
+}

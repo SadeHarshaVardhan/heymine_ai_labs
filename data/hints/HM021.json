@@ -1,0 +1,8 @@
+{
+  "id": "HM021",
+  "hints": [
+    "Check if n % 2 == 0.",
+    "Print \"Even\" or \"Odd\" (exact case).",
+    "Works for negative numbers too."
+  ]
+}

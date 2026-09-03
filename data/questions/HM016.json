@@ -1,0 +1,27 @@
+{
+  "id": "HM016",
+  "title": "Average of Three Numbers",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 16,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM015",
+  "unlockNext": "HM017",
+  "description": "Read three numbers and print their average to 2 decimal places.",
+  "inputFormat": "Three space-separated numbers.",
+  "outputFormat": "Print average to 2 decimal places.",
+  "constraints": [
+    "1 ≤ a,b,c ≤ 10^6"
+  ],
+  "examples": [
+    {
+      "input": "10 20 30",
+      "output": "20.00"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "HM060",
+  "title": "Power Function",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 60,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "boss",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM059",
+  "unlockNext": "HM061",
+  "description": "Write a function power(base, exp) that computes base^exp without using built-in power functions.",
+  "inputFormat": "Two space-separated integers base and exp.",
+  "outputFormat": "Print the result.",
+  "constraints": [
+    "1 ≤ base ≤ 100",
+    "0 ≤ exp ≤ 10"
+  ],
+  "examples": [
+    {
+      "input": "2 8",
+      "output": "256"
+    }
+  ],
+  "tags": []
+}

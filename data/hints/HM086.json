@@ -1,0 +1,8 @@
+{
+  "id": "HM086",
+  "hints": [
+    "Remove duplicate elements, keep first occurrence.",
+    "Use a set to track seen elements.",
+    "Maintain original order."
+  ]
+}

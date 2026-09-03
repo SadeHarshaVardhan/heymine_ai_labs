@@ -1,0 +1,8 @@
+{
+  "id": "HM005",
+  "hints": [
+    "Read one word/string from stdin.",
+    "Print it back exactly as given.",
+    "No transformation needed."
+  ]
+}

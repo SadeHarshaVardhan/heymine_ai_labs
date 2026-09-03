@@ -1,0 +1,8 @@
+{
+  "id": "HM003",
+  "hints": [
+    "You need three separate print statements.",
+    "Each line is \"Line 1\", \"Line 2\", \"Line 3\".",
+    "No input is read for this problem."
+  ]
+}

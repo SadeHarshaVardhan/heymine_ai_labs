@@ -1,0 +1,8 @@
+{
+  "id": "HM065",
+  "hints": [
+    "Loop through array tracking the maximum.",
+    "Initialize max = first element.",
+    "Update when a larger element is found."
+  ]
+}

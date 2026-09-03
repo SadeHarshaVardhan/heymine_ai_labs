@@ -1,0 +1,27 @@
+{
+  "id": "HM017",
+  "title": "Square and Cube",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 17,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM016",
+  "unlockNext": "HM018",
+  "description": "Read an integer n and print its square and cube separated by a space.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "Print n*n n*n*n.",
+  "constraints": [
+    "1 ≤ n ≤ 100"
+  ],
+  "examples": [
+    {
+      "input": "4",
+      "output": "16 64"
+    }
+  ],
+  "tags": []
+}

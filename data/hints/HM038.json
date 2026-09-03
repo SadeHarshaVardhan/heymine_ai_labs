@@ -1,0 +1,8 @@
+{
+  "id": "HM038",
+  "hints": [
+    "Reverse digits of the number.",
+    "Convert to string, reverse, remove leading zeros.",
+    "Return as a number."
+  ]
+}

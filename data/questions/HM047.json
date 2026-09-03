@@ -1,0 +1,27 @@
+{
+  "id": "HM047",
+  "title": "Hollow Square",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 47,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM046",
+  "unlockNext": "HM048",
+  "description": "Print a hollow square of stars (only border stars, inside is spaces).",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "n rows of hollow square.",
+  "constraints": [
+    "2 ≤ n ≤ 10"
+  ],
+  "examples": [
+    {
+      "input": "4",
+      "output": "****\n*  *\n*  *\n****"
+    }
+  ],
+  "tags": []
+}

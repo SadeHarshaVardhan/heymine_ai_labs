@@ -1,0 +1,8 @@
+{
+  "id": "HM025",
+  "hints": [
+    "A year is a leap year if divisible by 4, but not 100, unless also divisible by 400.",
+    "Check: (y%4==0 && (y%100!=0 || y%400==0)).",
+    "Print \"Leap Year\" or \"Not a Leap Year\"."
+  ]
+}

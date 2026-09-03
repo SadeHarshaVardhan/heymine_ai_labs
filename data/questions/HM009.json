@@ -1,0 +1,27 @@
+{
+  "id": "HM009",
+  "title": "Divide Two Numbers",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 9,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM008",
+  "unlockNext": "HM010",
+  "description": "Read two integers and print the integer quotient of a divided by b.",
+  "inputFormat": "Two space-separated integers a and b.",
+  "outputFormat": "Print floor(a/b).",
+  "constraints": [
+    "1 ≤ b ≤ a ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "10 3",
+      "output": "3"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,27 @@
+{
+  "id": "HM058",
+  "title": "GCD using Function",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 58,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM057",
+  "unlockNext": "HM059",
+  "description": "Write a function gcd(a, b) to compute the Greatest Common Divisor using the Euclidean algorithm.",
+  "inputFormat": "Two space-separated integers a and b.",
+  "outputFormat": "Print GCD(a,b).",
+  "constraints": [
+    "1 ≤ a,b ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "12 18",
+      "output": "6"
+    }
+  ],
+  "tags": []
+}

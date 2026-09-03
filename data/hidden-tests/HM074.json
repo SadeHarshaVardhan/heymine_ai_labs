@@ -1,0 +1,22 @@
+[
+  {
+    "input": "algorithm",
+    "expected": "3"
+  },
+  {
+    "input": "structure",
+    "expected": "3"
+  },
+  {
+    "input": "algorithm",
+    "expected": "3"
+  },
+  {
+    "input": "function",
+    "expected": "3"
+  },
+  {
+    "input": "data",
+    "expected": "2"
+  }
+]

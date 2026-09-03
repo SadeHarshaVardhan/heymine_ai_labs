@@ -1,0 +1,27 @@
+{
+  "id": "HM018",
+  "title": "ASCII Value of Character",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 18,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM017",
+  "unlockNext": "HM019",
+  "description": "Read a single character and print its ASCII value.",
+  "inputFormat": "A single character.",
+  "outputFormat": "Print the ASCII code.",
+  "constraints": [
+    "Printable ASCII character"
+  ],
+  "examples": [
+    {
+      "input": "A",
+      "output": "65"
+    }
+  ],
+  "tags": []
+}

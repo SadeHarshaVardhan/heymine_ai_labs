@@ -1,0 +1,8 @@
+{
+  "id": "HM016",
+  "hints": [
+    "Read three numbers and compute (a+b+c)/3.",
+    "Use floating point division.",
+    "Print to 2 decimal places."
+  ]
+}

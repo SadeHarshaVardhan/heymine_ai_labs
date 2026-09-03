@@ -1,0 +1,27 @@
+{
+  "id": "HM082",
+  "title": "Selection Sort",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 82,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM081",
+  "unlockNext": "HM083",
+  "description": "Implement Selection Sort to sort an array in ascending order.",
+  "inputFormat": "First line: n. Second line: n integers.",
+  "outputFormat": "Sorted integers space-separated.",
+  "constraints": [
+    "1 ≤ n ≤ 100"
+  ],
+  "examples": [
+    {
+      "input": "5\n64 25 12 22 11",
+      "output": "11 12 22 25 64"
+    }
+  ],
+  "tags": []
+}

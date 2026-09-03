@@ -1,0 +1,22 @@
+[
+  {
+    "input": "35",
+    "expected": "1.67"
+  },
+  {
+    "input": "22",
+    "expected": "-5.56"
+  },
+  {
+    "input": "9",
+    "expected": "-12.78"
+  },
+  {
+    "input": "0",
+    "expected": "-17.78"
+  },
+  {
+    "input": "13",
+    "expected": "-10.56"
+  }
+]

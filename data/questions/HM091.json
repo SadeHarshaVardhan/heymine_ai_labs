@@ -1,0 +1,27 @@
+{
+  "id": "HM091",
+  "title": "Decimal to Binary",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 91,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM090",
+  "unlockNext": "HM092",
+  "description": "Convert a decimal (base-10) integer to binary (base-2).",
+  "inputFormat": "A single non-negative integer.",
+  "outputFormat": "Print the binary representation.",
+  "constraints": [
+    "0 ≤ n ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "10",
+      "output": "1010"
+    }
+  ],
+  "tags": []
+}

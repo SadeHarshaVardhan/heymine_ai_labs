@@ -1,0 +1,22 @@
+[
+  {
+    "input": "programming",
+    "expected": "3"
+  },
+  {
+    "input": "data",
+    "expected": "2"
+  },
+  {
+    "input": "function",
+    "expected": "3"
+  },
+  {
+    "input": "programming",
+    "expected": "3"
+  },
+  {
+    "input": "structure",
+    "expected": "3"
+  }
+]

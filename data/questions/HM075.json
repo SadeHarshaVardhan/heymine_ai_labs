@@ -1,0 +1,27 @@
+{
+  "id": "HM075",
+  "title": "Count Words",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 75,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM074",
+  "unlockNext": "HM076",
+  "description": "Count the number of words in a sentence.",
+  "inputFormat": "A sentence (may have multiple spaces).",
+  "outputFormat": "Print the word count.",
+  "constraints": [
+    "1 ≤ words ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "hello world",
+      "output": "2"
+    }
+  ],
+  "tags": []
+}

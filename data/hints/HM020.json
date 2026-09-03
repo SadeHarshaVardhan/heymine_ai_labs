@@ -1,0 +1,8 @@
+{
+  "id": "HM020",
+  "hints": [
+    "Read: number operator number (e.g., \"5 + 3\").",
+    "Handle +, -, *, / cases.",
+    "Use integer division for /."
+  ]
+}

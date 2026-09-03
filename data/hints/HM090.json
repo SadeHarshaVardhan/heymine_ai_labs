@@ -1,0 +1,8 @@
+{
+  "id": "HM090",
+  "hints": [
+    "Prefix sum[i] = sum of arr[0..i].",
+    "Compute iteratively, adding as you go.",
+    "Print all prefix sums space-separated."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "HM033",
+  "hints": [
+    "Read the number n and rows r.",
+    "Print n x 1 = n, n x 2 = 2n, ... up to r rows.",
+    "Format: \"n x i = n*i\"."
+  ]
+}

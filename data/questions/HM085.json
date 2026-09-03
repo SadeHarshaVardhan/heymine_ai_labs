@@ -1,0 +1,27 @@
+{
+  "id": "HM085",
+  "title": "Merge Two Arrays",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 85,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM084",
+  "unlockNext": "HM086",
+  "description": "Merge two arrays and print all elements sorted in ascending order.",
+  "inputFormat": "First line: n1. Second line: n1 integers. Third line: n2. Fourth line: n2 integers.",
+  "outputFormat": "Sorted merged array space-separated.",
+  "constraints": [
+    "1 ≤ n1,n2 ≤ 100"
+  ],
+  "examples": [
+    {
+      "input": "3\n1 3 5\n3\n2 4 6",
+      "output": "1 2 3 4 5 6"
+    }
+  ],
+  "tags": []
+}

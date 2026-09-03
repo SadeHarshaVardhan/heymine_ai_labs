@@ -1,0 +1,27 @@
+{
+  "id": "HM093",
+  "title": "GCD",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 93,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM092",
+  "unlockNext": "HM094",
+  "description": "Find the GCD (Greatest Common Divisor) of two numbers using the Euclidean algorithm.",
+  "inputFormat": "Two space-separated integers a and b.",
+  "outputFormat": "Print GCD(a,b).",
+  "constraints": [
+    "1 ≤ a,b ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "48 18",
+      "output": "6"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "id": "HM093",
+  "hints": [
+    "GCD (Greatest Common Divisor) using Euclidean algorithm.",
+    "gcd(a,b) = gcd(b, a%b) until b=0.",
+    "Result is always positive."
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "input": "programming",
+    "expected": "a:1\ng:2\ni:1\nm:2\nn:1\no:1\np:1\nr:2"
+  },
+  {
+    "input": "data",
+    "expected": "a:2\nd:1\nt:1"
+  },
+  {
+    "input": "aabbc",
+    "expected": "a:2\nb:2\nc:1"
+  },
+  {
+    "input": "hello",
+    "expected": "e:1\nh:1\nl:2\no:1"
+  },
+  {
+    "input": "programming",
+    "expected": "a:1\ng:2\ni:1\nm:2\nn:1\no:1\np:1\nr:2"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "id": "HM091",
+  "hints": [
+    "Divide by 2 repeatedly, collect remainders.",
+    "Remainders read bottom-up give binary.",
+    "Or use bin() in Python."
+  ]
+}

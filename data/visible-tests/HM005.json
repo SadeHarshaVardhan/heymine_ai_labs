@@ -1,0 +1,22 @@
+[
+  {
+    "input": "Hello",
+    "expected": "Hello"
+  },
+  {
+    "input": "Code",
+    "expected": "Code"
+  },
+  {
+    "input": "Python",
+    "expected": "Python"
+  },
+  {
+    "input": "Hello",
+    "expected": "Hello"
+  },
+  {
+    "input": "Learn",
+    "expected": "Learn"
+  }
+]

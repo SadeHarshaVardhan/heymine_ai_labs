@@ -1,0 +1,25 @@
+{
+  "id": "HM003",
+  "title": "Print Multiple Lines",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 3,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM002",
+  "unlockNext": "HM004",
+  "description": "Print exactly three lines: Line 1, Line 2, Line 3.",
+  "inputFormat": "No input required.",
+  "outputFormat": "Three lines of text.",
+  "constraints": [],
+  "examples": [
+    {
+      "input": "",
+      "output": "Line 1\nLine 2\nLine 3"
+    }
+  ],
+  "tags": []
+}

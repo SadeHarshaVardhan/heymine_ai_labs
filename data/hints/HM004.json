@@ -1,0 +1,8 @@
+{
+  "id": "HM004",
+  "hints": [
+    "Read one integer from stdin.",
+    "Print the same integer back.",
+    "Use int in all languages."
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "input": "21",
+    "expected": "Eligible"
+  },
+  {
+    "input": "8",
+    "expected": "Not Eligible"
+  },
+  {
+    "input": "35",
+    "expected": "Eligible"
+  },
+  {
+    "input": "36",
+    "expected": "Eligible"
+  },
+  {
+    "input": "9",
+    "expected": "Not Eligible"
+  }
+]

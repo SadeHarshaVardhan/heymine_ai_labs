@@ -1,0 +1,27 @@
+{
+  "id": "HM024",
+  "title": "Largest of Three",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 24,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM023",
+  "unlockNext": "HM025",
+  "description": "Read three integers and print the largest.",
+  "inputFormat": "Three space-separated integers.",
+  "outputFormat": "Print the maximum value.",
+  "constraints": [
+    "-10^9 ≤ a,b,c ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "10 30 20",
+      "output": "30"
+    }
+  ],
+  "tags": []
+}

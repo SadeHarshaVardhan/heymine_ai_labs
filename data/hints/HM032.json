@@ -1,0 +1,8 @@
+{
+  "id": "HM032",
+  "hints": [
+    "Factorial: n! = 1*2*3*...*n.",
+    "Use a loop, multiply as you go.",
+    "0! = 1 and 1! = 1."
+  ]
+}

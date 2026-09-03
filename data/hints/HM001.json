@@ -1,0 +1,8 @@
+{
+  "id": "HM001",
+  "hints": [
+    "Use print() in Python, System.out.println() in Java, printf in C/C++.",
+    "The output is exactly: Hello World (case-sensitive).",
+    "No input is needed — just print the string directly."
+  ]
+}

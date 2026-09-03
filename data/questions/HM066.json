@@ -1,0 +1,27 @@
+{
+  "id": "HM066",
+  "title": "Minimum Element",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 66,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM065",
+  "unlockNext": "HM067",
+  "description": "Read an array and find the minimum element.",
+  "inputFormat": "First line: n. Second line: n integers.",
+  "outputFormat": "Print the minimum.",
+  "constraints": [
+    "1 ≤ n ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "5\n3 1 4 1 5",
+      "output": "1"
+    }
+  ],
+  "tags": []
+}

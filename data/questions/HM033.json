@@ -1,0 +1,28 @@
+{
+  "id": "HM033",
+  "title": "Multiplication Table",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 33,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM032",
+  "unlockNext": "HM034",
+  "description": "Read a number n and rows r, then print the multiplication table of n for 1 to r rows.\nFormat: \"n x i = n*i\".",
+  "inputFormat": "Two space-separated integers n and r.",
+  "outputFormat": "r lines of multiplication table.",
+  "constraints": [
+    "1 ≤ n ≤ 99",
+    "1 ≤ r ≤ 10"
+  ],
+  "examples": [
+    {
+      "input": "5 3",
+      "output": "5 x 1 = 5\n5 x 2 = 10\n5 x 3 = 15"
+    }
+  ],
+  "tags": []
+}

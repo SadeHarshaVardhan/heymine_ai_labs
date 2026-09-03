@@ -1,0 +1,8 @@
+{
+  "id": "HM094",
+  "hints": [
+    "LCM = (a*b) / GCD(a,b).",
+    "Compute GCD first.",
+    "Watch for overflow in C/Java with large numbers."
+  ]
+}

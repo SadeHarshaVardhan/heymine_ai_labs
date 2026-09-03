@@ -1,0 +1,8 @@
+{
+  "id": "HM083",
+  "hints": [
+    "Insertion sort: take one element, insert in correct position.",
+    "Like sorting playing cards.",
+    "Shift elements right to make room."
+  ]
+}

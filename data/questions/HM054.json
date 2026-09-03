@@ -1,0 +1,27 @@
+{
+  "id": "HM054",
+  "title": "Function - Prime Check",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 54,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM053",
+  "unlockNext": "HM055",
+  "description": "Write a function isPrime(n) that checks if n is prime.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "Print \"Prime\" or \"Not Prime\".",
+  "constraints": [
+    "1 ≤ n ≤ 10^6"
+  ],
+  "examples": [
+    {
+      "input": "13",
+      "output": "Prime"
+    }
+  ],
+  "tags": []
+}

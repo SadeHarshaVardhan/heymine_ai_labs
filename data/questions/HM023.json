@@ -1,0 +1,27 @@
+{
+  "id": "HM023",
+  "title": "Largest of Two",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 23,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM022",
+  "unlockNext": "HM024",
+  "description": "Read two integers and print the larger one.",
+  "inputFormat": "Two space-separated integers a and b.",
+  "outputFormat": "Print max(a,b).",
+  "constraints": [
+    "-10^9 ≤ a,b ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "10 20",
+      "output": "20"
+    }
+  ],
+  "tags": []
+}

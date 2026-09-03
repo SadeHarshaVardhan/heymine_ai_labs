@@ -1,0 +1,8 @@
+{
+  "id": "HM044",
+  "hints": [
+    "Row i needs (n-i) spaces then (2i-1) stars.",
+    "Center each row with leading spaces.",
+    "Use string repetition."
+  ]
+}

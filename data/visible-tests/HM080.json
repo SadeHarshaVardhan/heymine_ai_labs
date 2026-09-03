@@ -1,0 +1,22 @@
+[
+  {
+    "input": "triangle\nintegral",
+    "expected": "Anagram"
+  },
+  {
+    "input": "hello\nworld",
+    "expected": "Not Anagram"
+  },
+  {
+    "input": "listen\nsilent",
+    "expected": "Anagram"
+  },
+  {
+    "input": "hello\nworld",
+    "expected": "Not Anagram"
+  },
+  {
+    "input": "triangle\nintegral",
+    "expected": "Anagram"
+  }
+]

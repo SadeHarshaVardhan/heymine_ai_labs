@@ -1,0 +1,8 @@
+{
+  "id": "HM069",
+  "hints": [
+    "Loop through array, compare each element with target.",
+    "Return index (0-based) if found, -1 if not.",
+    "Print the index."
+  ]
+}

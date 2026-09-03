@@ -1,0 +1,8 @@
+{
+  "id": "HM029",
+  "hints": [
+    "Use a loop from 1 to N.",
+    "Print all numbers space-separated on one line.",
+    "No trailing spaces needed."
+  ]
+}

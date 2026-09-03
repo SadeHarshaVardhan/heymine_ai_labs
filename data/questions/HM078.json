@@ -1,0 +1,27 @@
+{
+  "id": "HM078",
+  "title": "Character Frequency",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 78,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM077",
+  "unlockNext": "HM079",
+  "description": "Count the frequency of each character in a string.\nPrint each character and its count alphabetically sorted.",
+  "inputFormat": "A single string (lowercase letters only).",
+  "outputFormat": "Each line: \"char:count\" sorted alphabetically.",
+  "constraints": [
+    "Length ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "aab",
+      "output": "a:2\nb:1"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "id": "HM061",
+  "hints": [
+    "Read n, then n space-separated numbers.",
+    "Store them and print them back.",
+    "Use array/list."
+  ]
+}

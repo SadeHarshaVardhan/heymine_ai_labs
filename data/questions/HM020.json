@@ -1,0 +1,31 @@
+{
+  "id": "HM020",
+  "title": "Mini Calculator",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 20,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "boss",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM019",
+  "unlockNext": "HM021",
+  "description": "Read two numbers and an operator (+, -, *, /). Print the result. Use integer division.",
+  "inputFormat": "Two integers and operator: a op b.",
+  "outputFormat": "Print the result or \"Error\" for division by zero.",
+  "constraints": [
+    "1 ≤ a,b ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "10 + 5",
+      "output": "15"
+    },
+    {
+      "input": "10 / 2",
+      "output": "5"
+    }
+  ],
+  "tags": []
+}

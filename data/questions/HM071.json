@@ -1,0 +1,27 @@
+{
+  "id": "HM071",
+  "title": "String Length",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 71,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM070",
+  "unlockNext": "HM072",
+  "description": "Read a string and print its length.",
+  "inputFormat": "A single string (no spaces).",
+  "outputFormat": "Print the length.",
+  "constraints": [
+    "1 ≤ length ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "hello",
+      "output": "5"
+    }
+  ],
+  "tags": []
+}

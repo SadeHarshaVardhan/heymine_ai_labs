@@ -1,0 +1,27 @@
+{
+  "id": "HM070",
+  "title": "Count Even & Odd",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 70,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM069",
+  "unlockNext": "HM071",
+  "description": "Count how many elements in the array are even and how many are odd.",
+  "inputFormat": "First line: n. Second line: n integers.",
+  "outputFormat": "Print \"evenCount oddCount\".",
+  "constraints": [
+    "1 ≤ n ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "6\n1 2 3 4 5 6",
+      "output": "3 3"
+    }
+  ],
+  "tags": []
+}

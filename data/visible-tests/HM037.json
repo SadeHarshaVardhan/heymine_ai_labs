@@ -1,0 +1,22 @@
+[
+  {
+    "input": "123",
+    "expected": "Not Palindrome"
+  },
+  {
+    "input": "1221",
+    "expected": "Palindrome"
+  },
+  {
+    "input": "200",
+    "expected": "Not Palindrome"
+  },
+  {
+    "input": "121",
+    "expected": "Palindrome"
+  },
+  {
+    "input": "789",
+    "expected": "Not Palindrome"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "id": "HM084",
+  "hints": [
+    "Binary search on sorted array: check middle element.",
+    "If target < mid: search left half, else right half.",
+    "Return -1 if not found."
+  ]
+}

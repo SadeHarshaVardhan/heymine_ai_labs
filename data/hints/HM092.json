@@ -1,0 +1,8 @@
+{
+  "id": "HM092",
+  "hints": [
+    "Binary to decimal: multiply each bit by 2^position.",
+    "Rightmost bit is position 0.",
+    "Or use int(binary, 2) in Python."
+  ]
+}

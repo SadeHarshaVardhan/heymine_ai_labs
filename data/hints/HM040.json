@@ -1,0 +1,8 @@
+{
+  "id": "HM040",
+  "hints": [
+    "Extract each digit and sum them.",
+    "Use % 10 to get last digit, / 10 to remove it.",
+    "Sum = 1+2+3 for 123."
+  ]
+}

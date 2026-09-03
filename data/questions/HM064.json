@@ -1,0 +1,27 @@
+{
+  "id": "HM064",
+  "title": "Average of Array",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 64,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM063",
+  "unlockNext": "HM065",
+  "description": "Read an array and print the average to 2 decimal places.",
+  "inputFormat": "First line: n. Second line: n integers.",
+  "outputFormat": "Print average with 2 decimal places.",
+  "constraints": [
+    "1 ≤ n ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "4\n10 20 30 40",
+      "output": "25.00"
+    }
+  ],
+  "tags": []
+}

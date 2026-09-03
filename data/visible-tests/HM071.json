@@ -1,0 +1,22 @@
+[
+  {
+    "input": "java",
+    "expected": "4"
+  },
+  {
+    "input": "python",
+    "expected": "6"
+  },
+  {
+    "input": "programming",
+    "expected": "11"
+  },
+  {
+    "input": "python",
+    "expected": "6"
+  },
+  {
+    "input": "java",
+    "expected": "4"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "id": "HM079",
+  "title": "Compare Strings",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 79,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM078",
+  "unlockNext": "HM080",
+  "description": "Read two strings and check if they are equal.",
+  "inputFormat": "Two strings on separate lines.",
+  "outputFormat": "Print \"Equal\" or \"Not Equal\".",
+  "constraints": [
+    "Length ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "hello\nhello",
+      "output": "Equal"
+    },
+    {
+      "input": "hello\nworld",
+      "output": "Not Equal"
+    }
+  ],
+  "tags": []
+}

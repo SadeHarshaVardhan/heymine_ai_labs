@@ -1,0 +1,27 @@
+{
+  "id": "HM090",
+  "title": "Prefix Sum",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 90,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM089",
+  "unlockNext": "HM091",
+  "description": "Compute the prefix sum array.\nprefix[i] = arr[0] + arr[1] + ... + arr[i].",
+  "inputFormat": "First line: n. Second line: n integers.",
+  "outputFormat": "Prefix sums space-separated.",
+  "constraints": [
+    "1 ≤ n ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "4\n1 2 3 4",
+      "output": "1 3 6 10"
+    }
+  ],
+  "tags": []
+}

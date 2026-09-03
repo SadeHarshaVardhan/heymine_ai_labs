@@ -1,0 +1,27 @@
+{
+  "id": "HM051",
+  "title": "Function - Add",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 51,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM050",
+  "unlockNext": "HM052",
+  "description": "Write a function add(a, b) that returns the sum of two numbers. Read a and b, call the function, and print the result.",
+  "inputFormat": "Two space-separated integers.",
+  "outputFormat": "Print the sum.",
+  "constraints": [
+    "1 ≤ a,b ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "3 4",
+      "output": "7"
+    }
+  ],
+  "tags": []
+}

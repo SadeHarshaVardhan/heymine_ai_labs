@@ -1,0 +1,8 @@
+{
+  "id": "HM037",
+  "hints": [
+    "Reverse the number and compare with original.",
+    "Use string reversal or math reversal.",
+    "121 reversed = 121 → Palindrome."
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "input": "9",
+    "expected": "Neon"
+  },
+  {
+    "input": "2",
+    "expected": "Not Neon"
+  },
+  {
+    "input": "9",
+    "expected": "Neon"
+  },
+  {
+    "input": "100",
+    "expected": "Not Neon"
+  },
+  {
+    "input": "9",
+    "expected": "Neon"
+  }
+]

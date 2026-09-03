@@ -1,0 +1,22 @@
+[
+  {
+    "input": "World",
+    "expected": "World"
+  },
+  {
+    "input": "Learn",
+    "expected": "Learn"
+  },
+  {
+    "input": "World",
+    "expected": "World"
+  },
+  {
+    "input": "Python",
+    "expected": "Python"
+  },
+  {
+    "input": "Code",
+    "expected": "Code"
+  }
+]

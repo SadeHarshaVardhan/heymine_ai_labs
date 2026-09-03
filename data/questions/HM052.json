@@ -1,0 +1,27 @@
+{
+  "id": "HM052",
+  "title": "Function - Maximum",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 52,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM051",
+  "unlockNext": "HM053",
+  "description": "Write a function maximum(a, b) that returns the larger of two numbers.",
+  "inputFormat": "Two space-separated integers.",
+  "outputFormat": "Print the maximum.",
+  "constraints": [
+    "-10^9 ≤ a,b ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "10 20",
+      "output": "20"
+    }
+  ],
+  "tags": []
+}

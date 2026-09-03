@@ -1,0 +1,27 @@
+{
+  "id": "HM076",
+  "title": "Toggle Case",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 76,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM075",
+  "unlockNext": "HM077",
+  "description": "Toggle the case of each character: uppercase → lowercase, lowercase → uppercase.",
+  "inputFormat": "A string.",
+  "outputFormat": "Print the toggled string.",
+  "constraints": [
+    "Length ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "Hello World",
+      "output": "hELLO wORLD"
+    }
+  ],
+  "tags": []
+}

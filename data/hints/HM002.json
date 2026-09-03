@@ -1,0 +1,8 @@
+{
+  "id": "HM002",
+  "hints": [
+    "Read a line from stdin, then print it as-is.",
+    "Use input() in Python, Scanner in Java, scanf in C.",
+    "The output should match the input name exactly."
+  ]
+}

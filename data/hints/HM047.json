@@ -1,0 +1,8 @@
+{
+  "id": "HM047",
+  "hints": [
+    "Top and bottom rows: all stars.",
+    "Middle rows: star + spaces + star.",
+    "Inner width = n-2 spaces."
+  ]
+}

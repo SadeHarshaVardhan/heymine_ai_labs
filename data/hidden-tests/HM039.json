@@ -1,0 +1,22 @@
+[
+  {
+    "input": "3961",
+    "expected": "4"
+  },
+  {
+    "input": "6548",
+    "expected": "4"
+  },
+  {
+    "input": "5181",
+    "expected": "4"
+  },
+  {
+    "input": "2594",
+    "expected": "4"
+  },
+  {
+    "input": "9007",
+    "expected": "4"
+  }
+]

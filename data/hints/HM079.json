@@ -1,0 +1,8 @@
+{
+  "id": "HM079",
+  "hints": [
+    "Compare two strings using ==.",
+    "Case-sensitive comparison.",
+    "Print \"Equal\" or \"Not Equal\"."
+  ]
+}

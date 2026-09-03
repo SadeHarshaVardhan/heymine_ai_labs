@@ -1,0 +1,8 @@
+{
+  "id": "HM008",
+  "hints": [
+    "Read two integers and multiply them.",
+    "Use * operator.",
+    "The result may be large — consider larger data types."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "HM096",
+  "hints": [
+    "Strong number: sum of factorial of digits equals the number.",
+    "145 = 1! + 4! + 5! = 145 ✓.",
+    "Precompute factorials 0–9."
+  ]
+}

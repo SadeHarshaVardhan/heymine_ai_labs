@@ -1,0 +1,8 @@
+{
+  "id": "HM087",
+  "hints": [
+    "Count how many times each element appears.",
+    "Use a dictionary/map.",
+    "Print \"element:count\" for each unique element."
+  ]
+}

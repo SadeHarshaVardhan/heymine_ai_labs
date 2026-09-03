@@ -1,0 +1,27 @@
+{
+  "id": "HM030",
+  "title": "Print N to 1",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 30,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM029",
+  "unlockNext": "HM031",
+  "description": "Read n and print all integers from n down to 1, space-separated.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "Space-separated integers from n to 1.",
+  "constraints": [
+    "1 ≤ n ≤ 100"
+  ],
+  "examples": [
+    {
+      "input": "5",
+      "output": "5 4 3 2 1"
+    }
+  ],
+  "tags": []
+}

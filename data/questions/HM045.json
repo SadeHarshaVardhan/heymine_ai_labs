@@ -1,0 +1,27 @@
+{
+  "id": "HM045",
+  "title": "Inverted Pyramid",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 45,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM044",
+  "unlockNext": "HM046",
+  "description": "Print an inverted pyramid (widest at top, narrowest at bottom).",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "n rows of centered stars.",
+  "constraints": [
+    "1 ≤ n ≤ 10"
+  ],
+  "examples": [
+    {
+      "input": "3",
+      "output": "*****\n ***\n  *"
+    }
+  ],
+  "tags": []
+}

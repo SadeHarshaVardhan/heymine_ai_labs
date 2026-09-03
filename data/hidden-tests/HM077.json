@@ -1,0 +1,22 @@
+[
+  {
+    "input": "w o r l d",
+    "expected": "world"
+  },
+  {
+    "input": "h e l l o",
+    "expected": "hello"
+  },
+  {
+    "input": "w o r l d",
+    "expected": "world"
+  },
+  {
+    "input": "p y t h o n",
+    "expected": "python"
+  },
+  {
+    "input": "h e y m i n e",
+    "expected": "heymine"
+  }
+]

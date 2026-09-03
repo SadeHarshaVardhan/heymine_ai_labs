@@ -1,0 +1,27 @@
+{
+  "id": "HM002",
+  "title": "Print Your Name",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 2,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM001",
+  "unlockNext": "HM003",
+  "description": "Read a name from stdin and print it.",
+  "inputFormat": "A single string (the name).",
+  "outputFormat": "Print the name as-is.",
+  "constraints": [
+    "Name contains only letters"
+  ],
+  "examples": [
+    {
+      "input": "Alice",
+      "output": "Alice"
+    }
+  ],
+  "tags": []
+}

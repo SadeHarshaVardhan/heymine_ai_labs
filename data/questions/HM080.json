@@ -1,0 +1,31 @@
+{
+  "id": "HM080",
+  "title": "Anagram Check",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 80,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "boss",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM079",
+  "unlockNext": "HM081",
+  "description": "Check if two strings are anagrams of each other.\nAnagrams contain the same characters with the same frequency.",
+  "inputFormat": "Two strings on separate lines.",
+  "outputFormat": "Print \"Anagram\" or \"Not Anagram\".",
+  "constraints": [
+    "Length ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "listen\nsilent",
+      "output": "Anagram"
+    },
+    {
+      "input": "hello\nworld",
+      "output": "Not Anagram"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "input": "1",
+    "expected": "Armstrong"
+  },
+  {
+    "input": "100",
+    "expected": "Not Armstrong"
+  },
+  {
+    "input": "407",
+    "expected": "Armstrong"
+  },
+  {
+    "input": "2",
+    "expected": "Not Armstrong"
+  },
+  {
+    "input": "371",
+    "expected": "Armstrong"
+  }
+]

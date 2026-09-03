@@ -1,0 +1,27 @@
+{
+  "id": "HM050",
+  "title": "Pascal Triangle",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 50,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM049",
+  "unlockNext": "HM051",
+  "description": "Print Pascal's triangle with n rows.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "n rows of Pascal's triangle.",
+  "constraints": [
+    "1 ≤ n ≤ 10"
+  ],
+  "examples": [
+    {
+      "input": "4",
+      "output": "1\n1 1\n1 2 1\n1 3 3 1"
+    }
+  ],
+  "tags": []
+}

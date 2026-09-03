@@ -4,8 +4,8 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-// Use a supported model (updated 2026-06)
-const MODEL = "llama-3.3-70b-versatile"; // or 'llama-3.1-8b-instant'
+// Use a supported model (updated 2026-09; verified against this Groq account's model list)
+const MODEL = "qwen/qwen3.8-27b";
 
 const SYSTEM_PROMPTS = {
   problem: `You are an expert coding problem generator. Generate a unique coding problem suitable for beginners to intermediate programmers. 
@@ -103,6 +103,132 @@ async function getHint(req, res) {
   }
 }
 
+/**
+ * Classifies if a message is programming-related, a greeting, or a learning/teaching request.
+ * Returns true if coding-related, educational intent, or a standard greeting/polite prompt.
+ * Returns false ONLY for clearly off-topic content (e.g. politics, sports, cooking, geography).
+ */
+async function isCodingRelated(message) {
+  if (!message) return false;
+  const lowerMsg = message.trim().toLowerCase();
+
+  // 0. @tag commands — always allowed
+  if (lowerMsg.startsWith('@')) return true;
+
+  // 1. Local check: Greetings, politeness, and simple yes/no
+  const commonGreetings = [
+    "hi", "hello", "hey", "good morning", "good afternoon", "good evening",
+    "thanks", "thank you", "help", "yes", "no", "ok", "okay", "bye", "goodbye"
+  ];
+  const cleanMsg = lowerMsg.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "").trim();
+  if (commonGreetings.includes(cleanMsg)) return true;
+
+  // 2. Local check: Problem-solving / teaching / educational intent
+  const educationalPhrases = [
+    "how to solve", "how do i solve", "how can i solve", "solve this",
+    "what is the approach", "what approach", "best approach", "which approach",
+    "hint", "give me a hint", "give hint",
+    "explain", "explain this", "step by step", "walk me through",
+    "what is the solution", "show solution", "show me the solution", "solution for",
+    "how to approach", "how should i approach", "approach for",
+    "what algorithm", "which algorithm", "algorithm for",
+    "what logic", "logic for", "logic behind",
+    "teach me", "can you teach", "help me understand", "help me with",
+    "what does this mean", "what does this do",
+    "why is my code", "why does my code", "my code", "my solution",
+    "new problem", "generate problem", "next problem", "another problem",
+    "try again", "try this", "test case", "edge case",
+    "time complexity", "space complexity", "big o", "complexity",
+    "optimize", "optimise", "optimization", "optimisation",
+    "brute force", "dynamic programming", "dp approach", "greedy", "divide and conquer",
+    "two pointer", "sliding window", "binary search", "recursion", "backtracking",
+    "what is wrong", "whats wrong", "what went wrong", "fix my", "fix the",
+    "debug", "error in", "output is wrong", "wrong output", "wrong answer",
+    "can you help", "please help", "i need help", "i am stuck", "i'm stuck", "stuck on",
+    "how to start", "where to start", "how to begin"
+  ];
+  if (educationalPhrases.some(phrase => lowerMsg.includes(phrase))) return true;
+
+  // 3. Local check: Coding symbols/syntax & keywords
+  const codingKeywords = [
+    "function", "class", "def ", "public static", "import ", "include ", "cout ", "printf", "console.log",
+    "var ", "let ", "const ", "html", "css", "sql", "select ", "where ", "java", "python", "javascript", "c++",
+    "compiler", "loop", "array", "string", "algorithm", "compile", "syntax", "error", "bug", "debug", "recursion",
+    "variable", "pointer", "object", "interface", "struct", "list", "dict", "map", "hash", "set", "binary", "tree", "graph"
+  ];
+  const hasCodingSymbol = /[{}[\]()=+\-*/<>&|]/.test(message);
+  if (codingKeywords.some(keyword => lowerMsg.includes(keyword)) || hasCodingSymbol) return true;
+
+  // 4. AI classification — with improved prompt that understands educational context
+  try {
+    const classificationResponse = await groq.chat.completions.create({
+      model: MODEL,
+      messages: [
+        {
+          role: "system",
+          content: `You are a topic classifier for an AI coding education platform.
+The user is a student learning programming. Respond ONLY with 'yes' or 'no'.
+
+Answer 'yes' if the message is about:
+- Coding, programming, algorithms, data structures, software engineering
+- Asking how to solve a problem, get a hint, understand an approach, or learn a concept
+- Asking for explanations of code, logic, or programming topics
+- General educational questions about CS / computer science
+- Greetings, thanks, or polite conversation
+- Questions about the current problem they are solving
+
+Answer 'no' ONLY if the message is CLEARLY about unrelated topics like:
+- Politics, sports, cooking, geography, history, entertainment, celebrities
+- Personal advice, medical questions, financial advice
+
+When in doubt, answer 'yes'. A student asking "how to solve this" or "what is the approach" is ALWAYS 'yes'.`
+        },
+        { role: "user", content: message }
+      ],
+      temperature: 0.0,
+      max_tokens: 5,
+    });
+    const result = classificationResponse.choices[0].message.content.trim().toLowerCase();
+    return result.includes("yes");
+  } catch (err) {
+    console.warn("Classification failed, retrying:", err);
+    try {
+      const classificationResponse = await groq.chat.completions.create({
+        model: MODEL,
+        messages: [
+          {
+            role: "system",
+            content: `You are a topic classifier for an AI coding education platform. 
+The user is a student learning programming. Respond ONLY with 'yes' or 'no'.
+
+Answer 'yes' if the message is about:
+- Coding, programming, algorithms, data structures, software engineering
+- Asking how to solve a problem, get a hint, understand an approach, or learn a concept
+- Asking for explanations of code, logic, or programming topics
+- General educational questions about CS / computer science
+- Greetings, thanks, or polite conversation
+- Questions about the current problem they are solving
+
+Answer 'no' ONLY if the message is CLEARLY about unrelated topics like:
+- Politics, sports, cooking, geography, history, entertainment, celebrities
+- Personal advice, medical questions, financial advice
+
+When in doubt, answer 'yes'.`
+          },
+          { role: "user", content: message }
+        ],
+        temperature: 0.0,
+        max_tokens: 5,
+      });
+      const result = classificationResponse.choices[0].message.content.trim().toLowerCase();
+      return result.includes("yes");
+    } catch (fallbackErr) {
+      console.error("Classification completely failed, defaulting to true:", fallbackErr);
+      return true; // Don't block user if classification calls fail
+    }
+  }
+}
+
 async function chat(req, res) {
   try {
     const { message, context, history } = req.body;
@@ -112,6 +238,49 @@ async function chat(req, res) {
         error: "Message is required",
       });
     }
+
+    // Resolve @tag commands into full prompts before guardrail check
+    let resolvedMessage = message;
+    const atTagMap = {
+      '@solve':       'Provide the full solution to this problem with explanation.',
+      '@hint':        'Give me a helpful hint for this problem without revealing the full solution.',
+      '@approach':    'What is the best approach/algorithm to solve this problem? Explain the strategy.',
+      '@try':         'Let me try this problem — give me a starting point or first step.',
+      '@explain':     'Explain this problem step by step so I can understand it clearly.',
+      '@new':         'Give me a new coding problem to solve.',
+      '@complexity':  'What is the time and space complexity of the optimal solution for this problem?',
+      '@optimize':    'How can I optimize my current solution for better time or space complexity?',
+      '@debug':       'Help me debug my code and identify what is wrong.',
+      '@howtosolve':  'Walk me through how to solve this problem from start to finish.',
+      '@how to solve':'Walk me through how to solve this problem from start to finish.',
+    };
+    const lowerMsg = message.trim().toLowerCase();
+    for (const [tag, expansion] of Object.entries(atTagMap)) {
+      if (lowerMsg.startsWith(tag)) {
+        const extra = message.slice(tag.length).trim();
+        resolvedMessage = expansion + (extra ? ' ' + extra : '');
+        break;
+      }
+    }
+
+    // Guardrail: check if the query is coding-related
+    const isRelated = await isCodingRelated(resolvedMessage);
+    if (!isRelated) {
+      return res.json({
+        success: true,
+        response: "I'm HeyMine, your AI coding teacher! 🤖 I can help you with:\n\n" +
+          "- 💡 **@hint** — Get a hint for the current problem\n" +
+          "- 🔍 **@approach** — Learn the best approach/algorithm\n" +
+          "- ✅ **@solve** — See the full solution with explanation\n" +
+          "- 🚀 **@try** — Get a starting point to attempt the problem\n" +
+          "- 📖 **@explain** — Step-by-step problem explanation\n" +
+          "- 🆕 **@new** — Generate a new problem\n\n" +
+          "Please ask me a coding or programming related question!",
+      });
+    }
+
+    // Use the resolved (de-tagged) message for the actual chat
+    const finalMessage = resolvedMessage;
 
     const messages = [{ role: "system", content: SYSTEM_PROMPTS.chat }];
     if (context) {
@@ -128,7 +297,7 @@ async function chat(req, res) {
         }
       }
     }
-    messages.push({ role: "user", content: message });
+    messages.push({ role: "user", content: finalMessage });
 
     const response = await groq.chat.completions.create({
       model: MODEL,

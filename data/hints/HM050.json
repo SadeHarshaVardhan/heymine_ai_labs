@@ -1,0 +1,8 @@
+{
+  "id": "HM050",
+  "hints": [
+    "Pascal triangle: each element = C(row, col).",
+    "Use previous row to compute current.",
+    "Row 0: 1, Row 1: 1 1, Row 2: 1 2 1..."
+  ]
+}

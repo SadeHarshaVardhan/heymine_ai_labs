@@ -1,0 +1,8 @@
+{
+  "id": "HM043",
+  "hints": [
+    "Row i has (n-i+1) stars.",
+    "Starts with n stars, decreases by 1.",
+    "Inverted version of right triangle."
+  ]
+}

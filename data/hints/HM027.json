@@ -1,0 +1,8 @@
+{
+  "id": "HM027",
+  "hints": [
+    "Map score ranges to grades A,B,C,D,F.",
+    ">=90:A, >=80:B, >=70:C, >=60:D, else:F.",
+    "Print only the letter grade."
+  ]
+}

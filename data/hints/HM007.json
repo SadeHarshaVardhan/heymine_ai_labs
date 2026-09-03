@@ -1,0 +1,8 @@
+{
+  "id": "HM007",
+  "hints": [
+    "Read two integers a and b.",
+    "Compute a - b.",
+    "Order matters: first number minus second number."
+  ]
+}

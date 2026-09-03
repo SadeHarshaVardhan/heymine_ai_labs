@@ -1,0 +1,27 @@
+{
+  "id": "HM019",
+  "title": "Increment & Decrement",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 19,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM018",
+  "unlockNext": "HM020",
+  "description": "Read an integer n. Print n+1 and n-1 space-separated.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "Print (n+1) (n-1).",
+  "constraints": [
+    "1 ≤ n ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "5",
+      "output": "6 4"
+    }
+  ],
+  "tags": []
+}

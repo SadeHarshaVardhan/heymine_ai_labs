@@ -1,0 +1,8 @@
+{
+  "id": "HM074",
+  "hints": [
+    "Count a, e, i, o, u (both cases).",
+    "Convert to lowercase first.",
+    "Print the count."
+  ]
+}

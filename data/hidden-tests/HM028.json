@@ -1,0 +1,22 @@
+[
+  {
+    "input": "27 + 6",
+    "expected": "33"
+  },
+  {
+    "input": "14 + 23",
+    "expected": "37"
+  },
+  {
+    "input": "47 + 8",
+    "expected": "55"
+  },
+  {
+    "input": "10 + 41",
+    "expected": "51"
+  },
+  {
+    "input": "23 - 28",
+    "expected": "-5"
+  }
+]

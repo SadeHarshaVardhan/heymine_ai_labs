@@ -1,0 +1,8 @@
+{
+  "id": "HM030",
+  "hints": [
+    "Loop from N down to 1.",
+    "Print in descending order, space-separated.",
+    "Use N, N-1, ... 1."
+  ]
+}

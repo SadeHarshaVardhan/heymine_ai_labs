@@ -1,0 +1,8 @@
+{
+  "id": "HM046",
+  "hints": [
+    "Top half: pyramid rows 1..n, Bottom half: inverted rows n-1..1.",
+    "Mirror the pyramid.",
+    "Total rows = 2n-1."
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "input": "2",
+    "expected": "Not Automorphic"
+  },
+  {
+    "input": "376",
+    "expected": "Automorphic"
+  },
+  {
+    "input": "23",
+    "expected": "Not Automorphic"
+  },
+  {
+    "input": "25",
+    "expected": "Automorphic"
+  },
+  {
+    "input": "23",
+    "expected": "Not Automorphic"
+  }
+]

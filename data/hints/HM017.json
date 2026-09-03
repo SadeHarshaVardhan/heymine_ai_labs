@@ -1,0 +1,8 @@
+{
+  "id": "HM017",
+  "hints": [
+    "Compute n*n and n*n*n.",
+    "Print both on one line separated by space.",
+    "Use ** or Math.pow()."
+  ]
+}

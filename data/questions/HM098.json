@@ -1,0 +1,31 @@
+{
+  "id": "HM098",
+  "title": "Neon Number",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 98,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM097",
+  "unlockNext": "HM099",
+  "description": "A neon number is one where the sum of digits of its square equals itself.\nExample: 9² = 81 → 8+1 = 9 → neon.",
+  "inputFormat": "A single integer.",
+  "outputFormat": "Print \"Neon\" or \"Not Neon\".",
+  "constraints": [
+    "1 ≤ n ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "9",
+      "output": "Neon"
+    },
+    {
+      "input": "2",
+      "output": "Not Neon"
+    }
+  ],
+  "tags": []
+}

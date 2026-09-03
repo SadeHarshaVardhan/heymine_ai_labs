@@ -1,0 +1,27 @@
+{
+  "id": "HM061",
+  "title": "Input Array",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 61,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM060",
+  "unlockNext": "HM062",
+  "description": "Read n numbers into an array and print them.",
+  "inputFormat": "First line: n. Second line: n space-separated integers.",
+  "outputFormat": "Print the array elements space-separated.",
+  "constraints": [
+    "1 ≤ n ≤ 100"
+  ],
+  "examples": [
+    {
+      "input": "4\n1 2 3 4",
+      "output": "1 2 3 4"
+    }
+  ],
+  "tags": []
+}

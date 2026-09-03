@@ -1,0 +1,8 @@
+{
+  "id": "HM022",
+  "hints": [
+    "Compare n with 0.",
+    "Print \"Positive\", \"Negative\", or \"Zero\".",
+    "Exact case matters."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "HM010",
+  "title": "Modulus Operation",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 10,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM009",
+  "unlockNext": "HM011",
+  "description": "Read two integers and print the remainder of a divided by b.",
+  "inputFormat": "Two space-separated integers a and b.",
+  "outputFormat": "Print a % b.",
+  "constraints": [
+    "1 ≤ b ≤ a ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "10 3",
+      "output": "1"
+    }
+  ],
+  "tags": []
+}

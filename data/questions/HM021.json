@@ -1,0 +1,31 @@
+{
+  "id": "HM021",
+  "title": "Even or Odd",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 21,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM020",
+  "unlockNext": "HM022",
+  "description": "Read an integer and determine if it is Even or Odd.",
+  "inputFormat": "A single integer.",
+  "outputFormat": "Print \"Even\" or \"Odd\".",
+  "constraints": [
+    "-10^9 ≤ n ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "4",
+      "output": "Even"
+    },
+    {
+      "input": "7",
+      "output": "Odd"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,27 @@
+{
+  "id": "HM012",
+  "title": "Area of Rectangle",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 12,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM011",
+  "unlockNext": "HM013",
+  "description": "Read length and width of a rectangle and print its area.",
+  "inputFormat": "Two space-separated integers l and w.",
+  "outputFormat": "Print the area.",
+  "constraints": [
+    "1 ≤ l,w ≤ 10^4"
+  ],
+  "examples": [
+    {
+      "input": "5 3",
+      "output": "15"
+    }
+  ],
+  "tags": []
+}

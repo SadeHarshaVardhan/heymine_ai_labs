@@ -1,0 +1,27 @@
+{
+  "id": "HM094",
+  "title": "LCM",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 94,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM093",
+  "unlockNext": "HM095",
+  "description": "Find the LCM (Least Common Multiple) of two numbers.",
+  "inputFormat": "Two space-separated integers a and b.",
+  "outputFormat": "Print LCM(a,b).",
+  "constraints": [
+    "1 ≤ a,b ≤ 10^4"
+  ],
+  "examples": [
+    {
+      "input": "4 6",
+      "output": "12"
+    }
+  ],
+  "tags": []
+}

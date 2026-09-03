@@ -1,0 +1,8 @@
+{
+  "id": "HM045",
+  "hints": [
+    "Row i needs i spaces then (2*(n-i)-1) stars.",
+    "This is the upside-down pyramid.",
+    "Last row has 1 star."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "HM068",
+  "hints": [
+    "Reverse the order of elements.",
+    "Use [::-1] in Python or two-pointer.",
+    "Print space-separated."
+  ]
+}

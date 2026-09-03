@@ -1,0 +1,27 @@
+{
+  "id": "HM072",
+  "title": "Reverse String",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 72,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM071",
+  "unlockNext": "HM073",
+  "description": "Read a string and print it in reverse.",
+  "inputFormat": "A single string.",
+  "outputFormat": "Print the reversed string.",
+  "constraints": [
+    "1 ≤ length ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "hello",
+      "output": "olleh"
+    }
+  ],
+  "tags": []
+}

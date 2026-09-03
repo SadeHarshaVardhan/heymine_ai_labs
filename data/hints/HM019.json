@@ -1,0 +1,8 @@
+{
+  "id": "HM019",
+  "hints": [
+    "Read one integer n.",
+    "Print n+1 and n-1 on one line.",
+    "Space-separated output."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "HM004",
+  "title": "Read and Print Integer",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 4,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM003",
+  "unlockNext": "HM005",
+  "description": "Read an integer from stdin and print it back.",
+  "inputFormat": "A single integer.",
+  "outputFormat": "Print the integer.",
+  "constraints": [
+    "1 ≤ n ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "42",
+      "output": "42"
+    }
+  ],
+  "tags": []
+}

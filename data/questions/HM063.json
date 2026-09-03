@@ -1,0 +1,27 @@
+{
+  "id": "HM063",
+  "title": "Sum of Array",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 63,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM062",
+  "unlockNext": "HM064",
+  "description": "Read an array and print the sum of all elements.",
+  "inputFormat": "First line: n. Second line: n integers.",
+  "outputFormat": "Print the sum.",
+  "constraints": [
+    "1 ≤ n ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "4\n1 2 3 4",
+      "output": "10"
+    }
+  ],
+  "tags": []
+}

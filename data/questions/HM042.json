@@ -1,0 +1,27 @@
+{
+  "id": "HM042",
+  "title": "Right Triangle Pattern",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 42,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM041",
+  "unlockNext": "HM043",
+  "description": "Print a right-angled triangle pattern of stars with n rows.\nRow i has i stars.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "n rows of stars.",
+  "constraints": [
+    "1 ≤ n ≤ 10"
+  ],
+  "examples": [
+    {
+      "input": "3",
+      "output": "*\n**\n***"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "id": "HM076",
+  "hints": [
+    "For each character: if uppercase → lowercase, if lowercase → uppercase.",
+    "Use isupper()/islower().",
+    "Digits and symbols stay unchanged."
+  ]
+}

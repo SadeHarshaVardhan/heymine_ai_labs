@@ -1,0 +1,8 @@
+{
+  "id": "HM100",
+  "hints": [
+    "Read n students with name and marks.",
+    "Sort by marks in descending order.",
+    "Print each student on a new line."
+  ]
+}

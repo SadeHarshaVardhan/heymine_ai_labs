@@ -1,0 +1,31 @@
+{
+  "id": "HM026",
+  "title": "Voting Eligibility",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 26,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM025",
+  "unlockNext": "HM027",
+  "description": "Read an age and determine if the person is eligible to vote (age >= 18).",
+  "inputFormat": "A single integer age.",
+  "outputFormat": "Print \"Eligible\" or \"Not Eligible\".",
+  "constraints": [
+    "1 ≤ age ≤ 150"
+  ],
+  "examples": [
+    {
+      "input": "20",
+      "output": "Eligible"
+    },
+    {
+      "input": "15",
+      "output": "Not Eligible"
+    }
+  ],
+  "tags": []
+}

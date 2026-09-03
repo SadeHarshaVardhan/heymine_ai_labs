@@ -1,0 +1,22 @@
+[
+  {
+    "input": "4\nAlice 83\nBob 58\nCharlie 91\nDiana 19",
+    "expected": "Charlie 91\nAlice 83\nBob 58\nDiana 19"
+  },
+  {
+    "input": "5\nAlice 76\nBob 91\nCharlie 89\nDiana 19\nEve 58",
+    "expected": "Bob 91\nCharlie 89\nAlice 76\nEve 58\nDiana 19"
+  },
+  {
+    "input": "3\nAlice 32\nBob 71\nCharlie 87",
+    "expected": "Charlie 87\nBob 71\nAlice 32"
+  },
+  {
+    "input": "3\nAlice 39\nBob 50\nCharlie 85",
+    "expected": "Charlie 85\nBob 50\nAlice 39"
+  },
+  {
+    "input": "5\nAlice 22\nBob 70\nCharlie 18\nDiana 52\nEve 77",
+    "expected": "Eve 77\nBob 70\nDiana 52\nAlice 22\nCharlie 18"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "id": "HM072",
+  "hints": [
+    "Reverse the string character by character.",
+    "Use [::-1] or StringBuilder.reverse().",
+    "Print the result."
+  ]
+}

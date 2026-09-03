@@ -1,0 +1,27 @@
+{
+  "id": "HM041",
+  "title": "Square Star Pattern",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 41,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM040",
+  "unlockNext": "HM042",
+  "description": "Print an n×n square pattern of stars.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "n rows, each with n stars.",
+  "constraints": [
+    "1 ≤ n ≤ 10"
+  ],
+  "examples": [
+    {
+      "input": "3",
+      "output": "***\n***\n***"
+    }
+  ],
+  "tags": []
+}

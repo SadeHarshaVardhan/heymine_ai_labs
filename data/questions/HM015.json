@@ -1,0 +1,27 @@
+{
+  "id": "HM015",
+  "title": "Fahrenheit to Celsius",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 15,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM014",
+  "unlockNext": "HM016",
+  "description": "Convert Fahrenheit to Celsius. C = (F - 32) × 5/9.",
+  "inputFormat": "A single number F.",
+  "outputFormat": "Print C to 2 decimal places.",
+  "constraints": [
+    "-500 ≤ F ≤ 10^6"
+  ],
+  "examples": [
+    {
+      "input": "32",
+      "output": "0.00"
+    }
+  ],
+  "tags": []
+}

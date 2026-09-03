@@ -1,0 +1,31 @@
+{
+  "id": "HM037",
+  "title": "Palindrome Number",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 37,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM036",
+  "unlockNext": "HM038",
+  "description": "A palindrome number reads the same forward and backward.\nExample: 121 is a palindrome.",
+  "inputFormat": "A single integer.",
+  "outputFormat": "Print \"Palindrome\" or \"Not Palindrome\".",
+  "constraints": [
+    "1 ≤ n ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "121",
+      "output": "Palindrome"
+    },
+    {
+      "input": "123",
+      "output": "Not Palindrome"
+    }
+  ],
+  "tags": []
+}

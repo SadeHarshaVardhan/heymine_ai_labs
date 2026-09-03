@@ -1,0 +1,8 @@
+{
+  "id": "HM066",
+  "hints": [
+    "Same as maximum but track minimum.",
+    "Initialize min = first element.",
+    "Update when a smaller element is found."
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "input": "30",
+    "expected": "Not Perfect"
+  },
+  {
+    "input": "28",
+    "expected": "Perfect"
+  },
+  {
+    "input": "12",
+    "expected": "Not Perfect"
+  },
+  {
+    "input": "496",
+    "expected": "Perfect"
+  },
+  {
+    "input": "10",
+    "expected": "Not Perfect"
+  }
+]

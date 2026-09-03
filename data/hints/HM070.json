@@ -1,0 +1,8 @@
+{
+  "id": "HM070",
+  "hints": [
+    "Count elements where n%2==0 (even) and n%2!=0 (odd).",
+    "Print \"evenCount oddCount\".",
+    "Two separate counters."
+  ]
+}

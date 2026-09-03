@@ -1,0 +1,22 @@
+[
+  {
+    "input": "Hello",
+    "expected": "hELLO"
+  },
+  {
+    "input": "wOrLd",
+    "expected": "WoRlD"
+  },
+  {
+    "input": "Python",
+    "expected": "pYTHON"
+  },
+  {
+    "input": "JAVA",
+    "expected": "java"
+  },
+  {
+    "input": "Hello",
+    "expected": "hELLO"
+  }
+]

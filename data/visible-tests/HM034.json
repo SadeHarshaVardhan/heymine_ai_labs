@@ -1,0 +1,22 @@
+[
+  {
+    "input": "7",
+    "expected": "0 1 1 2 3 5 8"
+  },
+  {
+    "input": "10",
+    "expected": "0 1 1 2 3 5 8 13 21 34"
+  },
+  {
+    "input": "5",
+    "expected": "0 1 1 2 3"
+  },
+  {
+    "input": "6",
+    "expected": "0 1 1 2 3 5"
+  },
+  {
+    "input": "3",
+    "expected": "0 1 1"
+  }
+]

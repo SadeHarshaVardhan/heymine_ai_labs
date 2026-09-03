@@ -1,0 +1,27 @@
+{
+  "id": "HM065",
+  "title": "Maximum Element",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 65,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM064",
+  "unlockNext": "HM066",
+  "description": "Read an array and find the maximum element.",
+  "inputFormat": "First line: n. Second line: n integers.",
+  "outputFormat": "Print the maximum.",
+  "constraints": [
+    "1 ≤ n ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "5\n3 1 4 1 5",
+      "output": "5"
+    }
+  ],
+  "tags": []
+}

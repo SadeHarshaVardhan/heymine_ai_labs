@@ -1,0 +1,22 @@
+[
+  {
+    "input": "hello",
+    "expected": "Not Palindrome"
+  },
+  {
+    "input": "noon",
+    "expected": "Palindrome"
+  },
+  {
+    "input": "python",
+    "expected": "Not Palindrome"
+  },
+  {
+    "input": "madam",
+    "expected": "Palindrome"
+  },
+  {
+    "input": "hello",
+    "expected": "Not Palindrome"
+  }
+]

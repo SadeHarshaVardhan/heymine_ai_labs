@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings · HeyMine AI Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body class="auth-body">
+    <main class="auth-shell">
+      <div class="auth-brand"><span>HeyMine AI Labs</span></div>
+      <section class="auth-card">
+        <h1>Settings</h1>
+        <p><strong id="profileUsername"></strong><br /><span id="profileEmail"></span></p>
+        <form class="auth-form" id="settingsForm">
+          <div class="auth-field">
+            <label for="groqApiKey">Groq API key</label>
+            <input id="groqApiKey" type="password" placeholder="gsk_..." autocomplete="off" />
+          </div>
+          <label class="auth-check">
+            <input id="useOwnKey" type="checkbox" />
+            <span>Use my own Groq key</span>
+          </label>
+          <p>Key status: <strong id="keyStatus">Checking...</strong></p>
+          <div class="settings-actions">
+            <button class="auth-button" type="submit">Save API key</button>
+            <a class="auth-button secondary" href="/compiler" style="display:grid;place-items:center;text-decoration:none;">Back to compiler</a>
+            <button class="auth-button secondary" id="logoutBtn" type="button">Logout</button>
+          </div>
+        </form>
+        <div id="authMessage" class="auth-message"></div>
+      </section>
+    </main>
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+  </body>
+</html>

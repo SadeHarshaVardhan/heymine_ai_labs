@@ -1,0 +1,8 @@
+{
+  "id": "HM018",
+  "hints": [
+    "Read one character.",
+    "Print its ASCII value using ord() in Python or (int)ch in C/Java.",
+    "Every character has a unique ASCII code."
+  ]
+}

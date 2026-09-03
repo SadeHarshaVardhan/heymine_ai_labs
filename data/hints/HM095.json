@@ -1,0 +1,8 @@
+{
+  "id": "HM095",
+  "hints": [
+    "Sum all divisors of n excluding n itself.",
+    "If sum equals n, it's perfect (e.g., 6 = 1+2+3).",
+    "Only check up to n-1."
+  ]
+}

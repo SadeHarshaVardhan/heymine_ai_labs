@@ -1,0 +1,22 @@
+[
+  {
+    "input": "world\nword",
+    "expected": "Not Equal"
+  },
+  {
+    "input": "hello\nhello",
+    "expected": "Equal"
+  },
+  {
+    "input": "python\nPython",
+    "expected": "Not Equal"
+  },
+  {
+    "input": "java\njava",
+    "expected": "Equal"
+  },
+  {
+    "input": "python\nPython",
+    "expected": "Not Equal"
+  }
+]

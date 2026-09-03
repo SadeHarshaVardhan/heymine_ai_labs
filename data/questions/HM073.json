@@ -1,0 +1,31 @@
+{
+  "id": "HM073",
+  "title": "Palindrome String",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 73,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM072",
+  "unlockNext": "HM074",
+  "description": "Check if a string is a palindrome (reads same forwards and backwards).",
+  "inputFormat": "A single string.",
+  "outputFormat": "Print \"Palindrome\" or \"Not Palindrome\".",
+  "constraints": [
+    "1 ≤ length ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "racecar",
+      "output": "Palindrome"
+    },
+    {
+      "input": "hello",
+      "output": "Not Palindrome"
+    }
+  ],
+  "tags": []
+}

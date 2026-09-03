@@ -1,0 +1,35 @@
+{
+  "id": "HM022",
+  "title": "Positive, Negative or Zero",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 22,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM021",
+  "unlockNext": "HM023",
+  "description": "Read an integer and determine if it is Positive, Negative, or Zero.",
+  "inputFormat": "A single integer.",
+  "outputFormat": "Print \"Positive\", \"Negative\", or \"Zero\".",
+  "constraints": [
+    "-10^9 ≤ n ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "5",
+      "output": "Positive"
+    },
+    {
+      "input": "-3",
+      "output": "Negative"
+    },
+    {
+      "input": "0",
+      "output": "Zero"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "input": "how are you",
+    "expected": "3"
+  },
+  {
+    "input": "hello world",
+    "expected": "2"
+  },
+  {
+    "input": "I love coding",
+    "expected": "3"
+  },
+  {
+    "input": "good morning everyone",
+    "expected": "3"
+  },
+  {
+    "input": "I love coding",
+    "expected": "3"
+  }
+]

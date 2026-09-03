@@ -1,0 +1,8 @@
+{
+  "id": "HM014",
+  "hints": [
+    "Formula: F = (C × 9/5) + 32.",
+    "Read one number (Celsius).",
+    "Print to 2 decimal places."
+  ]
+}

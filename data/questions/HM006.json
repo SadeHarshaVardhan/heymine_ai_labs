@@ -1,0 +1,27 @@
+{
+  "id": "HM006",
+  "title": "Add Two Numbers",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 6,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM005",
+  "unlockNext": "HM007",
+  "description": "Read two integers and print their sum.",
+  "inputFormat": "Two space-separated integers a and b.",
+  "outputFormat": "Print the sum a+b.",
+  "constraints": [
+    "1 ≤ a,b ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "3 5",
+      "output": "8"
+    }
+  ],
+  "tags": []
+}

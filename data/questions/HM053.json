@@ -1,0 +1,27 @@
+{
+  "id": "HM053",
+  "title": "Function - Factorial",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 53,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM052",
+  "unlockNext": "HM054",
+  "description": "Write a function factorial(n) that computes n! using a loop.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "Print n!.",
+  "constraints": [
+    "0 ≤ n ≤ 12"
+  ],
+  "examples": [
+    {
+      "input": "6",
+      "output": "720"
+    }
+  ],
+  "tags": []
+}

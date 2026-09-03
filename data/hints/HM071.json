@@ -1,0 +1,8 @@
+{
+  "id": "HM071",
+  "hints": [
+    "Count characters in the string.",
+    "Use len() in Python or .length() in Java.",
+    "No extra spaces in input."
+  ]
+}

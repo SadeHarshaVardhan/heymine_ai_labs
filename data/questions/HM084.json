@@ -1,0 +1,31 @@
+{
+  "id": "HM084",
+  "title": "Binary Search",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 84,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM083",
+  "unlockNext": "HM085",
+  "description": "Implement Binary Search to find a target in a sorted array.\nReturn 0-based index, or -1 if not found.",
+  "inputFormat": "First line: n. Second line: n sorted integers. Third line: target.",
+  "outputFormat": "Print the index or -1.",
+  "constraints": [
+    "1 ≤ n ≤ 10^5"
+  ],
+  "examples": [
+    {
+      "input": "5\n1 3 5 7 9\n5",
+      "output": "2"
+    },
+    {
+      "input": "5\n1 3 5 7 9\n6",
+      "output": "-1"
+    }
+  ],
+  "tags": []
+}

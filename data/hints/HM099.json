@@ -1,0 +1,8 @@
+{
+  "id": "HM099",
+  "hints": [
+    "Spy number: sum of digits equals product of digits.",
+    "123: 1+2+3=6, 1×2×3=6 → spy.",
+    "Both sum and product must be equal."
+  ]
+}

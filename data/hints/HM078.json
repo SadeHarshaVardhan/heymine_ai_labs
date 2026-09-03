@@ -1,0 +1,8 @@
+{
+  "id": "HM078",
+  "hints": [
+    "Count frequency of each character.",
+    "Use a dictionary/map.",
+    "Sort by character alphabetically and print char:count."
+  ]
+}

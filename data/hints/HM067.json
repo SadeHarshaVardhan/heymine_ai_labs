@@ -1,0 +1,8 @@
+{
+  "id": "HM067",
+  "hints": [
+    "Sort the array descending, take index 1.",
+    "Or find max, remove it, find max again.",
+    "Assume all elements are distinct."
+  ]
+}

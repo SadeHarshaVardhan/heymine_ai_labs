@@ -1,0 +1,27 @@
+{
+  "id": "HM074",
+  "title": "Count Vowels",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 74,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM073",
+  "unlockNext": "HM075",
+  "description": "Count the number of vowels (a,e,i,o,u) in a string (case-insensitive).",
+  "inputFormat": "A single string.",
+  "outputFormat": "Print the count.",
+  "constraints": [
+    "1 ≤ length ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "hello",
+      "output": "2"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,35 @@
+{
+  "id": "HM027",
+  "title": "Grade Calculator",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 27,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM026",
+  "unlockNext": "HM028",
+  "description": "Read a score (0–100) and print the corresponding grade.\n>=90: A, >=80: B, >=70: C, >=60: D, else: F.",
+  "inputFormat": "A single integer score.",
+  "outputFormat": "Print the grade letter.",
+  "constraints": [
+    "0 ≤ score ≤ 100"
+  ],
+  "examples": [
+    {
+      "input": "95",
+      "output": "A"
+    },
+    {
+      "input": "75",
+      "output": "C"
+    },
+    {
+      "input": "55",
+      "output": "F"
+    }
+  ],
+  "tags": []
+}

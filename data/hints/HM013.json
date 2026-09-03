@@ -1,0 +1,8 @@
+{
+  "id": "HM013",
+  "hints": [
+    "Area = π × r².",
+    "Use 3.14159... for π or the language math library.",
+    "Print to 2 decimal places."
+  ]
+}

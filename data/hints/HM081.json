@@ -1,0 +1,8 @@
+{
+  "id": "HM081",
+  "hints": [
+    "Bubble sort: compare adjacent pairs, swap if out of order.",
+    "Repeat n-1 times.",
+    "After each pass, largest bubbles to end."
+  ]
+}

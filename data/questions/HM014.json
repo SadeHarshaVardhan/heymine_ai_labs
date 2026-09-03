@@ -1,0 +1,27 @@
+{
+  "id": "HM014",
+  "title": "Celsius to Fahrenheit",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 14,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM013",
+  "unlockNext": "HM015",
+  "description": "Convert Celsius to Fahrenheit. F = (C × 9/5) + 32.",
+  "inputFormat": "A single number C.",
+  "outputFormat": "Print F to 2 decimal places.",
+  "constraints": [
+    "-273 ≤ C ≤ 10^6"
+  ],
+  "examples": [
+    {
+      "input": "100",
+      "output": "212.00"
+    }
+  ],
+  "tags": []
+}

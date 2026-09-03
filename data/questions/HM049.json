@@ -1,0 +1,27 @@
+{
+  "id": "HM049",
+  "title": "Floyd Triangle",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 49,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM048",
+  "unlockNext": "HM050",
+  "description": "Print Floyd's triangle: consecutive numbers arranged in a triangle.",
+  "inputFormat": "A single integer n (number of rows).",
+  "outputFormat": "n rows with consecutive numbers.",
+  "constraints": [
+    "1 ≤ n ≤ 10"
+  ],
+  "examples": [
+    {
+      "input": "3",
+      "output": "1\n2 3\n4 5 6"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,27 @@
+{
+  "id": "HM048",
+  "title": "Number Triangle",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 48,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM047",
+  "unlockNext": "HM049",
+  "description": "Print a number triangle where row i contains numbers 1 to i.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "n rows of numbers.",
+  "constraints": [
+    "1 ≤ n ≤ 10"
+  ],
+  "examples": [
+    {
+      "input": "3",
+      "output": "1\n1 2\n1 2 3"
+    }
+  ],
+  "tags": []
+}

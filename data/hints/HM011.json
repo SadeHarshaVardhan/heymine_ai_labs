@@ -1,0 +1,8 @@
+{
+  "id": "HM011",
+  "hints": [
+    "Read a and b, print b then a.",
+    "Use two separate print statements or space-separated.",
+    "The order is REVERSED."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "HM059",
+  "title": "LCM using Function",
+  "stage": 3,
+  "stageName": "🏔 Pattern Mountain",
+  "mission": 59,
+  "difficulty": "Intermediate",
+  "xp": 20,
+  "coins": 40,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM058",
+  "unlockNext": "HM060",
+  "description": "Write a function lcm(a, b) to compute the Least Common Multiple.",
+  "inputFormat": "Two space-separated integers a and b.",
+  "outputFormat": "Print LCM(a,b).",
+  "constraints": [
+    "1 ≤ a,b ≤ 10^4"
+  ],
+  "examples": [
+    {
+      "input": "4 6",
+      "output": "12"
+    }
+  ],
+  "tags": []
+}

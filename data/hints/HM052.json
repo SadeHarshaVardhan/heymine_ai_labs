@@ -1,0 +1,8 @@
+{
+  "id": "HM052",
+  "hints": [
+    "Define a function max(a, b) using if-else.",
+    "Return the larger value.",
+    "Do not use built-in max."
+  ]
+}

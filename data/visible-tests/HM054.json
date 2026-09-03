@@ -1,0 +1,22 @@
+[
+  {
+    "input": "5",
+    "expected": "Prime"
+  },
+  {
+    "input": "9",
+    "expected": "Not Prime"
+  },
+  {
+    "input": "3",
+    "expected": "Prime"
+  },
+  {
+    "input": "12",
+    "expected": "Not Prime"
+  },
+  {
+    "input": "4",
+    "expected": "Not Prime"
+  }
+]

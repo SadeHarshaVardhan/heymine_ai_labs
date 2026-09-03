@@ -1,0 +1,27 @@
+{
+  "id": "HM013",
+  "title": "Area of Circle",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 13,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM012",
+  "unlockNext": "HM014",
+  "description": "Read the radius of a circle and print its area to 2 decimal places.",
+  "inputFormat": "A single integer r.",
+  "outputFormat": "Print area with 2 decimal places.",
+  "constraints": [
+    "1 ≤ r ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "7",
+      "output": "153.94"
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "id": "HM077",
+  "hints": [
+    "Remove all whitespace characters.",
+    "Use .replace(\" \", \"\") or regex.",
+    "Print with no spaces."
+  ]
+}

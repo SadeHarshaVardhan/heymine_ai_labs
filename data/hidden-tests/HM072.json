@@ -1,0 +1,22 @@
+[
+  {
+    "input": "world",
+    "expected": "dlrow"
+  },
+  {
+    "input": "java",
+    "expected": "avaj"
+  },
+  {
+    "input": "world",
+    "expected": "dlrow"
+  },
+  {
+    "input": "code",
+    "expected": "edoc"
+  },
+  {
+    "input": "python",
+    "expected": "nohtyp"
+  }
+]

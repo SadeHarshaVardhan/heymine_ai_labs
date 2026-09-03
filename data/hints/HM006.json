@@ -1,0 +1,8 @@
+{
+  "id": "HM006",
+  "hints": [
+    "Read two integers on one line separated by space.",
+    "Use + operator.",
+    "The sum may exceed 32-bit int range — use long/int64 if needed."
+  ]
+}

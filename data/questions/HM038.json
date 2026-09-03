@@ -1,0 +1,31 @@
+{
+  "id": "HM038",
+  "title": "Reverse Number",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 38,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM037",
+  "unlockNext": "HM039",
+  "description": "Reverse the digits of a number.",
+  "inputFormat": "A single integer n.",
+  "outputFormat": "Print the reversed number.",
+  "constraints": [
+    "1 ≤ n ≤ 10^9"
+  ],
+  "examples": [
+    {
+      "input": "12345",
+      "output": "54321"
+    },
+    {
+      "input": "1000",
+      "output": "1"
+    }
+  ],
+  "tags": []
+}

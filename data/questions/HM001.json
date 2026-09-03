@@ -1,0 +1,25 @@
+{
+  "id": "HM001",
+  "title": "Hello World",
+  "stage": 1,
+  "stageName": "🌱 Programming Village",
+  "mission": 1,
+  "difficulty": "Beginner",
+  "xp": 10,
+  "coins": 20,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": null,
+  "unlockNext": "HM002",
+  "description": "Write a program that prints the text \"Hello World\" to the output.",
+  "inputFormat": "No input required.",
+  "outputFormat": "Print Hello World on a single line.",
+  "constraints": [],
+  "examples": [
+    {
+      "input": "",
+      "output": "Hello World"
+    }
+  ],
+  "tags": []
+}

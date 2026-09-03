@@ -1,0 +1,28 @@
+{
+  "id": "HM100",
+  "title": "Mini Student Management",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 100,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "boss",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM099",
+  "unlockNext": null,
+  "description": "Read n students (name and marks). Sort them by marks in descending order and print each student's name and marks.",
+  "inputFormat": "First line: n. Each following line: name marks.",
+  "outputFormat": "Students sorted by marks (desc), one per line: \"name marks\".",
+  "constraints": [
+    "1 ≤ n ≤ 100",
+    "0 ≤ marks ≤ 100"
+  ],
+  "examples": [
+    {
+      "input": "3\nAlice 85\nBob 90\nCharlie 78",
+      "output": "Bob 90\nAlice 85\nCharlie 78"
+    }
+  ],
+  "tags": []
+}

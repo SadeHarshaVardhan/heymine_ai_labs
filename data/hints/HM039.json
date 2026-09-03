@@ -1,0 +1,8 @@
+{
+  "id": "HM039",
+  "hints": [
+    "Count how many digits the number has.",
+    "Use len(str(n)) in Python.",
+    "Always positive (ignore sign)."
+  ]
+}

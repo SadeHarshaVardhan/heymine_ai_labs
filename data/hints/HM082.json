@@ -1,0 +1,8 @@
+{
+  "id": "HM082",
+  "hints": [
+    "Selection sort: find minimum in unsorted part, swap to front.",
+    "O(n²) complexity.",
+    "Stable sort not required."
+  ]
+}

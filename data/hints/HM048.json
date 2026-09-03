@@ -1,0 +1,8 @@
+{
+  "id": "HM048",
+  "hints": [
+    "Row i contains numbers 1 to i.",
+    "1\n1 2\n1 2 3\n...",
+    "Simple nested loop."
+  ]
+}

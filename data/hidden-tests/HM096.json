@@ -1,0 +1,22 @@
+[
+  {
+    "input": "40585",
+    "expected": "Strong"
+  },
+  {
+    "input": "200",
+    "expected": "Not Strong"
+  },
+  {
+    "input": "40585",
+    "expected": "Strong"
+  },
+  {
+    "input": "10",
+    "expected": "Not Strong"
+  },
+  {
+    "input": "40585",
+    "expected": "Strong"
+  }
+]

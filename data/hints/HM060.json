@@ -1,0 +1,8 @@
+{
+  "id": "HM060",
+  "hints": [
+    "Define power(b, e) = b^e using a loop.",
+    "Multiply b by itself e times.",
+    "Or use Math.pow() but implement your own."
+  ]
+}

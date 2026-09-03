@@ -1,0 +1,8 @@
+{
+  "id": "HM036",
+  "hints": [
+    "An Armstrong number = sum of its digits^(number of digits) equals the number.",
+    "153 = 1³+5³+3³ = 153 ✓.",
+    "Count digits first, then raise each to that power."
+  ]
+}

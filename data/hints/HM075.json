@@ -1,0 +1,8 @@
+{
+  "id": "HM075",
+  "hints": [
+    "Split the string by spaces, count the parts.",
+    "Use .split() in Python.",
+    "Handle multiple spaces."
+  ]
+}

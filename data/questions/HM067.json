@@ -1,0 +1,28 @@
+{
+  "id": "HM067",
+  "title": "Second Largest",
+  "stage": 4,
+  "stageName": "🏙 Data City",
+  "mission": 67,
+  "difficulty": "Intermediate",
+  "xp": 25,
+  "coins": 50,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM066",
+  "unlockNext": "HM068",
+  "description": "Find the second largest unique element in an array.",
+  "inputFormat": "First line: n. Second line: n integers (all distinct).",
+  "outputFormat": "Print the second largest.",
+  "constraints": [
+    "2 ≤ n ≤ 100",
+    "All elements are distinct"
+  ],
+  "examples": [
+    {
+      "input": "5\n1 3 5 2 4",
+      "output": "4"
+    }
+  ],
+  "tags": []
+}

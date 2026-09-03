@@ -1,0 +1,31 @@
+{
+  "id": "HM036",
+  "title": "Armstrong Number",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 36,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM035",
+  "unlockNext": "HM037",
+  "description": "An Armstrong number equals the sum of its digits each raised to the power of the number of digits.\nExample: 153 = 1³+5³+3³.",
+  "inputFormat": "A single integer.",
+  "outputFormat": "Print \"Armstrong\" or \"Not Armstrong\".",
+  "constraints": [
+    "1 ≤ n ≤ 10^6"
+  ],
+  "examples": [
+    {
+      "input": "153",
+      "output": "Armstrong"
+    },
+    {
+      "input": "10",
+      "output": "Not Armstrong"
+    }
+  ],
+  "tags": []
+}

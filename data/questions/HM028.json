@@ -1,0 +1,27 @@
+{
+  "id": "HM028",
+  "title": "Calculator using Switch",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 28,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "normal",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM027",
+  "unlockNext": "HM029",
+  "description": "Read two numbers and an operator (+, -, *, /). Compute and print the result using switch-case logic.",
+  "inputFormat": "Two integers and operator.",
+  "outputFormat": "Print the result.",
+  "constraints": [
+    "1 ≤ a,b ≤ 1000"
+  ],
+  "examples": [
+    {
+      "input": "6 * 7",
+      "output": "42"
+    }
+  ],
+  "tags": []
+}

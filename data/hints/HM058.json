@@ -1,0 +1,8 @@
+{
+  "id": "HM058",
+  "hints": [
+    "GCD using Euclidean algorithm: gcd(a,b) = gcd(b, a%b).",
+    "Base case: gcd(a,0) = a.",
+    "Wrap this in a function."
+  ]
+}

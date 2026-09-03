@@ -1,0 +1,22 @@
+[
+  {
+    "input": "hello",
+    "expected": "olleh"
+  },
+  {
+    "input": "python",
+    "expected": "nohtyp"
+  },
+  {
+    "input": "code",
+    "expected": "edoc"
+  },
+  {
+    "input": "hello",
+    "expected": "olleh"
+  },
+  {
+    "input": "java",
+    "expected": "avaj"
+  }
+]

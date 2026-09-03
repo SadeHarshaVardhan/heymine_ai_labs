@@ -28,7 +28,36 @@
         outputTabs: $$('.output-tabs button'),
         themeToggle: $('#themeToggle'),
         customStdin: $('#customStdin'),
+        logoutBtn: $('#logoutBtn'),
     };
+
+    const AUTH = window.HeyMineAuth;
+    const session = AUTH ? AUTH.getSession() : null;
+    if (!session || !session.access_token) {
+        window.location.href = '/login';
+        return;
+    }
+
+    function authHeaders() {
+        return AUTH.authHeaders();
+    }
+
+    async function parseApiResponse(resp) {
+        if (resp.status === 401) {
+            AUTH.clearSession();
+            window.location.href = '/login';
+            throw new Error('Please login again.');
+        }
+        const data = await resp.json();
+        if (!resp.ok || data.success === false) {
+            throw new Error(data.error || 'Request failed');
+        }
+        return data;
+    }
+
+    function problemErrorMessage(error) {
+        return error?.message || 'Failed to fetch problem';
+    }
 
     // ---------- Toast notification ----------
     function showToast(message, type = 'success') {
@@ -59,6 +88,7 @@
         chatHistory: [],
         isRunning: false,
         isSubmitting: false,
+        isFetchingProblem: false,   // guard against concurrent fetchProblem calls
         editorInstance: null,
         currentOutputTab: 'console',
     };
@@ -89,6 +119,12 @@
 
     // ------------- Reset for new problem -------------
     function resetForNewProblem() {
+        const hasMission = new URLSearchParams(window.location.search).has('mission');
+        if (hasMission) {
+            if (DOM.newProblemBtn) DOM.newProblemBtn.style.display = 'none';
+            return;
+        }
+
         DOM.chatMessages.innerHTML = '';
         STATE.chatHistory = [];
         addChatMessage('ai', '🔄 Loading a new problem...');
@@ -110,16 +146,20 @@
 
     // ------------- Fetch problem (with optional topic) -------------
     async function fetchProblem(options = {}) {
+        // Prevent duplicate concurrent fetches (e.g. page-load race with @try)
+        if (STATE.isFetchingProblem) return { success: false, error: 'Problem fetch already in progress' };
+        STATE.isFetchingProblem = true;
+
         const { difficulty = 'easy', topic = null } = options;
         try {
             const body = { difficulty };
             if (topic) body.topic = topic;
-            const resp = await fetch('/api/problem', {
+            const resp = await fetch(`${window.API_BASE_URL}/api/problem`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: authHeaders(),
                 body: JSON.stringify(body),
             });
-            const data = await resp.json();
+            const data = await parseApiResponse(resp);
             if (data.success) {
                 STATE.problem = data.problem;
                 renderProblem(data.problem);
@@ -137,13 +177,14 @@
                 DOM.outputContent.textContent = '// Ready to code';
                 DOM.outputContent.className = 'output-content';
                 addChatMessage('ai', `📝 New problem: **${data.problem.title}**. Let's solve it!`);
+                return { success: true, problem: data.problem, source: data.source || 'api' };
             } else {
                 throw new Error(data.error || 'Failed to load problem');
             }
         } catch (err) {
             console.error('❌ Problem fetch error:', err);
             DOM.problemTitle.textContent = '⚠️ Using fallback problem';
-            DOM.problemDescription.innerHTML = `<p class="empty-state">${err.message}</p>`;
+            DOM.problemDescription.innerHTML = `<p class="empty-state">${problemErrorMessage(err)}</p>`;
             const fallback = getFallbackProblem();
             STATE.problem = fallback;
             renderProblem(fallback);
@@ -153,7 +194,10 @@
             if (STATE.testCases.length > 0 && DOM.customStdin) {
                 DOM.customStdin.value = STATE.testCases[0].input || '';
             }
-            addChatMessage('ai', '⚠️ Could not fetch a new problem from AI. Using a built-in fallback problem.');
+            addChatMessage('ai', `⚠️ Could not fetch a new problem from AI: ${problemErrorMessage(err)}. Using a built-in fallback problem.`);
+            return { success: false, error: problemErrorMessage(err), problem: fallback, source: 'fallback' };
+        } finally {
+            STATE.isFetchingProblem = false;
         }
     }
 
@@ -468,35 +512,61 @@
         return div;
     }
 
-    // ------------- Send chat (with "try new" detection) -------------
+    // ------------- Send chat (with @try / @new problem-fetch detection) -------------
     async function sendChatMessage() {
         const msg = DOM.chatInput.value.trim();
         if (!msg || STATE.isRunning) return;
         DOM.chatInput.value = '';
-        addChatMessage('user', msg);
 
-        const lower = msg.toLowerCase();
-        const triggerWords = ['try', 'new', 'generate', 'create', 'show', 'give'];
-        if (triggerWords.some(w => lower.includes(w))) {
-            let topic = '';
-            const words = msg.split(' ');
-            let found = false;
-            for (let i = 0; i < words.length; i++) {
-                const w = words[i].toLowerCase();
-                if (triggerWords.includes(w)) {
-                    topic = words.slice(i + 1).join(' ');
-                    found = true;
-                    break;
+        // Friendly display labels for known @tags (exact match on the tag prefix)
+        const atTagLabels = {
+            '@hint':        '💡 Get a hint',
+            '@approach':    '🔍 Best approach / algorithm',
+            '@solve':       '✅ Show solution',
+            '@try':         '🚀 Let me try this problem',
+            '@explain':     '📖 Explain step by step',
+            '@howtosolve':  '🧭 How to solve this',
+            '@how to solve':'🧭 How to solve this',
+            '@complexity':  '⏱ Time & space complexity',
+            '@optimize':    '⚡ Optimize my solution',
+            '@debug':       '🐛 Debug my code',
+            '@new':         '🆕 New problem',
+        };
+        const lowerMsg = msg.toLowerCase().trim();
+
+        // Determine display label: check if msg starts with a known @tag
+        let displayMsg = msg;
+        for (const [tag, label] of Object.entries(atTagLabels)) {
+            if (lowerMsg === tag || lowerMsg.startsWith(tag + ' ')) {
+                displayMsg = label;
+                break;
+            }
+        }
+        addChatMessage('user', displayMsg);
+
+        // ── @try <topic> or @new <topic>  →  generate a new problem ─────────────
+        // Match: message starts with @try or @new (with optional topic after a space)
+        const problemTriggerMatch = lowerMsg.match(/^@(try|new)(?:\s+(.+))?$/);
+        if (problemTriggerMatch) {
+            // Extract topic from everything after the @tag (original case preserved)
+            const rawAfterTag = msg.slice(problemTriggerMatch[1].length + 1).trim(); // strip '@try' or '@new'
+            const topic = rawAfterTag || 'random';
+
+            DOM.chatSend.disabled = true;
+            DOM.chatSend.innerHTML = '<span class="spinner"></span>';
+            try {
+                const result = await fetchProblem({ topic: topic !== 'random' ? topic : null, difficulty: 'easy' });
+                if (result.success) {
+                    if (topic !== 'random') {
+                        addChatMessage('ai', `✅ Generated a new problem about **"${topic}"**. Check the problem panel!`);
+                    } else {
+                        addChatMessage('ai', `✅ Generated a new random problem. Check the problem panel!`);
+                    }
                 }
+            } finally {
+                DOM.chatSend.disabled = false;
+                DOM.chatSend.innerHTML = '<span class="send-icon">➤</span> Send';
             }
-            if (!found) {
-                topic = words.filter(w => !triggerWords.includes(w.toLowerCase())).join(' ');
-            }
-            if (!topic.trim()) {
-                topic = 'random';
-            }
-            await fetchProblem({ topic: topic.trim(), difficulty: 'easy' });
-            addChatMessage('ai', `✅ Generated a new problem${topic.trim() !== 'random' ? ' about "' + topic.trim() + '"' : ''}. Check the problem panel.`);
             return;
         }
 
@@ -508,16 +578,16 @@
 
         try {
             const context = STATE.problem ? `Problem: ${STATE.problem.title}\nDescription: ${STATE.problem.description}` : '';
-            const resp = await fetch('/api/chat', {
+            const resp = await fetch(`${window.API_BASE_URL}/api/chat`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: authHeaders(),
                 body: JSON.stringify({
                     message: msg,
                     context: context,
                     history: STATE.chatHistory.slice(-6),
                 }),
             });
-            const data = await resp.json();
+            const data = await parseApiResponse(resp);
             // Remove typing indicator
             if (typingDiv && typingDiv.parentNode) typingDiv.remove();
             if (data.success) {
@@ -556,12 +626,12 @@
         switchTab('console');
 
         try {
-            const resp = await fetch('/api/run', {
+            const resp = await fetch(`${window.API_BASE_URL}/api/run`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: authHeaders(),
                 body: JSON.stringify({ language: lang, code, stdin }),
             });
-            const data = await resp.json();
+            const data = await parseApiResponse(resp);
 
             if (data.success) {
                 const stdout = (data.stdout || '').trim();
@@ -695,7 +765,7 @@
 
         document.getElementById('tryAgainHint').addEventListener('click', () => {
             dismiss(() => {
-                DOM.chatInput.value = 'My solution failed some test cases. Can you give me a hint?';
+                DOM.chatInput.value = '@hint';
                 sendChatMessage();
             });
         });
@@ -816,16 +886,16 @@
         for (let i = 0; i < STATE.testCases.length; i++) {
             const tc = STATE.testCases[i];
             try {
-                const resp = await fetch('/api/run', {
+                const resp = await fetch(`${window.API_BASE_URL}/api/run`, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: authHeaders(),
                     body: JSON.stringify({
                         language: lang,
                         code: code,
                         stdin: tc.input || '',
                     }),
                 });
-                const data = await resp.json();
+                const data = await parseApiResponse(resp);
                 const actual = (data.stdout || '').trim();
                 const expected = String(tc.expected ?? '').trim();
                 const passed = actual === expected;
@@ -1044,6 +1114,12 @@
         });
 
         DOM.themeToggle.addEventListener('click', toggleTheme);
+        if (DOM.logoutBtn) {
+            DOM.logoutBtn.addEventListener('click', function () {
+                AUTH.clearSession();
+                window.location.href = '/login';
+            });
+        }
 
         DOM.outputTabs.forEach(btn => {
             btn.addEventListener('click', function () {
@@ -1099,5 +1175,6 @@
         console.log('🚀 HeyMine AI Labs — Compiler ready');
     });
 
+    STATE.renderTestCases = renderTestCases;
     window.__STATE = STATE;
 })();

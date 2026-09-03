@@ -1,0 +1,27 @@
+{
+  "id": "HM092",
+  "title": "Binary to Decimal",
+  "stage": 5,
+  "stageName": "👑 Algorithm Kingdom",
+  "mission": 92,
+  "difficulty": "Advanced",
+  "xp": 30,
+  "coins": 60,
+  "nodeType": "normal",
+  "estimatedMinutes": 20,
+  "unlockAfter": "HM091",
+  "unlockNext": "HM093",
+  "description": "Convert a binary string to its decimal (base-10) equivalent.",
+  "inputFormat": "A binary string (only 0s and 1s).",
+  "outputFormat": "Print the decimal value.",
+  "constraints": [
+    "Binary string length ≤ 32"
+  ],
+  "examples": [
+    {
+      "input": "1010",
+      "output": "10"
+    }
+  ],
+  "tags": []
+}

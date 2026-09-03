@@ -1,0 +1,8 @@
+{
+  "id": "HM059",
+  "hints": [
+    "LCM(a,b) = (a*b) / GCD(a,b).",
+    "Compute GCD first, then divide product.",
+    "Result is always positive."
+  ]
+}

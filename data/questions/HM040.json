@@ -1,0 +1,27 @@
+{
+  "id": "HM040",
+  "title": "Sum of Digits",
+  "stage": 2,
+  "stageName": "🌿 Logic Forest",
+  "mission": 40,
+  "difficulty": "Beginner",
+  "xp": 15,
+  "coins": 30,
+  "nodeType": "boss",
+  "estimatedMinutes": 10,
+  "unlockAfter": "HM039",
+  "unlockNext": "HM041",
+  "description": "Read an integer and print the sum of its digits.",
+  "inputFormat": "A single integer.",
+  "outputFormat": "Print the sum of digits.",
+  "constraints": [
+    "1 ≤ n ≤ 10^18"
+  ],
+  "examples": [
+    {
+      "input": "123",
+      "output": "6"
+    }
+  ],
+  "tags": []
+}
