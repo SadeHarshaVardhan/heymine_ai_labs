@@ -22,9 +22,11 @@
 (function () {
   'use strict';
 
-  // Priority 1: Injected at build time via HTML <script> block (recommended for Vercel)
-  // Priority 2: Falls back to empty string (relative URLs) — works for local dev
-  const base = (window._HEYMINE_API_BASE || '').replace(/\/$/, '');
+  // Priority 1: Injected via window._HEYMINE_API_BASE in HTML <head> or build script
+  // Priority 2: Stored in localStorage under 'heymine_api_url' (useful for dev override)
+  // Priority 3: Empty string (relative paths like /api/problem — works for local Express server)
+  const customUrl = window._HEYMINE_API_BASE || (typeof localStorage !== 'undefined' ? localStorage.getItem('heymine_api_url') : null);
+  const base = (customUrl || '').trim().replace(/\/$/, '');
 
   window.API_BASE_URL = base;
 })();
