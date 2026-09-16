@@ -9,7 +9,7 @@ function requireEnv(name) {
 }
 
 const supabaseUrl = requireEnv("SUPABASE_URL");
-const supabaseServiceKey = requireEnv("SUPABASE_SERVICE_KEY");
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_KEY;
 const supabaseAnonKey = requireEnv("SUPABASE_ANON_KEY");
 
 function createSupabaseClient(key) {

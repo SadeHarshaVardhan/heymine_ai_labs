@@ -3,7 +3,7 @@ FROM node:22-bookworm-slim
 # Prevent interactive prompts during apt install
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install JDK (Java), GCC (C), G++ (C++), Python 3, and python-is-python3
+# Install OpenJDK (Java), GCC (C), G++ (C++), Python 3, and python-is-python3
 RUN apt-get update && apt-get install -y --no-install-recommends \
     default-jdk \
     gcc \
@@ -15,15 +15,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Set working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copy package files and install production dependencies
 COPY package*.json ./
 RUN npm ci --only=production
 
-# Copy remaining project files
+# Copy remaining application source code
 COPY . .
 
-# Expose application port
-EXPOSE 3000
+# Expose backend application port
+EXPOSE 8080
 
-# Startup command
-CMD ["npm", "start"]
+# Production startup command
+CMD ["node", "server.js"]

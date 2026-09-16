@@ -1,4 +1,4 @@
-const { ensureSupabase, supabaseAuth } = require("../config/supabase");
+const { ensureSupabase, supabaseAuth, supabaseAdmin } = require("../config/supabase");
 
 function publicUser(user) {
   if (!user) return null;
@@ -65,10 +65,14 @@ exports.logout = async (_req, res) => {
 
 exports.forgotPassword = async (req, res, next) => {
   try {
-    const { email } = req.body;
+    const { email, redirectToUrl } = req.body;
     if (!email) return res.status(400).json({ success: false, error: "Email is required" });
 
-    const redirectTo = `${req.protocol}://${req.get("host")}/reset-password`;
+    // Determine correct frontend URL for password reset redirect
+    let baseUrl = process.env.FRONTEND_URL || req.headers.origin || `${req.protocol}://${req.get("host")}`;
+    baseUrl = baseUrl.trim().replace(/\/$/, "");
+    const redirectTo = redirectToUrl || `${baseUrl}/reset-password`;
+
     const supabase = ensureSupabase(supabaseAuth);
     const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo });
     if (error) return res.status(400).json({ success: false, error: error.message });
@@ -89,19 +93,12 @@ exports.resetPassword = async (req, res, next) => {
     const supabase = ensureSupabase(supabaseAuth);
     const { data: userData, error: userError } = await supabase.auth.getUser(accessToken);
     if (userError || !userData?.user) {
-      return res.status(401).json({ success: false, error: "Invalid or expired reset session" });
+      return res.status(401).json({ success: false, error: "Invalid or expired reset session. Please request a new reset email." });
     }
 
-    const userClient = require("@supabase/supabase-js").createClient(
-      process.env.SUPABASE_URL,
-      process.env.SUPABASE_ANON_KEY,
-      {
-        global: { headers: { Authorization: `Bearer ${accessToken}` } },
-        auth: { persistSession: false },
-      },
-    );
-    const { error } = await userClient.auth.updateUser({ password });
-    if (error) return res.status(400).json({ success: false, error: error.message });
+    const adminSupabase = ensureSupabase(supabaseAdmin);
+    const { error: updateError } = await adminSupabase.auth.admin.updateUserById(userData.user.id, { password });
+    if (updateError) return res.status(400).json({ success: false, error: updateError.message });
 
     return res.json({ success: true, message: "Password updated successfully" });
   } catch (error) {

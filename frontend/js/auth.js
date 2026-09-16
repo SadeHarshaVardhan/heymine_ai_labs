@@ -109,7 +109,7 @@
         const data = await api("/api/auth/forgot-password", {
           email: $("#email").value.trim(),
         });
-        setMessage(data.message || "Reset link sent", "success");
+        setMessage(data.message || "Reset link sent to your email", "success");
       } catch (error) {
         setMessage(error.message, "error");
       }
@@ -119,27 +119,40 @@
   function bindReset() {
     const form = $("#resetForm");
     if (!form) return;
+
+    // Helper to extract access_token from location hash or query params
+    const getAccessToken = () => {
+      const hashStr = window.location.hash ? window.location.hash.slice(1) : "";
+      const searchStr = window.location.search ? window.location.search.slice(1) : "";
+      const params = new URLSearchParams(hashStr || searchStr);
+      return params.get("access_token");
+    };
+
+    const initialToken = getAccessToken();
+    if (!initialToken) {
+      setMessage("Reset token missing or expired. Please request a new link from the forgot password page.", "error");
+    }
+
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       if ($("#password").value !== $("#confirmPassword").value) {
         setMessage("Passwords do not match", "error");
         return;
       }
-      const params = new URLSearchParams(window.location.hash.slice(1) || window.location.search.slice(1));
-      const accessToken = params.get("access_token");
-      if (!accessToken) {
+      const token = getAccessToken();
+      if (!token) {
         setMessage("Reset token missing. Open the link from your email again.", "error");
         return;
       }
       setMessage("Updating password...");
       try {
         await api("/api/auth/reset-password", {
-          accessToken,
+          accessToken: token,
           password: $("#password").value,
         });
         clearSession();
-        setMessage("Password updated. Redirecting to login...", "success");
-        setTimeout(() => { window.location.href = "/login"; }, 900);
+        setMessage("Password updated successfully! Redirecting to login...", "success");
+        setTimeout(() => { window.location.href = "/login"; }, 1200);
       } catch (error) {
         setMessage(error.message, "error");
       }

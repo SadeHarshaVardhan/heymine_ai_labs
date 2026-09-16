@@ -4,7 +4,10 @@ node_modules/
 # ── Environment / Secrets — NEVER commit these ─────────────
 .env
 .env.*
+backend/.env
+backend/.env.*
 !.env.example
+!backend/.env.example
 
 # ── Logs ───────────────────────────────────────────────────
 npm-debug.log*

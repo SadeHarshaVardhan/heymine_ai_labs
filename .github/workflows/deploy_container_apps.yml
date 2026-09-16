@@ -2,9 +2,9 @@
 #
 # Pipeline:
 #   push to main
-#     → Build Docker image (uses existing Dockerfile — unchanged)
+#     → Build Docker image from backend/ context
 #     → Push to GitHub Container Registry (GHCR)
-#     → Deploy to Azure Container Apps
+#     → Deploy to Azure Container Apps (Target Port 8080)
 #
 # Required GitHub Secrets:
 #   AZURE_CLIENT_ID          - Service Principal App (Client) ID
@@ -12,10 +12,8 @@
 #   AZURE_SUBSCRIPTION_ID    - Azure Subscription ID
 #   AZURE_RESOURCE_GROUP     - heymine-rg
 #   CONTAINER_APP_NAME       - heymine-api
-#
-# GITHUB_TOKEN is provided automatically — no extra registry secrets needed.
 
-name: Build and Deploy to Azure Container Apps
+name: Build and Deploy Backend to Azure Container Apps
 
 on:
   push:
@@ -47,14 +45,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # ── 3. Build Docker image (existing Dockerfile — unchanged) ───────────────
+      # ── 3. Build Docker image from backend directory ──────────────────────────
       - name: Build Docker image
         run: |
           docker build \
             --tag ${{ env.IMAGE }}:${{ github.sha }} \
             --tag ${{ env.IMAGE }}:latest \
-            .
-          echo "Image built: ${{ env.IMAGE }}:${{ github.sha }}"
+            ./backend
+          echo "Backend Docker image built: ${{ env.IMAGE }}:${{ github.sha }}"
 
       # ── 4. Push image to GHCR ────────────────────────────────────────────────
       - name: Push image to GHCR
@@ -78,7 +76,7 @@ jobs:
             --name ${{ secrets.CONTAINER_APP_NAME }} \
             --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
             --image ${{ env.IMAGE }}:${{ github.sha }}
-          echo "Deployment triggered"
+          echo "Deployment triggered successfully"
 
       # ── 7. Print live URL ─────────────────────────────────────────────────────
       - name: Get Container App URL
@@ -90,3 +88,4 @@ jobs:
             --output tsv)
           echo "HeyMine API live at: https://$URL"
           echo "Health check: https://$URL/health"
+          echo "Version check: https://$URL/version"
