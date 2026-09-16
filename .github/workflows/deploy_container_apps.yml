@@ -4,18 +4,7 @@
 #   push to main
 #     → Build Docker image from backend/ context
 #     → Push to GitHub Container Registry (GHCR)
-#     → Deploy to Azure Container Apps (Target Port 8080)
-#
-# Required GitHub Secrets (Set in GitHub Repo Settings -> Secrets and variables -> Actions):
-# Option A (OIDC - Recommended):
-#   AZURE_CLIENT_ID          - Service Principal App (Client) ID
-#   AZURE_TENANT_ID          - Azure AD Tenant ID
-#   AZURE_SUBSCRIPTION_ID    - Azure Subscription ID
-#   AZURE_RESOURCE_GROUP     - heymine-rg
-#   CONTAINER_APP_NAME       - heymine-api
-#
-# Option B (Service Principal JSON):
-#   AZURE_CREDENTIALS        - Output of `az ad sp create-for-rbac` JSON block
+#     → Deploy to Azure Container Apps (Optional: skips if Azure secrets not yet configured)
 
 name: Build and Deploy Backend to Azure Container Apps
 
@@ -65,8 +54,9 @@ jobs:
           docker push ${{ env.IMAGE }}:latest
           echo "Image pushed to GHCR"
 
-      # ── 5. Login to Azure (supports both OIDC and AZURE_CREDENTIALS) ──────────
+      # ── 5. Login to Azure (Optional — skipped if secrets not configured) ─────
       - name: Login to Azure
+        if: ${{ secrets.AZURE_CLIENT_ID != '' || secrets.AZURE_CREDENTIALS != '' }}
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -76,6 +66,7 @@ jobs:
 
       # ── 6. Deploy to Azure Container Apps ────────────────────────────────────
       - name: Deploy to Azure Container Apps
+        if: ${{ secrets.AZURE_CLIENT_ID != '' || secrets.AZURE_CREDENTIALS != '' }}
         run: |
           az containerapp update \
             --name ${{ secrets.CONTAINER_APP_NAME || 'heymine-api' }} \
@@ -85,6 +76,7 @@ jobs:
 
       # ── 7. Print live URL ─────────────────────────────────────────────────────
       - name: Get Container App URL
+        if: ${{ secrets.AZURE_CLIENT_ID != '' || secrets.AZURE_CREDENTIALS != '' }}
         run: |
           URL=$(az containerapp show \
             --name ${{ secrets.CONTAINER_APP_NAME || 'heymine-api' }} \
