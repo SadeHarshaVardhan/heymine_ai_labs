@@ -9,6 +9,11 @@ function publicUser(user) {
   };
 }
 
+function resolveFrontendUrl(req) {
+  let baseUrl = process.env.FRONTEND_URL || req.headers.origin || `${req.protocol}://${req.get("host")}`;
+  return baseUrl.trim().replace(/\/$/, "");
+}
+
 exports.register = async (req, res, next) => {
   try {
     const { email, password, username } = req.body;
@@ -22,6 +27,7 @@ exports.register = async (req, res, next) => {
       password,
       options: {
         data: { username: username || email.split("@")[0] },
+        emailRedirectTo: `${resolveFrontendUrl(req)}/login`,
       },
     });
 
@@ -68,10 +74,7 @@ exports.forgotPassword = async (req, res, next) => {
     const { email, redirectToUrl } = req.body;
     if (!email) return res.status(400).json({ success: false, error: "Email is required" });
 
-    // Determine correct frontend URL for password reset redirect
-    let baseUrl = process.env.FRONTEND_URL || req.headers.origin || `${req.protocol}://${req.get("host")}`;
-    baseUrl = baseUrl.trim().replace(/\/$/, "");
-    const redirectTo = redirectToUrl || `${baseUrl}/reset-password`;
+    const redirectTo = redirectToUrl || `${resolveFrontendUrl(req)}/reset-password`;
 
     const supabase = ensureSupabase(supabaseAuth);
     const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo });
