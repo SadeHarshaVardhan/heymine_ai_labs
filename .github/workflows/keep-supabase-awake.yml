@@ -1,0 +1,27 @@
+# HeyMine AI Labs — Supabase Keep-Alive
+#
+# Supabase free-tier projects auto-pause after 7 days of inactivity.
+# This workflow pings the project's REST endpoint every 3 days so it
+# never reaches that inactivity window.
+
+name: Keep Supabase Awake
+
+on:
+  schedule:
+    - cron: "0 6 */3 * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          curl --fail --silent --show-error \
+            "$SUPABASE_URL/rest/v1/" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY"
