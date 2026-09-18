@@ -54,7 +54,7 @@
 
           <div class="auth-field">
             <label for="groqApiKey">Paste your Groq API key</label>
-            <div class="auth-password-wrap">
+            <div class="auth-password-wrap has-paste">
               <input
                 id="groqApiKey"
                 type="password"
@@ -62,6 +62,7 @@
                 autocomplete="off"
                 spellcheck="false"
               />
+              <button type="button" class="auth-field-paste" id="pasteApiKey" aria-label="Paste from clipboard">Paste</button>
               <button type="button" class="auth-password-toggle" id="toggleApiKey" aria-label="Show/hide key">👁</button>
             </div>
             <div style="font-size:12px;color:var(--auth-muted);margin-top:2px">
@@ -108,20 +109,5 @@
     <script>window._HEYMINE_API_BASE = "https://heymine-api.victoriousbeach-c448466f.centralindia.azurecontainerapps.io";</script>
     <script src="/js/config.js"></script>
     <script src="/js/auth.js"></script>
-
-    <!-- Inline toggle for API key visibility -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var toggle = document.getElementById('toggleApiKey');
-        var input  = document.getElementById('groqApiKey');
-        if (toggle && input) {
-          toggle.addEventListener('click', function () {
-            var show = input.type === 'password';
-            input.type = show ? 'text' : 'password';
-            toggle.textContent = show ? '🙈' : '👁';
-          });
-        }
-      });
-    </script>
   </body>
 </html>

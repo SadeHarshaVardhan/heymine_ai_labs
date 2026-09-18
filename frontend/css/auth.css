@@ -37,18 +37,34 @@
   padding: 0;
 }
 
+/* ---------- Scrollbar (page can grow taller than the viewport) ---------- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(108, 92, 231, 0.4) transparent;
+}
+html::-webkit-scrollbar { width: 10px; }
+html::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-thumb {
+  background: rgba(108, 92, 231, 0.35);
+  border-radius: 10px;
+}
+html::-webkit-scrollbar-thumb:hover { background: rgba(108, 92, 231, 0.55); }
+
 /* ---------- Body ---------- */
 body.auth-body {
   min-height: 100vh;
+  min-height: 100dvh;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--auth-text);
   background: var(--auth-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 40px 20px;
   position: relative;
-  overflow: hidden;
+  /* Only clip horizontally — vertical overflow must stay scrollable or tall
+     cards (e.g. settings) become unreachable below the fold. */
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -81,6 +97,7 @@ body.auth-body::after {
   position: relative;
   z-index: 1;
   width: min(100%, 460px);
+  margin: auto 0;
   animation: authFadeIn 0.4s ease both;
 }
 
@@ -344,6 +361,34 @@ body.auth-body::after {
   border-color: rgba(108, 92, 231, 0.3);
 }
 
+/* Invalid state + shake feedback (mismatched/empty fields) */
+@keyframes authShake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+.auth-field.invalid input {
+  border-color: var(--auth-red);
+  background: var(--auth-red-bg);
+}
+.auth-field.invalid input:focus {
+  box-shadow: 0 0 0 3px rgba(240, 132, 112, 0.18);
+}
+.auth-field.shake input {
+  animation: authShake 0.4s ease;
+}
+
+.auth-field-hint {
+  font-size: 12px;
+  color: var(--auth-muted);
+  margin-top: -1px;
+}
+.auth-field.invalid .auth-field-hint {
+  color: var(--auth-red);
+}
+
 /* Password wrapper with toggle */
 .auth-password-wrap {
   position: relative;
@@ -351,6 +396,11 @@ body.auth-body::after {
 
 .auth-password-wrap input {
   padding-right: 44px;
+}
+
+/* Extra room when a second action (e.g. Paste) sits next to the toggle */
+.auth-password-wrap.has-paste input {
+  padding-right: 78px;
 }
 
 .auth-password-toggle {
@@ -363,11 +413,41 @@ body.auth-body::after {
   color: var(--auth-muted);
   cursor: pointer;
   font-size: 15px;
-  padding: 4px;
+  padding: 6px;
   line-height: 1;
-  transition: color var(--auth-transition);
+  border-radius: 6px;
+  transition: color var(--auth-transition), background var(--auth-transition);
 }
-.auth-password-toggle:hover { color: var(--auth-muted2); }
+.auth-password-toggle:hover { color: var(--auth-muted2); background: rgba(255,255,255,0.05); }
+.auth-password-toggle:focus-visible {
+  outline: 2px solid var(--auth-accent);
+  outline-offset: 1px;
+}
+
+/* Secondary "Paste" action inside a password-style field */
+.auth-field-paste {
+  position: absolute;
+  right: 38px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--auth-accent);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  padding: 6px 6px;
+  line-height: 1;
+  border-radius: 6px;
+  transition: color var(--auth-transition), background var(--auth-transition);
+}
+.auth-field-paste:hover { color: var(--auth-accent-hover); background: rgba(108, 92, 231, 0.1); }
+.auth-field-paste:focus-visible {
+  outline: 2px solid var(--auth-accent);
+  outline-offset: 1px;
+}
 
 /* Forgot link inline */
 .auth-field-header {
@@ -543,6 +623,16 @@ body.auth-body::after {
   transition: width 0.3s ease, background 0.3s ease;
 }
 
+.auth-strength-label {
+  display: block;
+  min-height: 15px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--auth-muted);
+  margin-top: 6px;
+  transition: color 0.2s ease;
+}
+
 /* ---------- Settings page overrides ---------- */
 .settings-section-title {
   font-size: 12px;
@@ -688,8 +778,14 @@ body.auth-body::after {
 }
 
 @media (max-width: 480px) {
-  body.auth-body { padding: 14px; }
+  body.auth-body { padding: 24px 14px; }
   .auth-card { padding: 26px 22px; }
   .auth-card h1,
   .auth-split-right h1 { font-size: 20px; }
+}
+
+/* Short / landscape viewports: start from the top instead of centering,
+   so a tall card (e.g. settings) doesn't open mid-scroll. */
+@media (max-height: 700px) {
+  body.auth-body { align-items: flex-start; }
 }

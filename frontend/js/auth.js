@@ -72,17 +72,76 @@
     const toggle = $(toggleId);
     const input  = $(inputId);
     if (!toggle || !input) return;
+    toggle.setAttribute("aria-pressed", "false");
     toggle.addEventListener("click", () => {
       const show = input.type === "password";
       input.type = show ? "text" : "password";
       toggle.textContent = show ? "🙈" : "👁";
+      toggle.setAttribute("aria-pressed", String(show));
     });
+  }
+
+  /* ── Paste-from-clipboard button ─────────────── */
+  function bindPasteButton(buttonId, inputId) {
+    const btn   = $(buttonId);
+    const input = $(inputId);
+    if (!btn || !input) return;
+    if (!navigator.clipboard || !navigator.clipboard.readText) {
+      btn.style.display = "none";
+      return;
+    }
+    btn.addEventListener("click", async () => {
+      try {
+        const text = await navigator.clipboard.readText();
+        if (text) {
+          input.value = text.trim();
+          input.dispatchEvent(new Event("input", { bubbles: true }));
+          input.focus();
+        }
+      } catch {
+        input.focus();
+      }
+    });
+  }
+
+  /* ── Field error / shake feedback ───────────── */
+  function markFieldError(inputId, hint) {
+    const input = $(inputId);
+    if (!input) return;
+    const field = input.closest(".auth-field");
+    if (!field) return;
+    field.classList.add("invalid");
+    field.classList.remove("shake");
+    void field.offsetWidth; // restart animation
+    field.classList.add("shake");
+    if (hint) {
+      let hintEl = field.querySelector(".auth-field-hint");
+      if (!hintEl) {
+        hintEl = document.createElement("div");
+        hintEl.className = "auth-field-hint";
+        field.appendChild(hintEl);
+      }
+      hintEl.textContent = hint;
+    }
+    input.addEventListener(
+      "input",
+      () => { field.classList.remove("invalid", "shake"); },
+      { once: true }
+    );
+  }
+
+  /* ── Groq key status pill ───────────────────── */
+  function setKeyStatus(el, hasKey) {
+    if (!el) return;
+    el.textContent = hasKey ? "✓ Saved" : "Not set";
+    el.style.color = hasKey ? "var(--auth-green)" : "var(--auth-muted2)";
   }
 
   /* ── Password strength meter ────────────────── */
   function bindStrengthMeter(inputId) {
     const input = $(inputId);
     const fill  = $("#strengthFill");
+    const label = $("#strengthLabel");
     if (!input || !fill) return;
     input.addEventListener("input", () => {
       const v = input.value;
@@ -100,6 +159,19 @@
                   : "#00d2a0";
       fill.style.width      = `${pct}%`;
       fill.style.background = color;
+      if (label) {
+        if (!v) {
+          label.textContent = "";
+        } else {
+          const text = pct <= 20  ? "Weak"
+                     : pct <= 40  ? "Fair"
+                     : pct <= 60  ? "Good"
+                     : pct <= 80  ? "Strong"
+                     : "Excellent";
+          label.textContent = text;
+          label.style.color = color;
+        }
+      }
     });
   }
 
@@ -112,12 +184,15 @@
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      const email = $("#email").value.trim();
+      if (!email) { markFieldError("#email", "Email is required"); return; }
+      if (!$("#password").value) { markFieldError("#password", "Password is required"); return; }
       const btn = $("#loginBtn");
       setLoading(btn, true);
       setMessage("Signing in…", "info");
       try {
         const data = await api("/api/auth/login", {
-          email:    $("#email").value.trim(),
+          email,
           password: $("#password").value,
         });
         saveSession(data.session, data.user);
@@ -142,6 +217,7 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       if ($("#password").value !== $("#confirmPassword").value) {
+        markFieldError("#confirmPassword", "Passwords do not match");
         setMessage("Passwords do not match", "error");
         return;
       }
@@ -179,6 +255,8 @@
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      const email = $("#email").value.trim();
+      if (!email) { markFieldError("#email", "Enter your email first"); return; }
       const btn = $("#forgotBtn");
       setLoading(btn, true);
       setMessage("Sending reset link…", "info");
@@ -186,7 +264,7 @@
         // Pass redirectToUrl from the current frontend origin
         const redirectToUrl = `${window.location.origin}/reset-password`;
         const data = await api("/api/auth/forgot-password", {
-          email: $("#email").value.trim(),
+          email,
           redirectToUrl,
         });
         setMessage(
@@ -227,7 +305,12 @@
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      if ($("#password").value.length < 6) {
+        markFieldError("#password", "Use at least 6 characters");
+        return;
+      }
       if ($("#password").value !== $("#confirmPassword").value) {
+        markFieldError("#confirmPassword", "Passwords do not match");
         setMessage("Passwords do not match", "error");
         return;
       }
@@ -265,6 +348,18 @@
       return;
     }
 
+    bindPasswordToggle("#toggleApiKey", "#groqApiKey");
+    bindPasteButton("#pasteApiKey", "#groqApiKey");
+
+    const saveBtn = $("#saveKeyBtn");
+    const keyInput = $("#groqApiKey");
+    if (saveBtn && keyInput) {
+      saveBtn.disabled = true;
+      keyInput.addEventListener("input", () => {
+        saveBtn.disabled = !keyInput.value.trim();
+      });
+    }
+
     try {
       const data = await api("/api/user/me", null, { method: "GET", auth: true });
       const p = data.profile;
@@ -277,8 +372,8 @@
 
       const ownKeyEl  = $("#useOwnKey");
       const statusEl  = $("#keyStatus");
-      if (ownKeyEl) ownKeyEl.checked     = Boolean(p.useOwnKey);
-      if (statusEl) statusEl.textContent = p.hasGroqKey ? "✓ Saved" : "Not set";
+      if (ownKeyEl) ownKeyEl.checked = Boolean(p.useOwnKey);
+      setKeyStatus(statusEl, p.hasGroqKey);
     } catch (err) {
       setMessage(err.message, "error");
     }
@@ -287,7 +382,7 @@
       e.preventDefault();
       const keyVal = ($("#groqApiKey").value || "").trim();
       if (!keyVal) {
-        setMessage("Please paste your Groq API key first.", "error");
+        markFieldError("#groqApiKey", "Paste your Groq API key first");
         return;
       }
       const btn = $("#saveKeyBtn");
@@ -299,10 +394,10 @@
           groqApiKey: keyVal,
           useOwnKey:  $("#useOwnKey") ? $("#useOwnKey").checked : true,
         }, { method: "PUT", auth: true });
-        const statusEl = $("#keyStatus");
-        if (statusEl) statusEl.textContent = data.profile.hasGroqKey ? "✓ Saved" : "Not set";
+        setKeyStatus($("#keyStatus"), data.profile.hasGroqKey);
         // Clear the input after saving for security
-        if ($("#groqApiKey")) $("#groqApiKey").value = "";
+        if (keyInput) keyInput.value = "";
+        if (saveBtn) saveBtn.disabled = true;
         setMessage("🔑 API key saved securely! AI sessions will now use your key.", "success");
       } catch (err) {
         setMessage(err.message, "error");
