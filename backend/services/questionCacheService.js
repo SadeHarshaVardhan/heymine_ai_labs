@@ -36,22 +36,24 @@ async function findCachedQuestion(difficulty, topic, userId) {
     .eq("user_id", userId);
   if (attemptsError) throw attemptsError;
 
-  const attemptedIds = (attemptedRows || []).map((row) => row.question_id);
-  let query = supabase
+  const attemptedIds = new Set((attemptedRows || []).map((row) => row.question_id));
+
+  // Pull every cached question in this bucket, most reused first.
+  const { data: candidates, error } = await supabase
     .from("questions")
     .select("*")
     .eq("cache_key", cacheKey)
     .order("usage_count", { ascending: false })
     .order("created_at", { ascending: true })
-    .limit(1);
-
-  if (attemptedIds.length) {
-    query = query.not("id", "in", `(${attemptedIds.join(",")})`);
-  }
-
-  const { data, error } = await query.maybeSingle();
+    .limit(50);
   if (error) throw error;
-  return data ? fromDbQuestion(data) : null;
+  if (!candidates || candidates.length === 0) return null;
+
+  // Prefer one this user hasn't seen yet; if they've exhausted the bucket,
+  // reuse the most popular cached question from the DB instead of forcing a
+  // fresh AI generation every time.
+  const unseen = candidates.find((row) => !attemptedIds.has(row.id));
+  return fromDbQuestion(unseen || candidates[0]);
 }
 
 async function saveQuestion(problem, difficulty, topic) {

@@ -12,6 +12,7 @@ const questionRoutes = require("./questionRoutes");
 const executionRoutes = require("./executionRoutes");
 const mentorRoutes = require("./mentorRoutes");
 const chatRoutes = require("./chatRoutes");
+const missionRoutes = require("./missionRoutes");
 
 const questionController = require("../controllers/questionController");
 const chatController = require("../controllers/chatController");
@@ -23,6 +24,7 @@ router.use("/user", userRoutes);
 router.use("/questions", questionRoutes);
 router.use("/mentor", mentorRoutes);
 router.use("/chat", chatRoutes);
+router.use("/missions", missionRoutes);
 
 // Execution endpoints at /api level (/api/run, /api/submit)
 router.use("/", executionRoutes);

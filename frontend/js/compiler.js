@@ -119,15 +119,11 @@
 
     // ------------- Reset for new problem -------------
     function resetForNewProblem() {
-        const hasMission = new URLSearchParams(window.location.search).has('mission');
-        if (hasMission) {
-            if (DOM.newProblemBtn) DOM.newProblemBtn.style.display = 'none';
-            return;
-        }
+        const missionId = new URLSearchParams(window.location.search).get('mission');
 
         DOM.chatMessages.innerHTML = '';
         STATE.chatHistory = [];
-        addChatMessage('ai', '🔄 Loading a new problem...');
+        addChatMessage('ai', missionId ? '🔄 Loading mission...' : '🔄 Loading a new problem...');
 
         STATE.results = [];
         renderTestCases();
@@ -141,7 +137,52 @@
 
         if (DOM.customStdin) DOM.customStdin.value = '';
 
+        if (missionId) {
+            if (DOM.newProblemBtn) DOM.newProblemBtn.style.display = 'none';
+            fetchMission(missionId);
+            return;
+        }
+
         fetchProblem();
+    }
+
+    // ------------- Fetch a specific mission (always the same question) -------------
+    async function fetchMission(missionId) {
+        if (STATE.isFetchingProblem) return { success: false, error: 'Problem fetch already in progress' };
+        STATE.isFetchingProblem = true;
+
+        try {
+            const resp = await fetch(`${window.API_BASE_URL}/api/missions/${encodeURIComponent(missionId)}`, {
+                method: 'GET',
+                headers: authHeaders(),
+            });
+            const data = await parseApiResponse(resp);
+            STATE.problem = data.problem;
+            renderProblem(data.problem);
+            STATE.testCases = data.problem.testCases || [];
+            STATE.results = STATE.testCases.map(() => ({ status: 'pending' }));
+            renderTestCases();
+
+            if (STATE.testCases.length > 0 && DOM.customStdin) {
+                DOM.customStdin.value = STATE.testCases[0].input || '';
+            }
+
+            if (STATE.editorInstance) {
+                STATE.editorInstance.setValue(getStarterCode(STATE.language));
+            }
+            DOM.outputContent.textContent = '// Ready to code';
+            DOM.outputContent.className = 'output-content';
+            addChatMessage('ai', `📝 Mission: **${data.problem.title}**. Let's solve it!`);
+            return { success: true, problem: data.problem, source: 'mission' };
+        } catch (err) {
+            console.error('❌ Mission fetch error:', err);
+            DOM.problemTitle.textContent = '⚠️ Mission not found';
+            DOM.problemDescription.innerHTML = `<p class="empty-state">${problemErrorMessage(err)}</p>`;
+            addChatMessage('ai', `⚠️ Could not load mission "${missionId}": ${problemErrorMessage(err)}`);
+            return { success: false, error: problemErrorMessage(err) };
+        } finally {
+            STATE.isFetchingProblem = false;
+        }
     }
 
     // ------------- Fetch problem (with optional topic) -------------
