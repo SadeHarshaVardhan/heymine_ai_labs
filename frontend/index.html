@@ -178,6 +178,60 @@
         </div>
       </section>
 
+      <!-- ===== OWN API KEY SECTION ===== -->
+      <section class="how-section" id="ownApiKey" style="padding-top:0">
+        <div style="
+          max-width:780px;
+          margin:0 auto;
+          background: linear-gradient(135deg, rgba(108,92,231,0.1) 0%, rgba(0,210,160,0.06) 100%);
+          border: 1px solid rgba(108,92,231,0.22);
+          border-radius:20px;
+          padding:40px 44px;
+          position:relative;
+          overflow:hidden;
+        ">
+          <!-- Glow -->
+          <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle, rgba(108,92,231,0.18),transparent 70%);pointer-events:none"></div>
+
+          <div style="display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap">
+            <div style="font-size:42px;line-height:1">⚡</div>
+            <div style="flex:1;min-width:220px">
+              <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#a29bfe;margin-bottom:10px">Pro Tip</div>
+              <h2 style="font-size:22px;font-weight:800;line-height:1.3;margin-bottom:10px">Use your own Groq API key for unlimited speed</h2>
+              <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:20px">
+                The platform runs on a shared Groq API key by default — which means you might hit rate limits during peak usage.
+                <strong style="color:var(--text-secondary)">Get your own free Groq key</strong> and paste it in Settings for instant, unlimited AI responses with zero delays.
+              </p>
+
+              <!-- Steps -->
+              <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+                <div style="display:flex;align-items:center;gap:14px;font-size:13.5px;color:var(--text-secondary)">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.25);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#a29bfe;flex-shrink:0">1</div>
+                  Go to <a href="https://console.groq.com/keys" target="_blank" rel="noopener" style="color:#a29bfe;font-weight:600;text-decoration:none">console.groq.com/keys</a> and create a free API key
+                </div>
+                <div style="display:flex;align-items:center;gap:14px;font-size:13.5px;color:var(--text-secondary)">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.25);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#a29bfe;flex-shrink:0">2</div>
+                  Sign in to HeyMine → open <a href="/settings" style="color:#a29bfe;font-weight:600;text-decoration:none">Settings →</a> and paste your key
+                </div>
+                <div style="display:flex;align-items:center;gap:14px;font-size:13.5px;color:var(--text-secondary)">
+                  <div style="width:28px;height:28px;border-radius:8px;background:rgba(0,210,160,0.12);border:1px solid rgba(0,210,160,0.2);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#00d2a0;flex-shrink:0">✓</div>
+                  Enable "Use my own key" toggle — enjoy unlimited AI with no rate limits!
+                </div>
+              </div>
+
+              <div style="display:flex;gap:12px;flex-wrap:wrap">
+                <a href="https://console.groq.com/keys" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="text-decoration:none;font-size:13px" id="getGroqKeyBtn">
+                  Get free Groq key →
+                </a>
+                <a href="/settings" class="btn btn-ghost btn-sm" style="text-decoration:none;font-size:13px" id="openSettingsBtn">
+                  Open Settings
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ===== HOW IT WORKS ===== -->
       <section class="how-section" id="howItWorks">
         <div class="section-label">How It Works</div>

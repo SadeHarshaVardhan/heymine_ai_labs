@@ -1,38 +1,66 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login · HeyMine AI Labs</title>
+    <title>Sign In · HeyMine AI Labs</title>
+    <meta name="description" content="Sign in to HeyMine AI Labs — your AI-powered coding practice platform." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/auth.css" />
   </head>
   <body class="auth-body">
     <main class="auth-shell">
-      <div class="auth-brand"><span>HeyMine AI Labs</span></div>
+
+      <!-- Brand -->
+      <div class="auth-brand">
+        <div class="auth-brand-logo">⚡</div>
+        <span class="auth-brand-name">HeyMine AI Labs</span>
+      </div>
+
+      <!-- Card -->
       <section class="auth-card">
+
+        <!-- Guest shortcut -->
+        <a href="/compiler" class="auth-guest-hint" id="guestHint">
+          <span>🚀</span>
+          <span>Try without an account — practice instantly</span>
+        </a>
+
         <h1>Welcome back</h1>
-        <p>Login to continue solving problems with your AI coding teacher.</p>
-        <form class="auth-form" id="loginForm">
+        <p class="auth-subtitle">Sign in to access your progress, saved problems, and AI tutor history.</p>
+
+        <form class="auth-form" id="loginForm" novalidate>
+
           <div class="auth-field">
-            <label for="email">Email</label>
-            <input id="email" type="email" required autocomplete="email" />
+            <label for="email">Email address</label>
+            <input id="email" type="email" placeholder="you@example.com" required autocomplete="email" />
           </div>
+
           <div class="auth-field">
-            <label for="password">Password</label>
-            <input id="password" type="password" required autocomplete="current-password" />
+            <div class="auth-field-header">
+              <label for="password">Password</label>
+              <a href="/forgot-password">Forgot password?</a>
+            </div>
+            <div class="auth-password-wrap">
+              <input id="password" type="password" placeholder="••••••••" required autocomplete="current-password" />
+              <button type="button" class="auth-password-toggle" aria-label="Toggle password visibility" id="togglePassword">👁</button>
+            </div>
           </div>
-          <button class="auth-button" type="submit">Login</button>
+
+          <button class="auth-button" type="submit" id="loginBtn">Sign in</button>
         </form>
-        <div id="authMessage" class="auth-message"></div>
+
+        <div id="authMessage" class="auth-message" role="alert"></div>
+
         <div class="auth-links">
-          <a href="/register">Create account</a>
-          <a href="/forgot-password">Forgot password?</a>
+          <span>Don't have an account?</span>
+          <a href="/register">Create one free</a>
         </div>
       </section>
     </main>
+
     <script>window._HEYMINE_API_BASE = "https://heymine-api.victoriousbeach-c448466f.centralindia.azurecontainerapps.io";</script>
     <script src="/js/config.js"></script>
     <script src="/js/auth.js"></script>

@@ -10,8 +10,14 @@ function publicUser(user) {
 }
 
 function resolveFrontendUrl(req) {
-  let baseUrl = process.env.FRONTEND_URL || req.headers.origin || `${req.protocol}://${req.get("host")}`;
-  return baseUrl.trim().replace(/\/$/, "");
+  // Always prefer the explicitly configured FRONTEND_URL.
+  // Only fall back to the request origin/host for local dev without a configured env var.
+  const envUrl = process.env.FRONTEND_URL;
+  if (envUrl && envUrl.trim()) {
+    return envUrl.trim().replace(/\/$/, "");
+  }
+  const fallback = req.headers.origin || `${req.protocol}://${req.get("host")}`;
+  return fallback.trim().replace(/\/$/, "");
 }
 
 exports.register = async (req, res, next) => {

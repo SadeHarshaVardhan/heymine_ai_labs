@@ -1,45 +1,115 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register · HeyMine AI Labs</title>
+    <title>Create Account · HeyMine AI Labs</title>
+    <meta name="description" content="Join HeyMine AI Labs — save progress, unlock AI hints, and solve 100+ coding problems." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/auth.css" />
   </head>
   <body class="auth-body">
-    <main class="auth-shell">
-      <div class="auth-brand"><span>HeyMine AI Labs</span></div>
-      <section class="auth-card">
-        <h1>Create account</h1>
-        <p>Save your progress, use your own Groq key, and reuse cached problems.</p>
-        <form class="auth-form" id="registerForm">
-          <div class="auth-field">
-            <label for="username">Username</label>
-            <input id="username" type="text" required autocomplete="username" />
+    <main class="auth-shell auth-wide">
+
+      <!-- Brand -->
+      <div class="auth-brand">
+        <div class="auth-brand-logo">⚡</div>
+        <span class="auth-brand-name">HeyMine AI Labs</span>
+      </div>
+
+      <!-- Split card -->
+      <div class="auth-split">
+
+        <!-- Left: feature panel -->
+        <div class="auth-split-left">
+          <div>
+            <p class="auth-features-title">Level up with<br/><span>AI-powered coding</span></p>
+            <p class="auth-features-sub" style="margin-top:10px">Your personal AI tutor that explains, hints, and evaluates — right inside the editor.</p>
           </div>
-          <div class="auth-field">
-            <label for="email">Email</label>
-            <input id="email" type="email" required autocomplete="email" />
+
+          <!-- Code preview decoration -->
+          <div class="auth-code-preview">
+            <div class="code-line"><span class="code-ln">1</span><span class="code-cm">// AI Hint activated ✨</span></div>
+            <div class="code-line"><span class="code-ln">2</span><span class="code-kw">def </span><span class="code-fn">two_sum</span>(nums, target):</div>
+            <div class="code-line"><span class="code-ln">3</span><span style="padding-left:16px"></span><span class="code-kw">seen</span> = {}</div>
+            <div class="code-line"><span class="code-ln">4</span><span style="padding-left:16px"></span><span class="code-kw">for </span>i, n <span class="code-kw">in </span><span class="code-fn">enumerate</span>(nums):</div>
+            <div class="code-line"><span class="code-ln">5</span><span style="padding-left:32px"></span>diff = target - n</div>
+            <div class="code-line"><span class="code-ln">6</span><span style="padding-left:32px"></span><span class="code-kw">if </span>diff <span class="code-kw">in </span>seen:</div>
+            <div class="code-line"><span class="code-ln">7</span><span style="padding-left:48px"></span><span class="code-kw">return </span>[seen[diff], i]</div>
           </div>
-          <div class="auth-field">
-            <label for="password">Password</label>
-            <input id="password" type="password" required autocomplete="new-password" minlength="6" />
-          </div>
-          <div class="auth-field">
-            <label for="confirmPassword">Confirm password</label>
-            <input id="confirmPassword" type="password" required autocomplete="new-password" minlength="6" />
-          </div>
-          <button class="auth-button" type="submit">Register</button>
-        </form>
-        <div id="authMessage" class="auth-message"></div>
-        <div class="auth-links">
-          <a href="/login">Already have an account?</a>
+
+          <ul class="auth-feature-list">
+            <li>
+              <div class="auth-feature-icon">🤖</div>
+              <span>AI explains your errors in plain English</span>
+            </li>
+            <li>
+              <div class="auth-feature-icon">📊</div>
+              <span>Track progress across 100+ curated problems</span>
+            </li>
+            <li>
+              <div class="auth-feature-icon">⚡</div>
+              <span>Run code instantly — no setup needed</span>
+            </li>
+            <li>
+              <div class="auth-feature-icon">🔒</div>
+              <span>Use your own Groq API key for unlimited sessions</span>
+            </li>
+          </ul>
         </div>
-      </section>
+
+        <!-- Right: form -->
+        <div class="auth-split-right">
+          <h1>Create your account</h1>
+          <p class="auth-subtitle">Free forever. No credit card required.</p>
+
+          <form class="auth-form" id="registerForm" novalidate>
+
+            <div class="auth-field">
+              <label for="username">Username</label>
+              <input id="username" type="text" placeholder="coder42" required autocomplete="username" />
+            </div>
+
+            <div class="auth-field">
+              <label for="email">Email address</label>
+              <input id="email" type="email" placeholder="you@example.com" required autocomplete="email" />
+            </div>
+
+            <div class="auth-field">
+              <label for="password">Password</label>
+              <div class="auth-password-wrap">
+                <input id="password" type="password" placeholder="min. 6 characters" required autocomplete="new-password" minlength="6" />
+                <button type="button" class="auth-password-toggle" id="togglePassword" aria-label="Toggle password">👁</button>
+              </div>
+              <div class="auth-strength" id="strengthBar">
+                <div class="auth-strength-bar" id="strengthFill"></div>
+              </div>
+            </div>
+
+            <div class="auth-field">
+              <label for="confirmPassword">Confirm password</label>
+              <div class="auth-password-wrap">
+                <input id="confirmPassword" type="password" placeholder="repeat password" required autocomplete="new-password" minlength="6" />
+                <button type="button" class="auth-password-toggle" id="toggleConfirm" aria-label="Toggle confirm password">👁</button>
+              </div>
+            </div>
+
+            <button class="auth-button" type="submit" id="registerBtn">Create account →</button>
+          </form>
+
+          <div id="authMessage" class="auth-message" role="alert"></div>
+
+          <div class="auth-links">
+            <span>Already have an account?</span>
+            <a href="/login">Sign in</a>
+          </div>
+        </div>
+
+      </div><!-- .auth-split -->
     </main>
+
     <script>window._HEYMINE_API_BASE = "https://heymine-api.victoriousbeach-c448466f.centralindia.azurecontainerapps.io";</script>
     <script src="/js/config.js"></script>
     <script src="/js/auth.js"></script>
