@@ -9,6 +9,17 @@ body.landing-body {
 }
 
 /* ============================================================
+   NAVBAR — bigger HeyMine logo on the home page only
+   ============================================================ */
+.landing-body .nav-brand {
+    gap: 0.65rem;
+    font-size: 1.55rem;
+}
+.landing-body .brand-icon {
+    font-size: 1.85rem;
+}
+
+/* ============================================================
    NAVBAR CTA
    ============================================================ */
 .nav-cta {
