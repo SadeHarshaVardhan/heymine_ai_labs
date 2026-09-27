@@ -24,7 +24,7 @@ exports.generateFeedback = async (req, res, next) => {
       passedCount,
       totalCount,
       nextMissionTitle,
-      userId: req.user.id,
+      userId: req.user?.id || null,
     });
 
     return res.json({ success: true, feedback });

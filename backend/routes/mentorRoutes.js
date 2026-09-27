@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const mentorController = require("../controllers/mentorController");
-const { requireAuth } = require("../middlewares/authMiddleware");
+const { optionalAuth } = require("../middlewares/authMiddleware");
 
-router.post("/feedback", requireAuth, mentorController.generateFeedback);
+router.post("/feedback", optionalAuth, mentorController.generateFeedback);
 
 module.exports = router;

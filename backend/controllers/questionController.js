@@ -34,7 +34,7 @@ exports.generateProblem = async (req, res, next) => {
   try {
     const { topic } = req.body;
     const difficulty = normalizeDifficulty(req.body.difficulty);
-    const userId = req.user.id;
+    const userId = req.user?.id || null;
 
     let cacheAvailable = true;
     let cached = null;
@@ -83,7 +83,7 @@ exports.getHint = async (req, res, next) => {
       problem,
       code,
       question,
-      userId: req.user.id,
+      userId: req.user?.id || null,
     });
     return res.json({ success: true, hint });
   } catch (error) {

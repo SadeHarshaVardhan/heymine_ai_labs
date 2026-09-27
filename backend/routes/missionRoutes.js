@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const missionController = require("../controllers/missionController");
-const { requireAuth } = require("../middlewares/authMiddleware");
+const { optionalAuth } = require("../middlewares/authMiddleware");
 
-router.get("/", requireAuth, missionController.listMissions);
-router.get("/:id/hints", requireAuth, missionController.getHints);
-router.get("/:id", requireAuth, missionController.getMission);
+router.get("/", optionalAuth, missionController.listMissions);
+router.get("/:id/hints", optionalAuth, missionController.getHints);
+router.get("/:id", optionalAuth, missionController.getMission);
 
 module.exports = router;

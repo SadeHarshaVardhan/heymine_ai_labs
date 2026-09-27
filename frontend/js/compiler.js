@@ -29,23 +29,43 @@
         themeToggle: $('#themeToggle'),
         customStdin: $('#customStdin'),
         logoutBtn: $('#logoutBtn'),
+        settingsLink: $('#settingsLink'),
     };
 
     const AUTH = window.HeyMineAuth;
     const session = AUTH ? AUTH.getSession() : null;
-    if (!session || !session.access_token) {
-        window.location.href = '/login';
-        return;
+    const isGuest = !session || !session.access_token;
+
+    // Guest mode: no account needed — AI requests fall back to the platform's
+    // shared/public Groq key on the backend (see aiService.resolveGroqKey).
+    if (isGuest) {
+        const navActions = document.querySelector('.nav-actions');
+        if (DOM.settingsLink) DOM.settingsLink.style.display = 'none';
+        if (DOM.logoutBtn) {
+            DOM.logoutBtn.textContent = 'Sign up to save progress';
+            DOM.logoutBtn.classList.add('btn-primary');
+            DOM.logoutBtn.classList.remove('btn-ghost');
+            DOM.logoutBtn.onclick = () => { window.location.href = '/register'; };
+        }
+        if (navActions) {
+            const badge = document.createElement('span');
+            badge.className = 'guest-mode-badge';
+            badge.textContent = '🚀 Guest mode';
+            badge.title = 'Trying HeyMine without an account — using the shared AI key';
+            navActions.prepend(badge);
+        }
     }
 
     function authHeaders() {
-        return AUTH.authHeaders();
+        return AUTH ? AUTH.authHeaders() : { 'Content-Type': 'application/json' };
     }
 
     async function parseApiResponse(resp) {
         if (resp.status === 401) {
-            AUTH.clearSession();
-            window.location.href = '/login';
+            if (!isGuest) {
+                AUTH.clearSession();
+                window.location.href = '/login';
+            }
             throw new Error('Please login again.');
         }
         const data = await resp.json();
@@ -1155,7 +1175,7 @@
         });
 
         DOM.themeToggle.addEventListener('click', toggleTheme);
-        if (DOM.logoutBtn) {
+        if (DOM.logoutBtn && !isGuest) {
             DOM.logoutBtn.addEventListener('click', function () {
                 AUTH.clearSession();
                 window.location.href = '/login';

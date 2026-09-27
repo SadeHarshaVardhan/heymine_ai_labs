@@ -16,7 +16,7 @@ const missionRoutes = require("./missionRoutes");
 
 const questionController = require("../controllers/questionController");
 const chatController = require("../controllers/chatController");
-const { requireAuth } = require("../middlewares/authMiddleware");
+const { optionalAuth } = require("../middlewares/authMiddleware");
 
 // Modular Route Mounts
 router.use("/auth", authRoutes);
@@ -30,8 +30,8 @@ router.use("/missions", missionRoutes);
 router.use("/", executionRoutes);
 
 // Backward-compatible alias routes for frontend compatibility
-router.post("/problem", requireAuth, questionController.generateProblem);
-router.post("/hint", requireAuth, questionController.getHint);
-router.post("/correct", requireAuth, chatController.correctQuery);
+router.post("/problem", optionalAuth, questionController.generateProblem);
+router.post("/hint", optionalAuth, questionController.getHint);
+router.post("/correct", optionalAuth, chatController.correctQuery);
 
 module.exports = router;

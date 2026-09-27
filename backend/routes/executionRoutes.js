@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const executionController = require("../controllers/executionController");
-const { requireAuth } = require("../middlewares/authMiddleware");
+const { optionalAuth } = require("../middlewares/authMiddleware");
 
-router.post("/run", requireAuth, executionController.runCode);
-router.post("/submit", requireAuth, executionController.submitCode);
+router.post("/run", optionalAuth, executionController.runCode);
+router.post("/submit", optionalAuth, executionController.submitCode);
 
 module.exports = router;

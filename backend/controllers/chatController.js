@@ -7,7 +7,7 @@ exports.chat = async (req, res, next) => {
       return res.status(400).json({ success: false, error: "Message is required" });
     }
 
-    const userId = req.user.id;
+    const userId = req.user?.id || null;
 
     // Resolve @tag commands into expanded prompts
     let resolvedMessage = message;
@@ -75,7 +75,7 @@ exports.correctQuery = async (req, res, next) => {
       code,
       query,
       language,
-      userId: req.user.id,
+      userId: req.user?.id || null,
     });
 
     return res.json({ success: true, feedback });
